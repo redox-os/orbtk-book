@@ -1,0 +1,21 @@
+[book]
+title = "The Orbital Widget Toolkit"
+description = "The Orbital Widget Toolkit is a multi platform toolkit, that enables you to build scalable user interfaces. All components are devoloped with the programming language Rust."
+authors = ["Florian Blasius, with Contributions from the Rust Community"]
+language = "en"
+
+[build]
+create-missing = false
+
+[output.html]
+additional-css = ["theme/2020-edition.css"]
+git-repository-url = "https://github.com/redox-os/orbtk/book"
+
+[output.linkcheck]
+# Should we check links on the internet? Enabling this option adds a
+# non-negligible performance impact
+follow-web-links = false
+
+# Are we allowed to link to files outside of the book's root directory? This
+# may help prevent linking to sensitive files (e.g. "../../../../etc/shadow")
+traverse-parent-directories = false
