@@ -284,4 +284,9 @@ On Windows, you need to use `backslash` as a path delimeter:
 > ..\target\release\hello_orbtk.exe
 ```
 
+If you like to get debug feedback you can call the build process like this
+
+```console
+$ cargo build --features debug --bin hello_orbtk.rs
+```
 [troubleshooting]: ch01-01-installation.html#troubleshooting
