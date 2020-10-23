@@ -9,6 +9,7 @@
 - [Getting Started](ch01-00-getting-started.md)
 	- [Installation](ch01-01-installation.md)
 	- [Hello OrbTK!](ch01-02-hello-orbtk.md)
+	- [The Composition System](ch01-03-composition-system.md)
 
 - [OrbTK The Structure](ch02-00-crates.md)
 	- [Crate: API](ch02-01-crate-api.md)
