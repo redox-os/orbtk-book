@@ -1,6 +1,6 @@
 #  The Orbital Widget Toolkit
 
-![Build Status](https://github.com/redox-os/orbtk/book/workflows/CI/badge.svg)
+![Build Status](https://github.com/redox-os/orbtk-book/workflows/CI/badge.svg)
 
 This repository contains the source of "The Orbital Widget Toolkit" book.
 We will further reference it as OrbTK.
@@ -72,22 +72,30 @@ To run the tests:
 $ mdbook test
 ```
 
+## Code of Conduct
+
+We are committed to providing a friendly, safe and welcoming
+environment. Read more about our policy in the [code-of-conduct][coc] page.
+
+[coc]: https://github.com/redox-os/orbtk-book/blob/main/policies/code-of-conduct.md
+
 ## Contributing
 
 We'd love your help! Please see [CONTRIBUTING.md][contrib] to learn about the
 kinds of contributions we're looking for.
 
-[contrib]: https://github.com/redox-os/orbtk/book/blob/master/CONTRIBUTING.md
+[contrib]: https://github.com/redox-os/orbtk-book/blob/main/CONTRIBUTING.md
 
 ### Translations
 
 We'd love help translating the book! See the [Translations] label to join in
 efforts that are currently in progress. Open a new issue to start working on
 a new language! We're waiting on [mdbook support] for multiple languages
-before we merge any in, but feel free to start!
+before we merge any in, but feel free to start! A [pull request] looks promising.
 
-[Translations]: https://github.com/redox-os/orbtk/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
-[mdbook support]: https://github.com/redox-os/orbtk/rust-lang-nursery/mdBook/issues/5
+[Translations]: https://github.com/redox-os/orbtk-book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
+[mdbook support]: https://github.com/rust-lang-nursery/mdBook/issues/5
+[pull request]: https://github.com/rust-lang/mdBook/pull/1306
 
 ## Spellchecking
 
