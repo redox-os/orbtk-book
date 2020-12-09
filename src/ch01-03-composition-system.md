@@ -2,6 +2,7 @@
 
 WIP: introduce a graphical representation of the structure
 
+`OrbTK`
 Everything is build on top of DECS, the unterlying entity compontent
 system.
 
@@ -15,8 +16,8 @@ system.
 
 ### Layouts
 
-At the GUI Element level, we do have a basic concept for implementing
-the layout of all involved entities. THis concept is following a two
+At the GUI element level, we do have a basic concept for implementing
+the layout of all involved entities. This concept is following a two
 phase model and will run in two passes:
 
   * `Measuring`
