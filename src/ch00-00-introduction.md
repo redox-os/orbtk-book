@@ -9,9 +9,9 @@
 [nsp]: https://nostarch.com/
 -->
 
-Welcome to *The Orbital Widget Toolkit*, an introductory book about OrbTK.
-The Rust programming language helps you write faster, more reliable software.
-OrbTK contribute the needed crates, to develop modern graphical user interfaces.
+Welcome to *The Orbital Widget Toolkit*, an introductory book about `OrbTK`.
+The Rust programming language helps you write faster and reliable software.
+`OrbTK` contribute the needed crates, to develop modern graphical user interfaces.
 It offers a single code base that compiles to native binary code that is executed
 on your target platform.
 
@@ -43,7 +43,7 @@ on your target platform.
 
 ## Who OrbTK Is For
 
-OrbTK is ideal for programmers that like to take advantage of the Rust programming
+`OrbTK` is ideal for programmers that like to take advantage of the Rust programming
 language. No need to transform data structures and types: OrbTK itself is coded in
 Rust. It naturally adopts all the structural advantages and provides the needed GUI
 elements to code your application. Let’s look at a few of
@@ -56,7 +56,7 @@ developers with varying levels of systems programming knowledge. Have a look at
 the Rust book that elaborates the fundamental principles that enables you to
 produce saver code.
 
-OrbTK reuses the Rust toolchain as much as possible. Contemporary developer
+`OrbTK` reuses the Rust toolchain as much as possible. Contemporary developer
 that have passed the learning curve will take advantage of:
 
 * Cargo, the included dependency manager and build tool, makes adding,
@@ -85,7 +85,7 @@ learning, and even major parts of the Firefox web browser.
 
 ### Open Source Developers
 
-OrbTK is for people who want to build with the Rust programming language,
+`OrbTK` is for people who want to build with the Rust programming language,
 its community, its developer tools, and libraries. We’d love to have you
 contribute to its crates and entities.
 
@@ -107,11 +107,11 @@ chapters might not delve into details on a topic; we typically revisit the
 topic in a later chapter.
 
 You’ll find two kinds of chapters in this book: concept chapters and project
-chapters. In concept chapters, you’ll learn about an aspect of OrbTK. In project
+chapters. In concept chapters, you’ll learn about an aspect of `OrbTK`. In project
 chapters, we’ll build small programs together, applying what you’ve learned so
 far.
 
-Chapter 1 explains how to install Rust and OrbTK, how to write minimal  program,
+Chapter 1 explains how to install Rust and OrbTK, how to write a minimal program,
 and how to use Cargo, Rust’s package manager and build tool.
 
 
@@ -125,7 +125,7 @@ confusion. But do whatever works for you.
 
 <span id="ferris"></span>
 
-An important part of the process of learning OrbTK is learning how to read the
+An important part of the process of learning `OrbTK` is learning how to read the
 error messages the compiler displays: these will guide you toward working code.
 As such, we’ll provide many examples that don’t compile along with the error
 message the compiler will show you in each situation. Know that if you enter
