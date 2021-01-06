@@ -129,13 +129,13 @@ Save the file and go back to your terminal window. On Linux or macOS, enter
 the following commands to compile and run the file:
 
 ```console
-$ cargo run --release  --examples hello_orbtk.rs
+$ cargo run --release --example hello_orbtk
 ```
 
 On Windows, enter the command `.\main.exe` instead of `./main`:
 
 ```powershell
-> cargo run --release  --examples hello_orbtk.rs
+> cargo run --release --example hello_orbtk
 ```
 
 Regardless of your operating system, a window should be placed on the screen
@@ -164,7 +164,7 @@ The first line is introducing a *use* declaration. A *use* declaration is used
 to shorten the path required to refer to rust module items. The *prelude* is a
 convinient way to a list of things, that rust will automatically import to you
 program. Here, we bind the path *orbtk::prelude*. All default items defined in
-this path (referenced with *::*;) are now accessible in your source using their
+this path (referenced with *::*) are now accessible in your source using their
 shorthand name. No need to type in their common prefix (*orbtk::prelude::*)
 
 the third line define a function in Rust. The `main` function is special: it is
@@ -195,7 +195,7 @@ There are some important details to notice here.
 * Second, the method `orbkt::initialize` does all the hard work to initialize
   the orbtk environment.
 * Third, the method `Application::new` creates a new entity in the entity
-  comonent system (DECS). DECS an OrbTK dependency that will create and
+  comonent system (DECS). DECS is an OrbTK dependency that will create and
   organize all OrbTK entities. If OrbTK methods change attibutes to the widget
   elements, the corresponding DECS object will store this attibutes as
   components to the given entity.
@@ -233,7 +233,7 @@ the important details:
 
 If you are not familiar with the concept of [closures](https://doc.rust-lang.org/rust-by-example/fn/closures.html), go ahead
 and consult the Rust book reference for a deep dive. For now, you just need to
-know that a closure can be used as a language shotcut for a function.
+know that a closure can be used as a language shortcut for a function.
 When the closure `|ctx| {}` is executed, the result will be
 captured inside a return variable (`ctx`). The curly braces define the body,
 with the code that is executed inside the closure.
@@ -246,18 +246,18 @@ Let's examine this body code of our closure:
   `position`, `size`).
 * Third, Inside the defined windows, we create a new child entity
   (`child`).
-* Fourth, The child method takes arguments. We do create a new textblock
+* Fourth, The child method takes arguments. We create a new textblock
   entity (`Textblock::new`). The textblock is extended with the attributes
   (`text`, `h_align`, `v_align`).
-  The text attribute takes the desired string. It's positioning is
-  controlled with the attriburtion of the horizontal and vertical
+  The text attribute takes the desired string. Its positioning is
+  controlled with the attribution of the horizontal and vertical
   alignment. By choosing "center", we do advise the renderer to place
   the entity centered within its parent entity, which is the window.
 
 OrbTK is as lazy as possible. We need to call the build method (`build(ctx)`),
-that will instatiate the our methods and let the renderer do its work.
+that will instatiate our methods and let the renderer do its work.
 With the last statement, we finally call the method that will activate the
-Application and drow the Widget on our screen(`run`).
+Application and draw the Widget on our screen(`run`).
 
 Most lines of Rust code end with a semicolon (`;`), to indicates that this
 expression is over and the next one is ready to begin.

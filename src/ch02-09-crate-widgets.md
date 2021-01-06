@@ -1,6 +1,6 @@
 # The Widgets Crates
 
-As an UI developer consuming OrbTK, you most probably will get in
+As a UI developer consuming OrbTK, you most probably will get in
 touch with the `widget` crate. If you get comfortable with the
 terminology of `views` and their `states`, it's quite easy to
 implement even complex structures. The GUI components are declarative
@@ -29,7 +29,7 @@ be present inside the user interface.
 ### What is a View
 
 If you take the Rust code that makes a `view` in a structural way, it
-will answers to the following questions:
+will answer to the following questions:
 
 * Which entities are used?
 * What is the entities tree formed?
@@ -40,10 +40,10 @@ will answers to the following questions:
 
 First, the inside the source code that takes your `view` needs to call
 the `widget!` macro. This macro automatically implements the `Widget`
-trait. When instantiated, it will inherits all default properties from
+trait. When instantiated, it will inherit all default properties from
 a base widget, which gets you started with consistent preset values.
 
-The syntax of this macro call will require you, to select
+The syntax of this macro call will require you to select
 
 * the desired `view-name` (e.g: "NavigationView")
 * optional: the name of the associated `state-structure` (e.g:
@@ -77,14 +77,14 @@ The Rust code that makes a `state` is associated to the `view` block
 of your widget. Go and ask yourself:
 
 * What actions should be processed on a given event?
-* How should we handled user input?
-* What happens, if an entity attribute is changed and gets dirty?
+* How should we handle user input?
+* What happens if an entity attribute is changed and gets dirty?
 
 ### What is the structure of a State
 
 First, inside the source code that takes your `state`, you will go and
 declare its structure name. This name corresponds to the parameter
-value you did choose inside the `widget!` macro call of your widgets
+value you chose inside the `widget!` macro call of your widgets
 view (e.g "NavigationState").
 
 In a next step you enhance the `State` trait with an implementation of

@@ -24,7 +24,7 @@ methods and structures to handle this task.
 The elements of the structure `InitSystem` offers
 
 * the `registry` object, that allows to access global elements (like services)
-* the `context_provider`, used to shared the dependencies of emc entities
+* the `context_provider`, used to share the dependencies of emc entities
 
 ## post_layout_state_system
 

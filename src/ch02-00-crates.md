@@ -9,7 +9,7 @@ While developing OrbTK, we try to take care of some basic principles
 Within the Rust ecosystem, `crates` are a natural way to distinct those code
 blocks, that define a logical entity.
 
-By the time writing this overview, OrbTK will provide the following crate:
+By the time writing this overview, OrbTK will provide the following crates:
 
 * api
 * localization
