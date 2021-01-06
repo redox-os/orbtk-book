@@ -54,7 +54,7 @@ the most important groups.
 Rust is proving to be a productive tool for collaborating among large teams of
 developers with varying levels of systems programming knowledge. Have a look at
 the Rust book that elaborates the fundamental principles that enables you to
-produce saver code.
+produce more secure code.
 
 `OrbTK` reuses the Rust toolchain as much as possible. Contemporary developer
 that have passed the learning curve will take advantage of:

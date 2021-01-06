@@ -3,7 +3,7 @@
 WIP: introduce a graphical representation of the structure
 
 `OrbTK`
-Everything is build on top of DECS, the unterlying entity compontent
+Everything is built on top of DECS, the underlying entity compontent
 system.
 
 
@@ -16,7 +16,7 @@ system.
 
 ### Layouts
 
-At the GUI element level, we do have a basic concept for implementing
+At the GUI element level, we have a basic concept for implementing
 the layout of all involved entities. This concept is following a two
 phase model and will run in two passes:
 
@@ -36,10 +36,10 @@ toolkit:
 
 What does that mean? Well, lets take an obvious example that will be
 visible in every modern application.  You want to support
-localization, where the idioms will differ for all lables within the
+localization, where the idioms will differ for all labels within the
 GUI.  What would happen, if we would size the entities statically (e.g
 a button). If we wouldn't take into account the content of a child
-entity (e.g. the lable centered inside the button frame) that will be
+entity (e.g. the label centered inside the button frame) that will be
 placed in the center of its parent? You as the programmer would need
 to adapt the GUI views for every supported language and adapt the
 sizes as needed.  That is nonsense. We have to define and render the
@@ -47,7 +47,7 @@ stuff the other way arround!
 
 All controls in `OrbTK` support the ability to size to the natural
 size of their content. This allows the toolkit to dynamically layout
-the entities. No matter if things resizes, or application logic will
+the entities. No matter if things resize, or application logic will
 need to add or subdivide other entities in the tree.
 
 The Arrange phase allows a parent to position and determine the final
@@ -71,10 +71,10 @@ Specialized event handling based on logical grouped methods
 
 ### Messages
 
-An itelligent messaging infrastucture that instatiates subs. The
+An intelligent messaging infrastucture that instatiates subs. The
 concept enables the toolkit to send and receive messages between the
 linked entities (m senders -> n receivers).
 
 ## Framework Elements
 
-They are organised as cartes inside the API subtree.
+They are organised as crates inside the API subtree.
