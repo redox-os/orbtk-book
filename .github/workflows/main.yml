@@ -18,7 +18,7 @@ jobs:
       run: |
         mkdir bin
         curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.3.7/mdbook-v0.3.7-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
-        echo "##[add-path]$(pwd)/bin"
+        echo "{path}" >> $GITHUB_ENV
     - name: Report versions
       run: |
         rustup --version
@@ -42,7 +42,7 @@ jobs:
       run: |
         mkdir bin
         curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.3.7/mdbook-v0.3.7-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
-        echo "##[add-path]$(pwd)/bin"
+        echo "{path}" >> $GITHUB_ENV
     - name: Report versions
       run: |
         rustup --version
@@ -59,6 +59,6 @@ jobs:
     - name: Check for broken links
       run: |
         curl -sSLo linkcheck.sh \
-          https://raw.githubusercontent.com/rust-lang/rust/master/src/tools/linkchecker/linkcheck.sh
+        https://raw.githubusercontent.com/rust-lang/rust/master/src/tools/linkchecker/linkcheck.sh
         # Cannot use --all here because of the generated redirect pages aren't available.
         sh linkcheck.sh book
