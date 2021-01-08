@@ -1,6 +1,6 @@
 # Erste Schritte
 
-Beginnen wir mit deiner OrbTK-Reise! Es gibt viel zu erlernen und irgendwo muss man ja anfangen.
+Beginnen wir mit Deiner OrbTK-Reise! Es gibt viel zu erlernen, fangen wir einfach mal anfangen.
 In diesem Kapitel werden wir folgendes erörtern:
 
 * Die Installation von OrbTK auf Linux, BSD, macOS und Windows.
