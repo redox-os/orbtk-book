@@ -1,7 +1,10 @@
 [package]
 name = "orbtk-book"
-version = "0.0.1"
-authors = ["Florian Blasius, <"]
+version = "0.0.2"
+authors = [
+	"Florian Blasius <flovanpt@posteo.de>",
+	"Ralf Zerres <ralf.zerres.de@gmail.com>"
+]
 description = "The Orbital Widget Toolkit"
 edition = "2018"
 
@@ -38,10 +41,13 @@ name = "remove_markup"
 path = "tools/src/bin/remove_markup.rs"
 
 [dependencies]
-walkdir = "2.3.1"
 docopt = "1.1.0"
-serde = "1.0"
-regex = "1.3.3"
-lazy_static = "1.4.0"
 flate2 = "1.0.13"
+lazy_static = "1.4.0"
+regex = "1.3.3"
+serde = "1.0"
 tar = "0.4.26"
+walkdir = "2.3.1"
+
+[build-dependencies]
+cargo-readme = "3.2.0"
