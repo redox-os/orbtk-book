@@ -50,7 +50,7 @@ size of their content. This allows the toolkit to dynamically layout
 the entities. No matter if things resize, or application logic will
 need to add or subdivide other entities in the tree.
 
-The Arrange phase allows a parent to position and determine the final
+The `Arrange` phase allows a parent to position and determine the final
 size of each child.
 
 
