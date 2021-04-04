@@ -1,7 +1,8 @@
 #![crate_name = "orbtk_book"]
 #![crate_type = "lib"]
 
-//! ![Alt text](https://github.com/redox-os/orbtk-book/src/img/orbtk_space.png "OrbTK")
+//! ![OrbTk_logo](https://github.com/redox-os/orbtk-book/src/img/orbtk_space.png "OrbTK")
+//!
 //! This repository contains the source of "The Orbital Widget Toolkit" book.
 //! We will further reference to it as the `OrbTK` book.
 //!
