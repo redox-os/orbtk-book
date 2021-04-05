@@ -1,5 +1,7 @@
 # Render Crates
 
+[<img src="img/orbskia.svg" width="720"/>](img/orbskia.svg)
+
 Rendering is a key component of the toolkit. Everybody is expecting state
 of the art presentation of implemented widgets. User interaction that will
 result in layout and entity changes inside the GUI should be updated as
