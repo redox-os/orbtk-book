@@ -9,6 +9,8 @@
 [nsp]: https://nostarch.com/
 -->
 
+[<img src="img/orbtk.svg" width="720"/>](img/orbtk.svg)
+
 Welcome to *The Orbital Widget Toolkit*, an introductory book about `OrbTK`.
 The Rust programming language helps you write faster and reliable software.
 `OrbTK` contribute the needed crates, to develop modern graphical user interfaces.
