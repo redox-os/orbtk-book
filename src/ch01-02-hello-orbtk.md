@@ -1,5 +1,7 @@
 ## Hello OrbTK!
 
+[<img src="img/orbtk.svg" width="720"/>](img/orbtk.svg)
+
 Now that you’ve installed the needed building blocks, let’s write your first
 OrbTK program. It’s traditional when learning a new language to write a little
 program that outputs the text `Hello, world!`. So we’ll do the same here. We

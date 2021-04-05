@@ -1,8 +1,7 @@
 #![crate_name = "orbtk_book"]
 #![crate_type = "lib"]
 
-//! ![OrbTk_logo](https://github.com/redox-os/orbtk-book/src/img/orbtk_space.png "OrbTK")
-//!
+//! [<img src="src/img/orbtk_planet.svg" width="720"/>](src/img/orbtk_planet.svg)
 //! This repository contains the source of "The Orbital Widget Toolkit" book.
 //! We will further reference to it as the `OrbTK` book.
 //!
@@ -61,18 +60,18 @@
 //!
 //! _Firefox:_
 //! ```bash
-//! $ firefox book/index.html                       # Linux
-//! $ open -a "Firefox" book/index.html             # OS X
-//! $ Start-Process "firefox.exe" .\book\index.html # Windows (PowerShell)
-//! $ start firefox.exe .\book\index.html           # Windows (Cmd)
+//! $ firefox book/html/index.html                       # Linux
+//! $ open -a "Firefox" book/html/index.html             # OS X
+//! $ Start-Process "firefox.exe" .\book\html\index.html # Windows (PowerShell)
+//! $ start firefox.exe .\book\html\index.html           # Windows (Cmd)
 //! ```
 //!
 //! _Chrome:_
 //! ```bash
-//! $ google-chrome book/index.html                 # Linux
-//! $ open -a "Google Chrome" book/index.html       # OS X
-//! $ Start-Process "chrome.exe" .\book\index.html  # Windows (PowerShell)
-//! $ start chrome.exe .\book\index.html            # Windows (Cmd)
+//! $ google-chrome book/html/index.html                 # Linux
+//! $ open -a "Google Chrome" book/html/index.html       # OS X
+//! $ Start-Process "chrome.exe" .\book\html\index.html  # Windows (PowerShell)
+//! $ start chrome.exe .\book\html\index.html            # Windows (Cmd)
 //! ```
 //!
 //! Executing `mdbook serve` will have **mdbook** act has a web service
