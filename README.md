@@ -31,7 +31,7 @@ rust-lang/rust uses in [this file][rust-mdbook]. To get it:
 [mdBook]: https://github.com/rust-lang-nursery/mdBook
 [rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
 
-```bash
+```console
 $ cargo install mdbook --vers [version-num] mdbook-linkchecker
 ```
 
@@ -40,7 +40,7 @@ to generate this README.md file. To get it:
 
 [cargo-readme]: https://github.com/livioribeiro/cargo-readme
 
-```bash
+```console
 $ cargo install cargo-readme
 ```
 
@@ -50,7 +50,7 @@ $ cargo install cargo-readme
 
 To build the book, change into this directory and type:
 
-```bash
+```console
 $ mdbook build
 ```
 
@@ -58,7 +58,7 @@ The output will be in the `book` subdirectory. To check it out, open it in
 your web browser.
 
 _Firefox:_
-```bash
+```console
 $ firefox book/html/index.html                       # Linux
 $ open -a "Firefox" book/html/index.html             # OS X
 $ Start-Process "firefox.exe" .\book\html\index.html # Windows (PowerShell)
@@ -66,7 +66,7 @@ $ start firefox.exe .\book\html\index.html           # Windows (Cmd)
 ```
 
 _Chrome:_
-```bash
+```console
 $ google-chrome book/html/index.html                 # Linux
 $ open -a "Google Chrome" book/html/index.html       # OS X
 $ Start-Process "chrome.exe" .\book\html\index.html  # Windows (PowerShell)
@@ -78,7 +78,7 @@ which can be accessed opening the following URL:  http://localhost:3000.
 
 To run the tests:
 
-```bash
+```console
 $ mdbook test
 ```
 
@@ -86,7 +86,7 @@ $ mdbook test
 
 To build the markdown README file, change into this directory and type:
 
-```bash
+```console
 $ cargo readme > README.md
 ```
 
