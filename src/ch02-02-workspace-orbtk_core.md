@@ -1,4 +1,14 @@
-# The Localization Crate
+# Workspace orbtk_core
+
+`WIP`: The OrbTK core modules
+
+## application
+
+## event
+
+## layout
+
+## localization
 
 Localization is a research task by itself, if you want to resolve all syntactic
 rules that are found when writing prose in different languages.
@@ -18,10 +28,16 @@ text strings (the key) that should be presented inside the view and substitute
 it with the corresponding translation string (the target value). Dictionaries
 are used to organize the keys as word lists.
 
-OrbTK's `localization` implementation has choosen to persitently store the
-translation strings inside a `ron` file. When introducing the new syntax
-structure used inside a `ron` filetype, it was one goal of the authors to
-easily match rust types to ron types.
+OrbTK's `localization` implementation has choosen to persitently store
+the translation strings inside a [`RON`][ron] file. When introducing
+the new syntax structure used inside a `RON` filetype, it was one goal
+of the authors to easily match rust types to ron types. That is
+exactly the development goal from the RON authors:
+
+  "RON is a simple readable data serialization format that looks
+similar to Rust syntax. It's designed to support all of Serde's data
+model, so structs, enums, tuples, arrays, generic maps, and primitive
+values."
 
 You can save each supported language in its individual ron file. The language
 files need to be distinctable. A natural way to implement this requirement
@@ -98,3 +114,19 @@ What it does show is the logic, to bind a ron file (storing the translations
 of a given language) to a const. When calling `RonLocalization`, the `text`
 method will resolve text attributes inside a view or any rust primitive with
 the translation text resolved in the language dictionary.
+
+[ron]: https://github.com/ron-rs/ron
+
+## properties
+
+## render_object
+
+## services
+
+## system
+
+## theming
+
+## tree
+
+## widget_base

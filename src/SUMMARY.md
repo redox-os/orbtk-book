@@ -11,17 +11,26 @@
 	- [Hello OrbTK!](ch01-02-hello-orbtk.md)
 	- [The Composition System](ch01-03-composition-system.md)
 
-- [OrbTK The Structure](ch02-00-crates.md)
-	- [Crate: API](ch02-01-crate-api.md)
-	- [Crate: Localization](ch02-02-crate-localization.md)
-	- [Crate: Procedural Macros](ch02-03-crate-proc-macros.md)
-	- [Crate: Render](ch02-04-crate-render.md)
-	- [Crate: Shell](ch02-05-crate-shell.md)
-	- [Crate: Theme](ch02-06-crate-theme.md)
-	- [Crate: Theming](ch02-07-crate-theming.md)
-	- [Crate: Tree](ch02-08-crate-tree.md)
-	- [Crate: Utils](ch02-09-crate-utils.md)
-	- [Crate: Widgets](ch02-09-crate-widgets.md)
+
+- [OrbTK The Structure](ch02-00-workspaces.md)
+	- [Workspace: Orbtk](ch02-01-workspace-orbtk.md)
+	- [Workspace: Orbtk Core](ch02-02-workspace-orbtk_core.md)
+	- [Workspace: Orbtk Client](ch02-03-workspace-orbtk_client.md)
+	- [Workspace: Orbtk TinySkia](ch02-04-workspace-orbtk_tinyskia.md)
+	- [Workspace: Orbtk Widgets](ch02-05-workspace-orbtk_widgets.md)
+	- [Workspace: Process macros](ch02-06-proc_macros.md)
+	- [Workspace: Utilities](ch02-07-utils.md)
+
+<!-- - [Crate: API](_ch02-01-crate-api.md) -->
+<!--	- [Crate: Localization](_ch02-02-crate-localization.md) -->
+<!--	- [Crate: Procedural Macros](_ch02-03-crate-proc-macros.md) -->
+<!--	- [Crate: Render](_ch02-04-crate-render.md) -->
+<!--	- [Crate: Shell](_ch02-05-crate-shell.md) -->
+<!--	- [Crate: Theme](_ch02-06-crate-theme.md) -->
+<!--	- [Crate: Theming](_ch02-07-crate-theming.md) -->
+<!--	- [Crate: Tree](_ch02-08-crate-tree.md) -->
+<!--	- [Crate: Utils](_ch02-09-crate-utils.md) -->
+<!--	- [Crate: Widgets](_ch02-09-crate-widgets.md) -->
 
 - [OrbTK Examples](ch09-00-orbtk-examples.md)
 	- [Widgets](ch09-01-widgets.md)
