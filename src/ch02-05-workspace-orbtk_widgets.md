@@ -1,4 +1,4 @@
-# The Widgets Crates
+# Workspace orbtk_widgets
 
 As a UI developer consuming OrbTK, you most probably will get in
 touch with the `widget` crate. If you get comfortable with the

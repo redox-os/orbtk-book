@@ -3,9 +3,16 @@
 WIP: introduce a graphical representation of the structure
 
 `OrbTK`
-Everything is built on top of DECS, the underlying entity compontent
-system.
 
+`OrbTK` provides a [functional reactive-like][functional_reative]
+API. It depends on the rust [`DCES`][dces] crate, that provides an
+Entity Component System. Interaction with `DCES` is managed via the
+`Entity Component Manager`(ECM), a wrapper API, that transparently
+mapps `OrbTK` widgets to `ECM` entities and `OrbTK` properties to
+`ECM` components.
+
+[dces]: https://docs.rs/dces
+[functional_reative]: https://en.wikipedia.org/wiki/Functional_reactive_programming
 
 ## GUI Elements
 
@@ -71,10 +78,10 @@ Specialized event handling based on logical grouped methods
 
 ### Messages
 
-An intelligent messaging infrastucture that instatiates subs. The
+An intelligent messaging infrastructure that instantiates subs. The
 concept enables the toolkit to send and receive messages between the
 linked entities (m senders -> n receivers).
 
 ## Framework Elements
 
-They are organised as crates inside the API subtree.
+They are organised as sub-modules inside the API subtree.
