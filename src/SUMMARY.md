@@ -14,11 +14,11 @@
 
 - [OrbTK The Structure](ch02-00-workspaces.md)
 	- [Workspace: Orbtk](ch02-01-workspace-orbtk.md)
-	- [Workspace: Orbtk Core](ch02-02-workspace-orbtk_core.md)
-	- [Workspace: Orbtk Client](ch02-03-workspace-orbtk_client.md)
-	- [Workspace: Orbtk TinySkia](ch02-04-workspace-orbtk_tinyskia.md)
-	- [Workspace: Orbtk Widgets](ch02-05-workspace-orbtk_widgets.md)
-	- [Workspace: Process macros](ch02-06-proc_macros.md)
+	- [Workspace: Orbtk Core](ch02-02-workspace-orbtk-core.md)
+	- [Workspace: Orbtk Client](ch02-03-workspace-orbtk-client.md)
+	- [Workspace: Orbtk TinySkia](ch02-04-workspace-orbtk-tinyskia.md)
+	- [Workspace: Orbtk Widgets](ch02-05-workspace-orbtk-widgets.md)
+	- [Workspace: Process macros](ch02-06-proc-macros.md)
 	- [Workspace: Utilities](ch02-07-utils.md)
 
 <!-- - [Crate: API](_ch02-01-crate-api.md) -->
