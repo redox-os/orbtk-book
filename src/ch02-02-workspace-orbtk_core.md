@@ -71,50 +71,46 @@ Dictionaries itself are stored
 The dictionary is represended by a key value pair
 
 A class `Dictionary` will include a `map` named **words**.
-The ron type `map` is like a type `struct`**, but keys are also values instead of
+The ron type `map` is like a type `struct`, but keys are also values instead of
 just beenig identifiers.
 
-** using a ron file
+* using a ron file
 
-Activation of the `localization` crate inside your source code boils down this
-short example code.
+Activation of the `localization` crate inside your source code boils
+down to this short example code.
+
+Filename: localization.rs
 
 ```rust
-pub const EN_US: &str = include_str!("../assets/dictionary_en_US.ron");
-pub const DE_DE: &str = include_str!("../assets/dictionary_de_DE.ron");
-pub const ES_ES: &str = include_str!("../assets/dictionary_es_ES.ron");
-
-let mut localization = RonLocalization::create()
-	.language("en_US")
-	.dictionary("en_US", EN_US)
-	.build();
-if let Some(text) = localization.text("hello") {
-	println!("{}", text);
-}
-
-let localization = RonLocalization::create()
-	.language("de_DE")
-	.dictionary("de_DE", DE_DE)
-	.build();
-if let Some(text) = localization.text("hello") {
-	println!("{}", text);
-}
-
-let localization = RonLocalization::create()
-	.language("es_ES")
-	.dictionary("es_ES", ES_ES)
-	.build();
-if let Some(text) = localization.text("hello") {
-	println!("{}", text);
-}
+{{#include ../listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Localization}}
 ```
 
-Sure, this code isn't elegant nor will it suite a real applications demands.
-What it does show is the logic, to bind a ron file (storing the translations
-of a given language) to a const. When calling `RonLocalization`, the `text`
-method will resolve text attributes inside a view or any rust primitive with
-the translation text resolved in the language dictionary.
+We do define two language identifiers:
 
+* _de_de: referencing a ron file with german translation strings
+* _es_es: referencing a ron file with spanish translation strings
+
+```rust
+{{#include ../listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Application}}
+```
+When creating the Application block, we do pipe in the localization property.
+To keep this example simple, a hardcoded **de_DE** is choosen.
+The [**showcase**][example_showcase] example inside the orbtk source code
+implements a tab widget, that offers a dropdown list, to dynamically change
+the active language variant.
+
+```rust
+{{#include ../listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Language}}
+```
+
+Sure, this code isn't elegant nor will it suite a real applications
+demands.  What it does show is the logic, to bind a ron file (storing
+the translations of a given language) to a const. When calling
+`RonLocalization`, the `text` method will resolve text attributes
+inside a view or any rust primitive with the translation text resolved
+in the language dictionary.
+
+[example_showcase]: https://github.com/redox-os/orbtk/tree/develop/orbtk/examples/showcase.rs
 [ron]: https://github.com/ron-rs/ron
 
 ## properties
