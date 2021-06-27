@@ -56,7 +56,7 @@ $ cd orbtk_hello
 ```
 
 The first command, `cargo new`, takes the name of the project
-(`orbtk_hello`) as the first argument. The second command changes to
+("`orbtk_hello`") as the first argument. The second command changes to
 the new project’s directory.
 
 Look at the generated *Cargo.toml* file:
@@ -67,9 +67,11 @@ Look at the generated *Cargo.toml* file:
 {{#include ../listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/Cargo.toml}}
 ```
 
-As you can see, the `cargo new` generated a default structure. Maybe
-it already exchanged the author information if that could be obtained
-from your environment. *Cargo* also generated a "Hello, world!"
+<span class="caption">Listing 1-1: Default metadata "orbtk_hello"</span>
+
+With `cargo new`, a default project structure is created. Maybe the
+author information is already exchanged if *Cargo* could obtain a definition
+from your environment. *Cargo* also generated source code for a "Hello, world!"
 programm. Let's Check out the corresponding *src/main.rs* file:
 
 <span class="filename">Filename: src/main.rs</span>
@@ -78,9 +80,11 @@ programm. Let's Check out the corresponding *src/main.rs* file:
 {{#rustdoc_include ../listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/src/main.rs}}
 ```
 
-No need to compile it with `cargo run`, since we are going to exchange
-the code that defines the project metadata, as well as the
-orbtk source code right away.
+<span class="caption">Listing 1-2: Default source file "main.rs"</span>
+
+No need to compile that stage with `cargo run`, since we are going to
+exchange the project metadata, as well as the orbtk source code right
+away.
 
 #### Update Cargo.toml
 
@@ -89,16 +93,29 @@ First reopen the *Cargo.toml* file and enter the Code in Listing 1-1 into *Cargo
 <span class="filename">Filename: Cargo.toml</span>
 
 ```toml,ignore
-{{#include ../listings/ch01-02-orbtk-hello/listing-01-02/Cargo.toml}}
+{{#include ../listings/ch01-02-orbtk-hello/listing-01-02/Cargo.toml:All}}
 ```
 
-<span class="caption">Listing 1-1: Project metadata "orbtk-hello"</span>
+<span class="caption">Listing 1-1: Project metadata "orbtk_hello"</span>
 
+You may wonder, why the *name* property inside the *Cargo.toml* is
+formatted like `hello_orbtk`.
+
+```toml,ignore
+{{#include ../listings/ch01-02-orbtk-hello/listing-01-02/Cargo.toml:Name}}
+```
+
+It is a good habit to follow rusts
+naming convention, that encourages you to use [snake_case][naming]
+naming. While expanding the *OrbTK* example sources, we will keep
+the grouping prefix `orbtk`. That way we end up to call our first target
+binary `orbtk_hello`.
 
 #### Update main.rs
 
-All of the code that is needed to build our first example "Hello OrbTK!" is
-shown in Listing 1-2. It goes to *src/main.rs*.
+All of the *OrbTK* specific code that is needed to build our first
+example "Hello OrbTK!" is shown in Listing 1-2. It goes to
+*src/main.rs*.
 
 <span class="filename">Filename: src/main.rs</span>
 
@@ -109,34 +126,22 @@ shown in Listing 1-2. It goes to *src/main.rs*.
 <span class="caption">Listing 1-2: Code that creates a Window and
 prints "Hey OrbTK!"</span>
 
-Rust files always end with the *.rs* extension. If you’re using more
-than one word to name your source file, as we have choosen here, it is
-a good rust habit to separate the words with an underscore
-(["snake_case"][naming]).
-
-In your terminal window change back to the *projects* directory.
-
-```console
-$ cd ~/orbtk
-```
-
-Save the file and go back to your terminal window. On Linux or macOS, enter
-the following commands to compile and run the file:
+Save the file and go back to your terminal window. Enter the following
+commands to compile and run the file:
 
 ```console
 $ cargo run --release --example orbtk_hello
 ```
 
-On Windows, enter the command `.\main.exe` instead of `./main`:
-
-```powershell
-> cargo run --release --example hello_orbtk
-```
-
 Regardless of your operating system, a window should be placed on the screen
-that prints the string `Hey OrbTK!` in its center. If something is preventing
-to position the window, refer back to the [“Troubleshooting”][troubleshooting]
-<!-- ignore --> part of the Installation section for ways to get help.
+that prints the string `Hey OrbTK!` in its center.
+
+[<img src="img/examples/hello_orbtk.png" width="420" hight="140">](img/examples/orbtk_hello.png)
+
+If something is preventing to position the window, refer back to the
+
+[“Troubleshooting”][troubleshooting] <!-- ignore --> part of the
+Installation section for ways to get help.
 
 If your enjoy the rendered output of your `Hey OrbTK!` app,
 congratulations! You’ve written your first OrbTK application.
