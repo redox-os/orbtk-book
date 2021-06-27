@@ -12,14 +12,14 @@ jobs:
     - name: Install Rust
       run: |
         rustup set profile minimal
-        rustup toolchain install 1.48.0 -c rust-docs
+        rustup toolchain install 1.53.0 -c rust-docs
         rustup default 1.53.0
     - name: Install mdbook
       run: |
         mkdir bin
         curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.5/mdbook-v0.4.5-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
         echo "$(pwd)/bin" >> ${GITHUB_PATH}
-    - name: Report versions
+    - name: Report version
       run: |
         rustup --version
         rustc -Vv
@@ -30,14 +30,14 @@ jobs:
     name: Run lints
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Update rustup
       run: rustup self update
     - name: Install Rust
       run: |
         rustup set profile minimal
         rustup toolchain install nightly -c rust-docs
-        rustup default nightly
+        rustup override set nightly
     - name: Install mdbook
       run: |
         mkdir bin
