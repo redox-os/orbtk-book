@@ -1,14 +1,19 @@
 [book]
 title = "The Orbital Widget Toolkit"
 description = "The Orbital Widget Toolkit is a multi platform toolkit, that enables you to build scalable user interfaces. All components are devoloped with the programming language Rust."
-authors = ["Florian Blasius, with Contributions from the Rust Community"]
+authors = [
+	"Florian Blasius <flovanpt@posteo.de>",
+	"Ralf Zerres <ralf.zerres.de@gmail.com>",
+	"with Contributions from the Rust Community"
+]
 language = "en"
 
 [build]
 create-missing = false
 
 [output.html]
-additional-css = ["theme/2020-edition.css"]
+additional-css = ["ferries.css", "theme/2020-edition.css"]
+additional-js = ["ferries.js"]
 git-repository-url = "https://github.com/redox-os/orbtk/book"
 
 [output.linkcheck]
