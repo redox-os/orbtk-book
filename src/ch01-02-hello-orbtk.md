@@ -13,7 +13,7 @@ widget.
 > no specific demands about your editing or tooling or where your code lives, so
 > if you prefer to use an integrated development environment (IDE) instead of
 > the command line, feel free to use your favorite IDE. Many IDEs now have some
-> degree of Rust support; check the IDE’s documentation for details. Recently,
+> degree of Rust support; check the IDEs documentation for details. Recently,
 > the Rust team has been focusing on enabling great IDE support, and progress
 > has been made rapidly on that front!
 
@@ -26,7 +26,7 @@ keeping all your projects there.
 
 Open a terminal and enter the following commands to make up the *projects* structure.
 
-For Linux, bsd, macOS, and PowerShell on Windows:
+For Linux, BSD, macOS, and Power-Shell on Windows:
 
 ```console
 $ mkdir -p ~/orbtk-book/projects
@@ -45,7 +45,7 @@ For Windows CMD:
 ### Writing and Running a OrbTK Application
 
 Next, we make a new project using *Cargo*. With its *.toml* file we
-allow Rust to declare the various dependencies and metadate. That
+allow Rust to declare the various dependencies and metadata. That
 ensures that you’ll always get a repeatable output of the build.
 
 Go ahead like so:
@@ -72,12 +72,12 @@ Look at the generated *Cargo.toml* file:
 With `cargo new`, a default project structure is created. Maybe the
 author information is already exchanged if *Cargo* could obtain a definition
 from your environment. *Cargo* also generated source code for a "Hello, world!"
-programm. Let's Check out the corresponding *src/main.rs* file:
+program. Let's Check out the corresponding *src/main.rs* file:
 
 <span class="filename">Filename: src/main.rs</span>
 
 ```rust
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/src/main.rs}}
+{{#rust doc_include ../listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/src/main.rs}}
 ```
 
 <span class="caption">Listing 1-2: Default source file "main.rs"</span>
@@ -136,7 +136,7 @@ $ cargo run --release --example orbtk_hello
 Regardless of your operating system, a window should be placed on the screen
 that prints the string `Hey OrbTK!` in its center.
 
-[<img src="img/examples/hello_orbtk.png" width="420" hight="140">](img/examples/orbtk_hello.png)
+[<img src="img/examples/hello_orbtk.png" width="420" height="140">](img/examples/orbtk_hello.png)
 
 If something is preventing to position the window, refer back to the
 
@@ -198,9 +198,9 @@ Here are some important details to notice.
 ```
 
 * Third, the method `Application::new` creates a new entity in the entity
-  comonent system (DECS). DECS is an OrbTK dependency that will create and
-  organize all OrbTK entities. If OrbTK methods change attibutes to the widget
-  elements, the corresponding DECS object will store this attibutes as
+  component system (DECS). DECS is an OrbTK dependency that will create and
+  organize all OrbTK entities. If OrbTK methods change attributes to the widget
+  elements, the corresponding DECS object will store this attributes as
   components to the given entity.
 
 We’ll discuss OrbTK macros and methods in more detail in Chapter <WIP: chapter>.
@@ -243,8 +243,8 @@ Let's examine this body code of our closure:
 {{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Child}}
 ```
 
-* Forth, the child method takes arguments. We create a new textblock
-  entity (`Textblock::new`). The textblock is extended with the attributes
+* Forth, the child method takes arguments. We create a new text block
+  entity (`Textblock::new`). The text block is extended with the attributes
   (`text`, `h_align`, `v_align`).
   The text attribute takes the desired string. Its positioning is
   controlled with the attribution of the horizontal and vertical
@@ -256,7 +256,7 @@ Let's examine this body code of our closure:
 ```
 
 OrbTK is as lazy as possible. We need to call the build method (`build(ctx)`),
-that will instatiate our methods and let the renderer do its work.
+that will instantiate our methods and let the renderer do its work.
 
 ```rust,ignore
 {{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Run}}
@@ -283,7 +283,7 @@ $ cargo build --release --bin orbtk_hello.rs
 $ ../target/release/hello_orbtk
 ```
 
-On Windows, you need to use `backslash` as a path delimeter:
+On Windows, you need to use `backslash` as a path delimiter:
 
 ```powershell
 > cargo build --release --bin orbtk-hello.rs
