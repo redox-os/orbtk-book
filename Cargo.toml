@@ -51,3 +51,8 @@ walkdir = "2.3.1"
 
 [build-dependencies]
 cargo-readme = "3.2.0"
+
+[output.html]
+
+[output.linkcheck]
+optional = true
