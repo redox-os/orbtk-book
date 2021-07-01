@@ -2,25 +2,158 @@
 
 `WIP`: The OrbTK core modules
 
-## application
+## Application
 
-## event
+The `application` crate provides the base api inside an `OrbTK` application.
+Its elements are consumed via dedicated modules organized in the other sub-crates.
 
-## layout
+### The ContextProvider
 
-## localization
+This structure is a temporary solution to share dependencies inside an
+`OrbTK` application. Right now, if the app is started, a new
+`ContextProvider` object is created. The interconnection between
+sender and receiver are handled using asynchronous channels with
+sender/receiver halves (`mpsc`).
 
-Localization is a research task by itself, if you want to resolve all syntactic
-rules that are found when writing prose in different languages.
-OrbTK's localization crate isn't ready to resolve all this complexity, but
-this may improve in further releases.
+* window_sender
+  A `WindowRequest` is used to send the given request to the named window.
+
+* shell_sender A `ShellRequest` is used to send the given request to
+	the application shell. The application shell is aware of the
+	handled windows. They are differenciated via individual
+	`WindowAdapter` objects.
+
+In the given version this module isn't thread save. It will be
+refactored in the next upcoming release.
+
+### The WindowAdapter
+
+Each `WindowAdapter` handles its unique tree, event pipiline and
+shell. They are dynamically stored in the undelying `DCES` via **ECM**
+methods.
+
+The shell will react on UI events. The code for dedicated events are
+organized in explicit modules that will trigger their handlers:
+
+* activation events
+* clipboard updates
+* drop events
+* focus events
+* key events
+* mouse events
+* text input events
+* window resize events
+* window scroll events
+* window system events (like `quit`)
+
+The `EventAdapter` provides a thread safe way to push events to the
+widget tree of a window.
+
+### The Overlay widget
+
+The `Overlay` widget allows the handling of children at the top of the
+tree. Thus its children will be presented on top of all other widgets
+grouped in the widget-tree.
+
+## Layout
+
+A `layout` is used to dynamically order the children of a
+widget. Before we can arrange the components on screen, their sizes,
+bounds and constraints have to be **measured**. The ordering process
+will result in a parent / child relation (`tree`), that is represented
+and handled in the **EMC**. In a next step, the tree components are
+**arranged**. The result is rendered into an output buffer. Last not
+least the updated areas are signaled to the output screen.
+
+To measure components, the code will provide suitable defaults for
+each property as well as a `desired_size`. The `desired_size` will
+resolve the **height** and **width** property of the child element.
+This values can either be overwritten with an **explicit** component
+property inside your rust code, or while referencing to definitions
+using a **style** property. Please take into account, that a given
+**style** definition will take precedence over all explicitly defined
+property elements inside the code. OrbTK will not respect a mixture of
+both declarations.
+
+### The absolute placement
+
+Only components with a **visibility property** that is labeled with a
+`Collapsed` or `Visible` option will be taken into account, when
+calculating bounds and constraints of a child. The resulting bounds are
+points, with absolute x and y positions on the screen (`floating point
+values`).
+
+New rendering of the child will only occur, if any of its properties is
+marked `dirty`.
+
+### The fixed size
+
+A **fixed sized** layout is defined by fixed bounds for its
+child. Think of images that have to be rendered with a given size, or
+a minimum size of a text box.
+
+### Grid layout
+
+The **grid layout** is a specialized case of the default alignment
+layout. If you declare **rows** and **columns**, the child blocks are
+calculated suming up each individual block bounds inside the
+corresponding row or column.
+
+You may stretch the blocks to the choosen dimension (**horizontal**
+vs. **vertical**). As a result, if you resize the window of the
+running app, that grid element will consume the extra size available
+because of your interactive change. Vice versa, the elements will
+shrink down until the grid child will reach the defined minimum bound.
+
+### Padding layout
+
+Padding may be needed, as a property of a broad range of
+components. The measurement cycle will calculate the padding value (a
+**floating point** value) as a constraint that is added to the space
+requirements of the associated content component. You may think of the
+`padding` as a surrounding with a given thickness, that is placed
+arround your content.
+
+The following image visualizes the dependencies.
+
+[<img src="img/layout_constraints.svg" width="480"/>](img/layout_constraints.svg)
+
+<span class="caption">Image 2-2: Layout constraints</span>
+
+### Popup layout
+
+The **popup layout** is a specialized case of the default alignment
+layout. A popup is typically needed to render content, that is related
+to a given target widget. That includes the position of the popup
+itself, as well as its dynamic created content.
+
+You can find a common use case of a popup if you study the OrbTK code
+of a `list box`.  The list box elements are collected in a stack
+widget. The `stack` itself is placed in a `popup` widget. And the
+popup widget is placed right below the text block that offers a
+drop-down selection arrow.
+
+### Stack layout
+
+The **stack layout** is a specialized case of the default alignment
+layout. A stack offers a use case, where you want to place other
+widgets in a congruent `horizontal` or `vertical` order.  You may
+define a `spacing` property. This given floating point value is used
+as a seperator between each stack member.
+
+## Localization
+
+Localization is a research task by itself, if you want to resolve all
+syntactic rules that are found when writing prose in different
+languages.  OrbTK's localization crate isn't ready to resolve all this
+complexity, but this may improve in further releases.
 
 Starting with the given implementation, `localization` can offer methods, that
 are able to match and replace text strings. The usage of the `localization` crate is
 optional. If you don't need any multi lingual adaptions inside your widgets, simply
 do not include the `localization` sugar.
 
-## The building blocks of `localization`
+### The building blocks of localization
 
 If you want to enable the users to select and change the desired display
 language of the GUI at runtime, the toolkit needs to match up a requested
@@ -56,7 +189,7 @@ variable. The crate methods will handle all the heavy lifting to substitute the
 source values of the text attributes inside the views with their matching translation
 strings in the addressed dictionary.
 
-## The ron file structure
+### The ron file structure
 
 In OrbTK, the structure `RonLocalizationBuilder` is defined to take values for
 the following parameters
@@ -103,7 +236,22 @@ the active language variant.
 {{#include ../listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Language}}
 ```
 
-Sure, this code isn't elegant nor will it suite a real applications
+To compile this example code, go ahead and enter the following comand
+in your terminal window:
+
+```console
+$ cargo run --release orbtk_localization
+```
+
+Your screen should present an application window showing the translated spanish strings.
+
+[<img src="img/examples/orbtk_localization.png" height="150"/>](img/examples/orbtk_localization.png)
+
+<span class="caption">Image 2-2: Application window with **spanish** localization strings</span>
+
+
+
+Sure, this code isn't elegant nor will it suite the real application
 demands.  What it does show is the logic, to bind a ron file (storing
 the translations of a given language) to a const. When calling
 `RonLocalization`, the `text` method will resolve text attributes
@@ -113,16 +261,16 @@ in the language dictionary.
 [example_showcase]: https://github.com/redox-os/orbtk/tree/develop/orbtk/examples/showcase.rs
 [ron]: https://github.com/ron-rs/ron
 
-## properties
+## Properties
 
-## render_object
+## Render Objects
 
-## services
+## Services
 
-## system
+## System
 
-## theming
+## Theming
 
-## tree
+## Tree
 
-## widget_base
+## The Widget base
