@@ -1,15 +1,15 @@
-// ANCHOR: all
-// ANCHOR: use
+// ANCHOR: All
+// ANCHOR: Use
 use orbtk::prelude::*;
-// ANCHOR_END: use
+// ANCHOR_END: Use
 
-// ANCHOR: main
+// ANCHOR: Main
 fn main() {
-    // ANCHOR_END: main
-    // ANCHOR: initialize
+    // ANCHOR_END: Main
+    // ANCHOR: Initialize
     // use this only if you want to run it as web application.
     orbtk::initialize();
-    // ANCHOR_END: initialize
+    // ANCHOR_END: Initialize
 
     // ANCHOR: Application
     Application::new()
@@ -41,4 +41,4 @@ fn main() {
         .run();
         // ANCHOR_END: Run
 }
-// ANCHOR_END: all
+// ANCHOR_END: All
