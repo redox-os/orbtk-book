@@ -77,7 +77,7 @@ program. Let's Check out the corresponding *src/main.rs* file:
 <span class="filename">Filename: src/main.rs</span>
 
 ```rust
-{{#rust doc_include ../listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/src/main.rs}}
+{{#rustdoc_include ../listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/src/main.rs}}
 ```
 
 <span class="caption">Listing 1-2: Default source file "main.rs"</span>
@@ -120,7 +120,7 @@ example "Hello OrbTK!" is shown in Listing 1-2. It goes to
 <span class="filename">Filename: src/main.rs</span>
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:all}}
+{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:All}}
 ```
 
 <span class="caption">Listing 1-2: Code that creates a Window and
@@ -136,7 +136,9 @@ $ cargo run --release --example orbtk_hello
 Regardless of your operating system, a window should be placed on the screen
 that prints the string `Hey OrbTK!` in its center.
 
-[<img src="img/examples/hello_orbtk.png" width="420" height="140">](img/examples/orbtk_hello.png)
+[<img src="img/examples/orbtk_hello.png" height="150"/>](img/examples/orbtk_hello.png)
+
+<span class="caption">Image 1-2: Application window and `Hey OrbTK`</span>
 
 If something is preventing to position the window, refer back to the
 
@@ -153,7 +155,7 @@ Let’s review in detail what just happened in your “Hey OrbTK!” application
 Here’s the first piece of the puzzle:
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:use}}
+{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Use}}
 ```
 
 The first line is introducing a *use* declaration. A *use* declaration is used
@@ -164,7 +166,7 @@ this path (referenced with *::*) are now accessible in your source using their
 shorthand name. No need to type in their common prefix (*orbtk::prelude::*)
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:main}}
+{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Main}}
 ```
 the third line define a function in Rust. The `main` function is special: it is
 always the first code that runs in every executable Rust program. The first
@@ -185,7 +187,7 @@ Check the online documentation for more details.
 Inside the `main` function is the following code:
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:initialize}}
+{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Initialize}}
 ```
 
 Here are some important details to notice.
