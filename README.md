@@ -39,7 +39,7 @@ comments` to generate this README.md file. You can install it with
 the following command:
 
 [cargo-readme]: https://github.com/livioribeiro/cargo-readme
-[orbtk_planet]: https://github.com/redox-os/orbtk-book/src/img/orbtk_planet.svg
+[orbtk_planet]: https://github.com/redox-os/orbtk-book/blob/main/src/img/orbtk_planet.svg
 
 ```console
 $ cargo install cargo-readme
