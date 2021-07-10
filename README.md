@@ -1,8 +1,9 @@
 # orbtk-book
 
-[<img src="src/img/orbtk_planet.svg" width="720"/>](src/img/orbtk_planet.svg)
-This repository contains the source of "The Orbital Widget Toolkit" book.
-We will further reference to it as the `OrbTK` book.
+![Welcome to the OrbTK planet.][orbtk_planet]
+
+This repository contains the text source for "The Orbital Widget Toolkit" book.
+We will further reference to it as the `OrbTK-Book`.
 
 <!--
     WIP: once it is ready to be shipped
@@ -25,24 +26,33 @@ We will further reference to it as the `OrbTK` book.
 
 ### Requirements
 
-Building the book requires [mdBook], ideally the same version that
-rust-lang/rust uses in [this file][rust-mdbook]. To get it:
-
-[mdBook]: https://github.com/rust-lang-nursery/mdBook
-[rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
+Building the book requires [mdBook] and its helper tools. The used
+version should be ideally the same that rust-lang/rust uses in
+[this file][rust-mdbook]. Install this tools with:
 
 ```console
 $ cargo install mdbook --vers [version-num] mdbook-linkchecker
 ```
 
-We do make uses of `cargo-readme`. It resolves rust `doc comments`
-to generate this README.md file. To get it:
+We do make uses of the crate `cargo-readme`. It resolves rust `doc
+comments` to generate this README.md file. You can install it with
+the following command:
 
 [cargo-readme]: https://github.com/livioribeiro/cargo-readme
+[orbtk_planet]: https://github.com/redox-os/orbtk-book/src/img/orbtk_planet.svg
 
 ```console
 $ cargo install cargo-readme
 ```
+
+Now generate the markdown README file. Change into the document-root and type:
+
+```console
+$ cargo readme > README.md
+```
+
+[mdBook]: https://github.com/rust-lang-nursery/mdBook
+[rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
 
 ### Building
 
@@ -51,26 +61,27 @@ $ cargo install cargo-readme
 To build the book, change into this directory and type:
 
 ```console
-$ mdbook build
+$ mdbook build --no-deps --dest-dir doc/book_en
 ```
 
-The output will be in the `book` subdirectory. To check it out, open it in
-your web browser.
+The rendered HTML output will be placed underneath the
+`doc/book_en` subdirectory. To check it out, open it in your web
+browser.
 
 _Firefox:_
 ```console
-$ firefox book/html/index.html                       # Linux
-$ open -a "Firefox" book/html/index.html             # OS X
-$ Start-Process "firefox.exe" .\book\html\index.html # Windows (PowerShell)
-$ start firefox.exe .\book\html\index.html           # Windows (Cmd)
+$ firefox doc/book_en/html/index.html                       # Linux
+$ open -a "Firefox" doc/book_en/html/index.html             # OS X
+$ Start-Process "firefox.exe" .\doc\book_en\html\index.html # Windows (PowerShell)
+$ start firefox.exe .\doc\book_en\html\index.html           # Windows (Cmd)
 ```
 
 _Chrome:_
 ```console
-$ google-chrome book/html/index.html                 # Linux
-$ open -a "Google Chrome" book/html/index.html       # OS X
-$ Start-Process "chrome.exe" .\book\html\index.html  # Windows (PowerShell)
-$ start chrome.exe .\book\html\index.html            # Windows (Cmd)
+$ google-chrome doc/book_en/html/index.html                 # Linux
+$ open -a "Google Chrome" doc/book_en/html/index.html       # OS X
+$ Start-Process "chrome.exe" .\doc\book_en\html\index.html  # Windows (PowerShell)
+$ start chrome.exe .\doc\book_en\html\index.html            # Windows (Cmd)
 ```
 
 Executing `mdbook serve` will have **mdbook** act has a web service
@@ -80,14 +91,6 @@ To run the tests:
 
 ```console
 $ mdbook test
-```
-
-#### Building the README
-
-To build the markdown README file, change into this directory and type:
-
-```console
-$ cargo readme > README.md
 ```
 
 ### Code of Conduct
