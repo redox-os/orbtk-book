@@ -40,7 +40,7 @@
 //! the following command:
 //!
 //! [cargo-readme]: https://github.com/livioribeiro/cargo-readme
-//! [orbtk_planet]: https://github.com/redox-os/orbtk-book/tree/main/src/img/orbtk_planet.svg
+//! [orbtk_planet]: https://github.com/redox-os/orbtk-book/blob/main/src/img/orbtk_planet.svg
 //!
 //! ```console
 //! $ cargo install cargo-readme
