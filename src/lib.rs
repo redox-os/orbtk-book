@@ -62,7 +62,7 @@
 //! To build the book, change into this directory and type:
 //!
 //! ```console
-//! $ mdbook build --no-deps --dest-dir doc/book_en
+//! $ mdbook build --dest-dir doc/book_en
 //! ```
 //!
 //! The rendered HTML output will be placed underneath the
@@ -126,3 +126,15 @@
 //! `dictionary.txt`. If the script produces a false positive (say, you used word
 //! `BTreeMap` which the script considers invalid), you need to add this word to
 //! `dictionary.txt` (keep the sorted order for consistency).
+//!
+//! ## License
+//!
+//! <!-- License source -->
+//! [Logo-CC_BY]: https://i.creativecommons.org/l/by/4.0/88x31.png "Creative Common Logo"
+//! [License-CC_BY]: https://creativecommons.org/licenses/by/4.0/legalcode "Creative Common License"
+//!
+//! This work is licensed under a [Creative Common License 4.0][License-CC_BY]
+//!
+//! ![Creative Common Logo][Logo-CC_BY]
+//!
+//! © 2021 Ralf Zerres
