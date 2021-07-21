@@ -15,14 +15,15 @@ to install or update OrbTK.
 The 2020 Edition of this book is the initial release. It will be
 released with the OrbTK version 0.3.1.
 
-- Appendix A, “Keywords,” explains the new raw identifiers.
-- Appendix D is work in progress and will release instances of this book
-  once they are translated to other languages.
+- Appendix A “Keywords”, explains the new raw identifiers.
+- Appendix D “Translations”, is work in progress. We will release
+  instances of this book in the target language once they are translated.
 
-For online reading, a HTML rendered version is available at
-[Orbtk book_en][orbtk_book_en]. Alternatively you might want to have it
-handy for offline usage. Go ahead and download its source, kick on mdbook
-and define the taret location.
+For online reading, a HTML rendered version is available at [Orbtk
+book_en][orbtk_book_en]. Alternatively you might want to have it handy
+for offline usage. Either you downlaod a rendered `pdf` or
+`ebook`version or go ahead and download the source. Then kick on
+mdbook (the definition of the target location is optional).
 
 ```console
 mdbook build --dest-dir doc/book_en --open

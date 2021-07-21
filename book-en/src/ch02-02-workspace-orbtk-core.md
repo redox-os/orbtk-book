@@ -1,7 +1,5 @@
 # Workspace orbtk_core
 
-`WIP`: The OrbTK core modules
-
 ## Application
 
 The `application` crate provides the base api inside an `OrbTK` application.
@@ -61,7 +59,7 @@ A `layout` is used to dynamically order the children of a
 widget. Before we can arrange the components on screen, their sizes,
 bounds and constraints have to be **measured**. The ordering process
 will result in a parent / child relation (`tree`), that is represented
-and handled in the **EMC**. In a next step, the tree components are
+and handled in the **ECM**. In a next step, the tree components are
 **arranged**. The result is rendered into an output buffer. Last not
 least the updated areas are signaled to the output screen.
 
@@ -249,8 +247,6 @@ Your screen should present an application window showing the translated spanish 
 
 <span class="caption">Image 2-2: Application window with **spanish** localization strings</span>
 
-
-
 Sure, this code isn't elegant nor will it suite the real application
 demands.  What it does show is the logic, to bind a ron file (storing
 the translations of a given language) to a const. When calling
@@ -262,6 +258,88 @@ in the language dictionary.
 [ron]: https://github.com/ron-rs/ron
 
 ## Properties
+
+Every entity that is managed via the provided **ECM** methods (in most cases this will
+be widgets) will have associated components. If we are
+talking about components inside the toolkit, we name them `properties`
+of a given object.
+
+### Layout
+
+Our aim is a dynamic ordering of objects inside the render
+buffer. This ordering needs to respect the specific properties of each
+object making up the object tree. All properties declared for the
+addressed objects will sum up the constraints that need to be
+respected within their layout.
+
+Logical units of properties ease the measurement and assignment
+process of the given object tree.
+
+#### Blocks
+
+Inside OrbTK the `BlockBuilder` method handles a block. A `block` is a
+term that defines an object inside the render surface. A legacy form of
+the API was using the idiom `row` or `column` to define the position
+of a block inside a `grid` widget. We moved on to use blocks as a
+generic term that can be used in all widgets.  Blocks will inherit
+default properties:
+
+* a block size
+* its minumum size
+* its maximum size
+* its current size
+
+If we measure a `block` size, we can choose from an enumeration of valid expressions:
+
+* Auto: The largest child will be used to measure the block size.
+* Stretch: The block will be expanded and consume all of the available size.
+* Size: An explicit floading point value.
+
+#### ScrollViewerMode
+
+To describe the vertical and horizontal scroll behavior of a widget,
+we do make use of the `ScrollViewerMode`. The ScrollViewerMode will
+evaluate a valid enumeration value of the `ScrollMode`. Per default it
+will automatically assign the **Auto** value. That will take care
+that the layout logic is able to automatically adjust and manage scroll
+movements of associated widget elements (e.g. in ListViews, SelectionViews or TextBoxes).
+
+You may want to handle this scroll movements via your own dedicated
+code. Just adapt the mode property `horizontal` and `vertical` to your needs and select
+`ScrollMode::Custom`. To completely disable any scrolling logic select
+`ScrollMode::Disabled`.
+
+#### Widget
+
+##### FocusState
+
+To offer natural interactivity with the implemented UI, we should
+respect workflow standards. E.g a user is expecting the cursor and the
+possibility to change a widget element at the next logical
+position. Imagine a form, where the UI offers a layout to enter some
+address fields. When you activate such a form, you do expect the
+cursor position on the first element of the form. Thus, we need the
+concept of a `Focus` that enable the state logic to preset UI
+interaction onto a specified element. The `FocusState` offers methods
+to control the state information of widget elements:
+
+* Request the focus for an entity.
+* Remove the focus from an entity.
+* Reference the current focused entity.
+* Check the focus state of an entity.
+
+##### KeyboardState
+
+The keyboard state tracks which keys are currently pressed. The active
+state is stored in a lazy-loaded HashMap.
+
+Beside common key activities, you may need to react on generic
+modifier keys (`Alt`, `Ctrl`, `Hyper`, `Shift`). Helper functions
+offer several convenience methods to handle such keyboard events. A
+generic method comes in handy, if you don't care which modifier key is
+down (`Shift-left` or `Shift-right` => `Shift`). The example section
+will also tackle the case, where a combined event (`Ctrl+S`) keyboard
+state is handled.
 
 ## Render Objects
 
