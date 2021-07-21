@@ -21,17 +21,6 @@
 	- [Workspace: Process macros](ch02-06-proc-macros.md)
 	- [Workspace: Utilities](ch02-07-utils.md)
 
-<!-- - [Crate: API](_ch02-01-crate-api.md) -->
-<!--	- [Crate: Localization](_ch02-02-crate-localization.md) -->
-<!--	- [Crate: Procedural Macros](_ch02-03-crate-proc-macros.md) -->
-<!--	- [Crate: Render](_ch02-04-crate-render.md) -->
-<!--	- [Crate: Shell](_ch02-05-crate-shell.md) -->
-<!--	- [Crate: Theme](_ch02-06-crate-theme.md) -->
-<!--	- [Crate: Theming](_ch02-07-crate-theming.md) -->
-<!--	- [Crate: Tree](_ch02-08-crate-tree.md) -->
-<!--	- [Crate: Utils](_ch02-09-crate-utils.md) -->
-<!--	- [Crate: Widgets](_ch02-09-crate-widgets.md) -->
-
 - [OrbTK Examples](ch09-00-orbtk-examples.md)
 	- [Widgets](ch09-01-widgets.md)
 	- [Showcase](ch09-02-showcase.md)
