@@ -1,6 +1,6 @@
 [package]
 name = "orbtk-book"
-version = "0.0.4"
+version = "0.0.5"
 authors = [
 	"Florian Blasius <flovanpt@posteo.de>",
 	"Ralf Zerres <ralf.zerres.de@gmail.com>"
@@ -61,3 +61,11 @@ path = "tools/src/bin/remove_links.rs"
 [[bin]]
 name = "remove_markup"
 path = "tools/src/bin/remove_markup.rs"
+
+[workspace]
+members = [
+	"book-en",
+	"book-de",
+	#"book-es",
+	#"book-fr",
+]
