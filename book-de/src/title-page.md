@@ -1,30 +1,43 @@
-# The Orbital Widget Toolkit
+# Das Orbital Widget Toolkit
 
-*by Florian Blasius and Ralf Zerres, with contributions from the Rust Community*
+[<img src="img/orbtk_planet.svg" width="720"/>](img/orbtk_planet.svg)
 
-This version of the text assumes you’re using OrbTK v0.3.1 or later in
-conjuction with Rust 1.41.0 or later with `edition="2018"` in *Cargo.toml*
-of all projects to use Rust 2018 Edition idioms.
+*von Florian Blasius, mit der Unterstützung der Rust Gemeinschaft*
 
-See the [“Installation” section of Chapter 1][install]<!-- ignore -->
-to install or update OrbTK.
+*Kommentierung und Dokumentation durch Ralf Zerres und alle Unterstützer*
 
-The 2020 Edition of this book is the initial release. It will be released with
-the OrbTK version 0.3.1.
+Diese Version des Textes geht davon aus, dass Du OrbTk v0.3.1 oder
+nachfolgend in Verbindung mit einer Rust Toolchain v1.41 oder
+nachfolgend verwendest. *Cargo.toml* sollte in den Metadaten
+`edition="2018"` definieren. Dies ermöglicht die Nutzung von Rust 2018
+Edition spezifischen Konstrukten in allen abgeleiteten Projekten.
 
-- Appendix A, “Keywords,” explains the new raw identifiers.
-- Appendix D is work in progress and will release instances of this book
-  once they are translated to other languages.
+Vgl. [“Installations” Abschnitt in Kapitel 1][install]<!-- ignore -->
+um OrbTk zu installieren oder zu aktualisieren.
 
-The HTML format is available
+The 2020 Edition diese Buchs ist das erste erstelle Release. Es wird
+zusammen mit der OrbTk version 0.3.1 veröffentlicht.
+
+- Appendix A, “Keywords,” erläutert neu eingeführte Bezeichner.
+- Appendix D ist ein stetig fortschreitender Arbeitsprogress. Neue
+  Freigaben diese Buches erfolgen nach deren Fertigstellung. Ebenso
+  wie deren Übersetzung in unterstützte Sprachvarianten.
+
+Um dieses Buch online zu lesen wird eine HTML gerenderte Version unter
+[OrbTk-Book (de)][orbtk_book_de] veröffentlicht. Alternativ kann es
+auch für die Offline-Nutzung auf lokal installiert werden. Entweder
+wird dazu eine gerenderte `pdf` oder `ebook` Version heruntergeladen.
+
+Oder das Buch wird aus dem Quellcode erzeugt. Das Rendern erfolgt mit
+dem Aufruf von
+
+```console
+mdbook build --dest-dir doc/book_de
+```
 <!---
-online at [https://doc.orbtk.org/stable/book/](https://doc.orbtk.org/stable/book/) and
--->
-offline with installations of OrbTK made with `cargo docs --book` to open.
-
-<!---
-This text is available in [paperback and ebook format from No Starch Press][nsprust].
+Dieser Text wird in [gedrucketer Form und als ebook bei No Starch Press][nsprust] veröffentlicht.
 -->
 
 [install]: ch01-01-installation.html
 [nsprust]: https://nostarch.com/orbtk
+[orbtk_book_de]: https://www.redox-os.org/orbtk-book/book-de/doc/book-de
