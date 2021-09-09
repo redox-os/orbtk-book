@@ -1,25 +1,31 @@
-# Foreword
+# Vorwort
 
-This book fully embraces the potential of Rust for develpers creating modern,
-fast and extendable user interfaces. Since all component of OrbTK are coded
-in Rust itself, it inherits all the benefits of this extraorenary programming
-infrastructure. The minimalistic resource consumption, memory safety and a
-condensed, well structured modular source code are key factors that makes
-OrbTK a promising basis for your future multiplatform GUI projects.
+Diese Buch spricht alle Rust Entwickler an, die moderne, schnelle und
+erweiterbare Benutzeroberflächen erstellen wollen. Da alle Komponenten
+von OrbTk in Rust selbst kodiert sind, erbt es alle Vorteile ihrer
+herausragenden Infrastruktur. Der minimalistische Ressourcenverbrauch,
+die Speichersicherheit und ein komprimierter, gut strukturierter,
+modularer Quellcode sind Schlüsselfaktoren, die OrbTk zu einer
+vielversprechenden Basis für Deine zukünftigen
+Multiplattform-GUI-Projekte machen.
 
-Back in the 80'th runtime environments like Java pioniered the idea of a
-"programming once, run everywhere" toolchain. Rust in combination with
-OrbTK offers the opportunity to fullfill this goal while providing
-speed, safety and multithreading. You are free to lavarage the capabilities
-of modern hardware: Take advantage of multicore CPUs in microcomputers,
-single board computers or the diversity of cloud infrastructures.
-Rust let you compile native binary-code and OrbTK will offer the needed
-crates, to produce software that matches user demands: running fast,
-secure and reliable applications.
+Bereits in den 80er Jahren waren Laufzeitumgebungen wie Java Vorreiter
+für die Idee einer "Einmal programmieren, überall laufen
+lassen"-Werkzeugkette. Rust in Kombination mit OrbTk bietet die
+Möglichkeit, dieses Ziel zu verwirklichen und gleichzeitig
+Geschwindigkeit, Sicherheit und Multithreading im Blick zu
+behalten. Es steht Dir frei, die Möglichkeiten moderner Hardware zu
+nutzen: Reize die Vorteile von Multicore-CPUs in Mikrocomputern,
+Einplatinencomputern oder der Vielfalt von Cloud-Infrastrukturen aus.
+Mit Rust kannst Du nativen Binärcode kompilieren. OrbTk bietet die
+benötigten Crates, um GUIs zu produzieren, die den Anforderungen der
+Benutzer entspricht: schnell, sichere, zuverlässig und Plattform
+übergreifend!
 
-Its users will enjoy the friendly and approachable text, that is intended to
-help you level up not just your knowledge towards GUI development, but will
-also improve your understanding of Rust code. Dive in, get ready to be a
-member of the OrbTK and Rust community!
+Du wirst dich an einer freundlichen Community und verständlichen
+Texten erfreuen. Du wirst nicht nur Deine Kenntnisse in der
+GUI-Entwicklung erweitern, sondern auch Dein Verständnis von Rust-Code
+verbessern. Tauchen ein und mache Dich bereit ein Mitglied der OrbTk-
+und Rust-Gemeinschaft zu werden!
 
 — Ralf Zerres
