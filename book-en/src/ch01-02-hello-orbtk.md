@@ -64,7 +64,7 @@ Look at the generated *Cargo.toml* file:
 <span class="filename">Filename: Cargo.toml</span>
 
 ```toml
-{{#include ../listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/Cargo.toml}}
+{{#include ./listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/Cargo.toml}}
 ```
 
 <span class="caption">Listing 1-1: Default metadata "orbtk_hello"</span>
@@ -77,7 +77,7 @@ program. Let's Check out the corresponding *src/main.rs* file:
 <span class="filename">Filename: src/main.rs</span>
 
 ```rust
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/src/main.rs}}
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/src/main.rs}}
 ```
 
 <span class="caption">Listing 1-2: Default source file "main.rs"</span>
@@ -93,7 +93,7 @@ First reopen the *Cargo.toml* file and enter the Code in Listing 1-1 into *Cargo
 <span class="filename">Filename: Cargo.toml</span>
 
 ```toml,ignore
-{{#include ../listings/ch01-02-orbtk-hello/listing-01-02/Cargo.toml:All}}
+{{#include ./listings/ch01-02-orbtk-hello/listing-01-02/Cargo.toml:All}}
 ```
 
 <span class="caption">Listing 1-1: Project metadata "orbtk_hello"</span>
@@ -102,7 +102,7 @@ You may wonder, why the *name* property inside the *Cargo.toml* is
 formatted like `hello_orbtk`.
 
 ```toml,ignore
-{{#include ../listings/ch01-02-orbtk-hello/listing-01-02/Cargo.toml:Name}}
+{{#include ./listings/ch01-02-orbtk-hello/listing-01-02/Cargo.toml:Name}}
 ```
 
 It is a good habit to follow rusts
@@ -120,7 +120,7 @@ example "Hello OrbTK!" is shown in Listing 1-2. It goes to
 <span class="filename">Filename: src/main.rs</span>
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:All}}
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:All}}
 ```
 
 <span class="caption">Listing 1-2: Code that creates a Window and
@@ -155,7 +155,7 @@ Let’s review in detail what just happened in your “Hey OrbTK!” application
 Here’s the first piece of the puzzle:
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Use}}
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Use}}
 ```
 
 The first line is introducing a *use* declaration. A *use* declaration is used
@@ -166,7 +166,7 @@ this path (referenced with *::*) are now accessible in your source using their
 shorthand name. No need to type in their common prefix (*orbtk::prelude::*)
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Main}}
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Main}}
 ```
 the third line define a function in Rust. The `main` function is special: it is
 always the first code that runs in every executable Rust program. The first
@@ -187,7 +187,7 @@ Check the online documentation for more details.
 Inside the `main` function is the following code:
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Initialize}}
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Initialize}}
 ```
 
 Here are some important details to notice.
@@ -196,7 +196,7 @@ Here are some important details to notice.
   the orbtk environment.
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Application}}
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Application}}
 ```
 
 * Third, the method `Application::new` creates a new entity in the entity
@@ -212,7 +212,7 @@ the creation method of a given widget (here: `Application`).
 Let's explain the next lines:
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Window}}
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Window}}
 ```
 
 Inside the `Application` method, we pipe in further instructions. Please notice
@@ -242,7 +242,7 @@ Let's examine this body code of our closure:
   (`child`).
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Child}}
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Child}}
 ```
 
 * Forth, the child method takes arguments. We create a new text block
@@ -254,14 +254,14 @@ Let's examine this body code of our closure:
   the entity centered within its parent entity, which is the window.
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Build}}
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Build}}
 ```
 
 OrbTK is as lazy as possible. We need to call the build method (`build(ctx)`),
 that will instantiate our methods and let the renderer do its work.
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Run}}
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Run}}
 ```
 
 With the last statement, we finally call the method that will activate the
