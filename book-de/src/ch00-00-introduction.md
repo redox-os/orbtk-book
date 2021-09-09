@@ -12,9 +12,9 @@
 
 Willkommen zu *Das Orbital Widget Toolkit*, einem Einführungsbuch über
 `OrbTK`.  Die Programmiersprache Rust hilft Dir, schnellere und
-zuverlässige Software zu schreiben.  `OrbTK` bringt die nötigen
+zuverlässige Software zu schreiben. `OrbTK` bringt die nötigen
 Komponenten mit, um moderne grafische Benutzeroberflächen zu
-entwickeln.  Es bietet eine kohärente Codebasis, die zu nativem
+entwickeln. Es bietet eine kohärente Codebasis, die zu nativem
 Binärcode kompiliert wird, welcher auf der gewünschten Zielplattform
 ausgeführt wird.
 
@@ -47,12 +47,12 @@ ausgeführt wird.
 ## Für wen OrbTK gedacht ist
 
 `OrbTK` ist ideal für Programmierer, die die Vorteile der
-Programmiersprache Rust nutzen wollen.  Es besteht keine
+Programmiersprache Rust nutzen wollen. Es besteht keine
 Notwendigkeit, Datenstrukturen und Typen zu transformieren: OrbTK
-selbst ist in Rust geschrieben.  Es übernimmt somit natürlich alle
+selbst ist in Rust geschrieben. Es übernimmt somit natürlich alle
 strukturellen Vorteile der Programmiersprache und stellt die
 benötigten GUI Elemente bereit, um Deine grafische Anwendung zu
-programmieren.  Schauen wir uns ein paar der wichtigsten Gruppen an.
+programmieren. Schauen wir uns ein paar der wichtigsten Gruppen an.
 
 ### Teams von Entwicklern
 
@@ -89,11 +89,11 @@ Insbesondere solchen, die neu in der Programmierung sind.
 ### Unternehmen
 
 Hunderte von Unternehmen, große und kleine, verwenden Rust produktiv
-für eine Vielzahl von Aufgaben.  Zu diesen Aufgaben gehören
+für eine Vielzahl von Aufgaben. Zu diesen Aufgaben gehören
 Kommandozeilen-Tools, Web-Services, DevOps-Tooling, eingebettete
 Geräte, Audio- und Videoanalyse und Transkodierung, Kryptowährungen,
 Bioinformatik, Suchmaschinen, Anwendungen für das Internet der Dinge,
-oder maschinelles Lernen.  Sogar große Teile des Firefox-Webbrowsers
+oder maschinelles Lernen. Sogar große Teile des Firefox-Webbrowsers
 sind mittlerweile in Rust neu geschrieben worden.
 
 ### Open-Source-Entwickler
@@ -108,9 +108,9 @@ eingeladen.
 
 Dieses Buch setzt voraus, dass Du bereits Code in einer anderen
 Programmiersprache und anderen GUI-Toolkits geschrieben hast. Es ist
-nicht wesentlich, welche Sprache oder welches Toolkit dies war.  Wir
+nicht wesentlich, welche Sprache oder welches Toolkit dies war. Wir
 haben versucht, das Material so aufzubereiten, dass Personen mit einer
-Vielzahl von Entwicklungshintergründen damit arbeiten können.  Im
+Vielzahl von Entwicklungshintergründen damit arbeiten können. Im
 Fokus liegt nicht ein Diskurs was Programmierung *ist* oder wie man
 darüber denkt. Wenn Du völlig neu in der Programmierung bist, wäre
 es besser, wenn Du zunächstein Buch zur Hand nimmst, das speziell die
