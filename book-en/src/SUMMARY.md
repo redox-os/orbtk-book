@@ -11,7 +11,6 @@
 	- [Hello OrbTK!](ch01-02-hello-orbtk.md)
 	- [The Composition System](ch01-03-composition-system.md)
 
-
 - [OrbTK The Structure](ch02-00-workspaces.md)
 	- [Workspace: Orbtk](ch02-01-workspace-orbtk.md)
 	- [Workspace: Orbtk Core](ch02-02-workspace-orbtk-core.md)
