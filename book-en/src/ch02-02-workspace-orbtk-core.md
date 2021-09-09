@@ -114,7 +114,7 @@ arround your content.
 
 The following image visualizes the dependencies.
 
-[<img src="img/layout_constraints.svg" width="480"/>](img/layout_constraints.svg)
+[<img src="img/layout_constraints.png" width="480"/>](img/layout_constraints.png)
 
 <span class="caption">Image 2-2: Layout constraints</span>
 
@@ -213,7 +213,7 @@ down to this short example code.
 Filename: localization.rs
 
 ```rust
-{{#include ../listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Localization}}
+{{#include ./listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Localization}}
 ```
 
 We do define two language identifiers:
@@ -222,7 +222,7 @@ We do define two language identifiers:
 * _es_es: referencing a ron file with spanish translation strings
 
 ```rust
-{{#include ../listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Application}}
+{{#include ./listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Application}}
 ```
 When creating the Application block, we do pipe in the localization property.
 To keep this example simple, a hardcoded **de_DE** is choosen.
@@ -231,7 +231,7 @@ implements a tab widget, that offers a dropdown list, to dynamically change
 the active language variant.
 
 ```rust
-{{#include ../listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Language}}
+{{#include ./listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Language}}
 ```
 
 To compile this example code, go ahead and enter the following comand
