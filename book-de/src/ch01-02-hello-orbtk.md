@@ -1,292 +1,343 @@
-## Hello OrbTK!
+## Hallo OrbTK!
 
-Now that you’ve installed the needed building blocks, let’s write your first
-OrbTK program. It’s traditional when learning a new language to write a little
-program that outputs the text `Hello, world!`. So we’ll do the same here. We
-create a minimal app, that creates a window, position this window at the given
-coordinate of your screen. The text will be placed  in the center of this
-widget.
+[<img src="img/orbtk.svg" width="720"/>](img/orbtk.svg)
 
-> Note: This book assumes basic familiarity with the command line. Rust makes
-> no specific demands about your editing or tooling or where your code lives, so
-> if you prefer to use an integrated development environment (IDE) instead of
-> the command line, feel free to use your favorite IDE. Many IDEs now have some
-> degree of Rust support; check the IDE’s documentation for details. Recently,
-> the Rust team has been focusing on enabling great IDE support, and progress
-> has been made rapidly on that front!
+Nachdem du nun die erforderlichen Bausteine installiert hast, lass uns
+dein erstes OrbTK Programm schreiben.  Es Tradition mit der
+Einarbeitung in eine neue Programmiersprache ein kleines Programm zu
+schreiben, das die Worte `Hello, world!` auf den Bildschirm ausgibt.
+Also los. Wir erstellen eine minimale App, die ein Fenster erzeugt und
+dieses Fenster an den gegebenen Koordinaten auf dem Bildschirm positioniert.
+Das Widget wird unsern Text zentrieren.
 
-### Creating a Project Directory
+> Anmerkung: Diese Buch geht davon aus, dass du Basis-Kenntnisse bei
+> der Bedienung der Kommandozeile besitzt. Rust selbst hat keine
+> speziellen Anforderungen, welche Werkzeuge du für das editieren von
+> Quellcode verwendest und wo du diesen abspeicherst. Wenn du also
+> bereits mit einer integrierten Entwicklungsumgebung arbeitest (IDE),
+> nur zu, es spricht nichts dagegen diese auch für OrbTK zu nutzen.
+> Viele IDEs besitzen mittlerweile ein gewisses Maß an Unterstützung
+> für die Sprache Rust. Prüfe einfach die vorhandene Dokumentation.
+> In letzter Zeit hat das Rust Team ein besonderes Augenmerk auf die
+> Integration von IDE Unterstützung gelegt. Und es wurden große
+> Fortschritte in dieser Richtung erzielt!
 
-You’ll start by making a directory to store your OrbTk code. It doesn’t matter
-to Rust and OrbTK where your code lives, but for the exercises and projects in
-this book, we suggest making a *projects* directory in your home directory and
-keeping all your projects there.
+### Ein Projekt-Verzeichnis erstellen
 
-Open a terminal and enter the following commands to make a *projects* directory
-and a directory for the “Hey OrbTK!” project within the *projects* directory.
+Zunächst wird eine Verzeichnis erstellt, in dem wir unseren OrbTk
+Quellcode speichern wollen. Es spielt für rust und OrbTk keine große
+Rolle, wo sich dieser befindet. Aber für die Beispiele und Übungen in
+diesem Buch solltest Du einen Unterordner *projects* in deinem Home-Verzeichnis
+erzeugen. Wir werden im Folgenden immer auf diesen referenzieren.
 
-For Linux, bsd, macOS, and PowerShell on Windows, enter this:
+Öffne ein Terminal und tippe die folgenden Kommandos ein um die gewünschte
+Unterordner Struktur *projects* zu erzeugen:
+
+Für Linux, BSD, macOS und  Power-Shell unter Windows:
 
 ```console
-$ mkdir ~/orbtk
-$ cd ~/orbtk
-$ mkdir examples
-$ cd examples
+$ mkdir -p ~/orbtk-book/projects
+$ cd ~/orbtk/projects
 ```
 
-For Windows CMD, enter this:
+In der Windows Shell:
 
 ```cmd
-> mkdir "%USERPROFILE%\orbtk"
-> cd /d "%USERPROFILE%\orbtk"
-> mkdir examples
-> cd examples
+> mkdir "%USERPROFILE%\orbtk-book"
+> cd /d "%USERPROFILE%\orbtk-book"
+> mkdir projects
+> cd projects
 ```
 
-### Writing and Running a OrbTK Application
+### Erstellen und starten der OrbTK Applikation
 
-Next, make a new source file and call it *hello_orbtk.rs*. Rust files always end
-with the *.rs* extension. If you’re using more than one word to name your source
-file, as we have choosen here, it is a good rust habit to separate its  words
-with an underscore.
+Im nächsten Schritt erzeugen wir ein neues Projekt und verwenden
+hierzu *Cargo*. Mit einer *.toml* Datei beschreiben wir die für den
+Rust Code erforderlichen Abhängigkeiten und Metadaten. Das stellt
+sicher, das auch bei Folgeaufrufen der Kompilier-Prozesses (build) eine
+konsistentes Ergebnis erzeugen kann.
 
-Now open the *hello_orbtk.rs* file you just created and enter the code in
-Listing 1-1.
-
-<span class="filename">Filename: hello_orbtk.rs</span>
-
-```rust
-use orbtk::prelude::*;
-
-fn main() {
-	// use this only if you want to run it as web application.
-	orbtk::initialize();
-
-	Application::new()
-		.window(|ctx| {
-			Window::new()
-				.title("OrbTk - Hello OrbTK example")
-				.position((100.0, 100.0))
-				.size(420.0, 240.0)
-				.child(
-					TextBlock::new()
-						.text("Hey OrbTk!")
-						.h_align("center")
-						.v_align("center")
-						.build(ctx)
-					)
-				.build(ctx)
-		})
-		.run();
-}
-```
-
-<span class="caption">Listing 1-1: An OrbTK app that prints `Hey OrbTK!`</span>
-
-In a second step, we need to define the dependencies that are needed to compile our application.
-Within the Rust toolchain we will use Cargo. Cargo is a tool that allows Rust packages to
-declare their various dependencies and ensure that you’ll always get a repeatable build.
-
-Go back to your terminal window and change back to your *projects* directory.
+Tippe einfach ein:
 
 ```console
-$ cd ~/orbtk
+$ cargo new orbtk_hello
+$ cd orbtk_hello
 ```
 
-Create the *Cargo.toml* file in this directory and enter the code in Listing 1-2.
+Das erste Kommando, `cargo new`, verwendet als erstes Argument den Projektnamen.
+("`orbtk_hello`"). Das zwiete commando wechselt in das neu erstellte Projekt Unterverzeichnis.
+
+Schauen wir uns das erzeugte *Cargo.toml* mal an:
 
 <span class="filename">Filename: Cargo.toml</span>
 
-```cargo
-[package]
-name = "orbtk-projects"
-version = "0.3.1-alpha4"
-authors = [
-	"Florian Blasius <flovanpt@posteo.de>",
-	"Ralf Zerres <ralf.zerres.de@gmail.com>",
-]
-description = "The Orbital Widget Toolkit - Training projects"
-documentation = "https://docs.rs/orbtk"
-repository = "https://github.com/redox-os/orbtk"
-readme = "README.md"
-license = "MIT"
-keywords = [
-	"orbital",
-	"widget",
-	"ui",
-]
-edition = "2018"
-
-[profile.dev]
-opt-level = 1
-
-[dependencies]
-#orbtk = { version = "~0.3.1-alpha4" }
-orbtk = { git = "https://github.com/redox-os/orbtk.git", branch = "develop" }
+```toml
+{{#include ./listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/Cargo.toml}}
 ```
 
-Save the file and go back to your terminal window. On Linux or macOS, enter
-the following commands to compile and run the file:
+<span class="caption">Listing 1-1: Default Metadaten "orbtk_hello"</span>
+
+Mit `cargo new`, wurde die Projekt Struktur automatisch
+erstellt. Vielleicht wurden auch schon die Angaben für Autor und Email angepasst,
+wenn *Cargo* diese Metadaten aus deinen Umgebungsvariablen auslesen konnte.
+*Cargo* hat auch bereits den Quellcode für "Hello, world!" erzeugt.
+Lass uns die in der Quelldatei *src/main.rs* prüfen:
+
+<span class="filename">Filename: src/main.rs</span>
+
+```rust
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/no-listing-01-02-cargo-new/src/main.rs}}
+```
+
+<span class="caption">Listing 1-2: Default source file "main.rs"</span>
+
+Es gibt keinen Grund, diesen Stand unseres Programmes mit `cargo run` zu kompilieren,
+da wir zunächst noch ein paar Projekt Metadaten zusammen mit ein paar Code Zeilen ergänzen wollen.
+
+#### Aktualisierung von Cargo.toml
+
+Zuerst öffne bitte die *Cargo.toml* Datei und gib die Code-Zeilen aus dem Listing 1-1 ein:
+
+<span class="filename">Filename: Cargo.toml</span>
+
+```toml,ignore
+{{#include ./listings/ch01-02-orbtk-hello/listing-01-02/Cargo.toml:All}}
+```
+
+<span class="caption">Listing 1-1: Project metadata "orbtk_hello"</span>
+
+Vielleicht wundert es Dich, warum die Eigenschaft *name* in der *Cargo.toml* Datei
+als `hello_orbtk` formatiert wurde.
+
+```toml,ignore
+{{#include ./listings/ch01-02-orbtk-hello/listing-01-02/Cargo.toml:Name}}
+```
+
+Es ist eine sinnvolle und empfehlenswerte Gewohnheit, den Rust
+Namenkonventionen zu folgen. Ich möchte dich ermutigen, in Rust Code
+sogenannte [snake_case][Namen] zu nutzen. Wenn wir unsere *OrbTK*
+Beispiele erweitern, werden wir den Gruppierungsprefix `orbtk` weiter
+verwenden. Aus diesem Grund verwenden wir für unser erstes kleines
+Programm den Namen `orbtk_hello`.
+
+#### Aktualisierung von  main.rs
+
+Der gesamte *OrbTK* spezifische Quellcode der für die Übersetzung des
+ersten Beispeilprogramms "Hello OrbTK!" notwendig ist wird in Listing
+1-2 angezeigt. Diesen bitte in die Datei *src/main.rs* übertragen.
+
+<span class="filename">Filename: src/main.rs</span>
+
+```rust,ignore
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:All}}
+```
+
+<span class="caption">Listing 1-2: Quellcode zum erzeugen des Fensters und Ausgabe
+von "Hey OrbTK!"</span>
+
+Speicher die Datei und gehe zurück in dein Terminal Fenster. Gebe die
+folgenden Kommandos ein um das Programm zu Kompilieren und zu starten:
 
 ```console
-$ cargo run --release --example hello_orbtk
+$ cargo run --release --example orbtk_hello
 ```
 
-On Windows, enter the command `.\main.exe` instead of `./main`:
+Gleichgültig welches Betriebssystem du gerade verwendest, ein Fenster
+sollte sich auf dem Bildschirm öffnen, das dein Text `Hey OrbTK!`
+zentriert in diesem Fenster ausgibt.
 
-```powershell
-> cargo run --release --example hello_orbtk
+[<img src="img/examples/orbtk_hello.png" height="150"/>](img/examples/orbtk_hello.png)
+
+<span class="caption">Image 1-2: Applikations-Fenster mit `Hey OrbTK`</span>
+
+Wenn etwas die Fensterausgabe verhindert, schau bitte im Abschnitt
+
+[“Troubleshooting”][troubleshooting] <!-- ignore --> der
+Installationsbeschreibung nach, um Hilfestellungen zu erhalten.
+
+Wenn die die gerenderte Ausgaben von `Hey OrbTK!` deiner App bewundern kannst,
+Glückwunsch! Du hast erfolgreich deiner erste OrbTK Anwendung geschrieben.
+Das macht Dich zum OrbTK Programmierer — willkommen!
+
+### Anatomie einer OrbTK Anwendung
+
+Lass uns die Details ansehen, was gerade mit dem Aufwurf der “Hey
+OrbTK!” Anwendung passiert ist. Hier kommt das erste Puzzel-Teilchen:
+
+```rust,ignore
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Use}}
 ```
 
-Regardless of your operating system, a window should be placed on the screen
-that prints the string `Hey OrbTK!` in its center. If something is preventing
-to successfull position the window, refer back to the [“Troubleshooting”][troubleshooting]
-<!-- ignore --> part of the Installation section for ways to get help.
+Die erste Zeile fügt die *use* Anweisung ein. Eine *use* Anweisung
+wird verwendet, um den Pfadname abzukürzen der notwendig ist, um in
+Rust einen *Modul* zu referenzieren. Die Anweisung *prelude* ist ein
+bequemer Weg eine Liste von Dingen zusammenzufassen, die Rust
+automatisch in dein Programm importiert.  In unserem Fall haben wir
+den Pfad *orbtk::prelude* eingebunden. Alle Elemente die über diesen
+Pfad addressiert werden können (in der Notation mit *::* beschrieben)
+können jetzt als Kurzform über ihren Namen angesprochen werden. Es ist
+nicht mehr nötig hierzu den expliziten Pfadname mit zu erfassen (*orbtk::prelude::*)
 
-If your can enjoy the rendered output of your `Hey OrbTK!` app,
-congratulations! You’ve officially written an OrbTK application.
-That makes you a OrbTK programmer — welcome!
-
-### Anatomy of an OrbTK Application
-
-Let’s review in detail what just happened in your “Hey OrbTK!” application.
-Here’s the first piece of the puzzle:
-
-```rust
-use orbtk::prelude::*;
-
-fn main() {
-
-}
+```rust,ignore
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Main}}
 ```
 
-The first line is introducing a *use* declaration. A *use* declaration is used
-to shorten the path required to refer to rust module items. The *prelude* is a
-convinient way to a list of things, that rust will automatically import to you
-program. Here, we bind the path *orbtk::prelude*. All default items defined in
-this path (referenced with *::*) are now accessible in your source using their
-shorthand name. No need to type in their common prefix (*orbtk::prelude::*)
+Die dritte Zeile definiert eine Rust Funktion. Der Funktionsname
+`main` ist insoweit besonders, als das immer die Stelle in einem Rust
+Programm angibt, mit der die Code-Ausführung beginnt.  In unserem Fall
+hat `main` eine Parameter und liefert auch am Ende der Funktions
+nichts zurück. Gäbe es Parameter, sie stünden innerhalb der Klammern, `()`.
 
-the third line define a function in Rust. The `main` function is special: it is
-always the first code that runs in every executable Rust program. The first
-line declares a function named `main` that has no parameters and returns
-nothing. If there were parameters, they would go inside the parentheses, `()`.
+Bitte beachte ebenso, dass die Funktion-Körper (body) in gescheiften
+Klammern eingebettet ist, `{}`. Die Rust Syntax erwartet dies für alle
+Funktionsdefinitionen. Im Rust Code-Style ist es üblich, die
+Geschweifte Klammer auf der gleichen Zeile wie die
+Funktions-Deklaration zu plazieren und dazwischen ein Leerzeichen einzgeben.
 
-Also, note that the function body is wrapped in curly brackets, `{}`. Rust
-requires these around all function bodies. It’s good style to place the opening
-curly bracket on the same line as the function declaration, adding one space in
-between.
+Rust bedient sich eines Tools für die automatische Formatierung von
+Codezeilen: `rustfmt`. Es hilt Dir, am Rust Code-Style innerhalb
+deiner Projekte konsistent zu bleiben. OrbTK folgt dieser Anleitung.
+Abhängig von der Versionsnummer deiner installierten Rust Toolchain
+ist die Programmversion von `rustfmt` vermutlich schon auf deinem System
+installiert. Andernfalls prüfe bitte die Online-Dokumentation.
 
-An automatic formatter tool called `rustfmt` will help you to stick to a
-standard style across Rust projects. OrbTK is following this guidance.
-`rustfmt` will format your code in a particular style. Depending on the version
-of your rust toolchain, it is probably already installed on your computer!
-Check the online documentation for more details.
+Innerhalb der `main` Funktion findest die die folgenden Anweisungen:
 
-Inside the `main` function is the following code:
-
-```rust
-	orbtk::initialize();
-	Application::new()
+```rust,ignore
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Initialize}}
 ```
 
-There are some important details to notice here.
-* First, Rust style is to indent with four spaces, not a tab.
-* Second, the method `orbkt::initialize` does all the hard work to initialize
-  the orbtk environment.
-* Third, the method `Application::new` creates a new entity in the entity
-  comonent system (DECS). DECS is an OrbTK dependency that will create and
-  organize all OrbTK entities. If OrbTK methods change attibutes to the widget
-  elements, the corresponding DECS object will store this attibutes as
-  components to the given entity.
+Hier gibt es einige wichtige Details herauszustellen.
+* Erstens, Rust code wird standardmäßig mit vier Leerzeichen eingerückt, keine Tabulatoren!
+* Zweitens, die Methode `orbkt::initialize` vollzieht alle notwendigen
+Schritte, um das OrbTk Umgebung zu initialisieren.
 
-We’ll discuss OrbTK macros and methods in more detail in Chapter <WIP: chapter>.
-For now, you just need to know that using a `::new()` means that you’re calling
-the creation method of a given widget (here: `Application`).
+```rust,ignore
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Application}}
+```
 
-Let's explain the other lines:
+* Drittens, die Methode `Application::new` erstellt eine neue Entität
+  im verwendeten Entity-Component-System (DECS). DECS ist eine OrbTK
+  Abhängigkeit die die Erstellung und die Organisation aller innerhalb
+  von OrbTk verwendeten Entitäten verwaltet. die OrbTk Methoden
+  verändern die Attribute der Widget Elemente, die entsprechenden DECS
+  Objekte speichern diese Attribute als Compenenten der gegebenen Entity.
 
-```rust
-		.window(|ctx| {
-			Window::new()
-				.title("OrbTk - minimal example")
-				.position((100.0, 100.0))
-				.size(420.0, 240.0)
-				.child(TextBlock::new()
-					.text("OrbTk")
-					.h_align("center")
-					.v_align("center")
-					.build(ctx)
-				)
-				.build(ctx)
-		})
-		.run();
-   ```
+Wir werden die OrbTk Makros und Methoden detaillierter in Kapitel
+<WIp: chapter> besprechen. Im Moment genügt das Wissen, dass mit dem
+Aufruf von `::new()` die Methode zur Erstellung eines neuen Widgets
+angesprochen wird (hier: `Application`)
 
-Inside the `Application` method, we pipe in further instructions. Please notice
-the important details:
+Nun zur den nächsten Zeilen:
 
-* First, Rust style is to indent with another four spaces, not a tab.
-* Second, The piping is encoded using a `dot` followed by a new method name
-  (using `window` and `run`).
-* Third, the `windows` method takes a Rust closure as its argument.
+```rust,ignore
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Window}}
+```
 
-If you are not familiar with the concept of [closures](https://doc.rust-lang.org/rust-by-example/fn/closures.html), go ahead
-and consult the Rust book reference for a deep dive. For now, you just need to
-know that a closure can be used as a language shortcut for a function.
-When the closure `|ctx| {}` is executed, the result will be
-captured inside a return variable (`ctx`). The curly braces define the body,
-with the code that is executed inside the closure.
+Innerhalb der `Application` Methode, starten wir weitere
+Anweisungen. Das Augenmerk liegt auf folgenden Details:
 
-Let's examine this body code of our closure:
+* Erstens, das  Rust Stylingsystem rückt den Code um weitere vier Leerzeichen ein. Keine Tabulatoren!
+* Zweitens, das `Pipelining` von Code wird über einen Punkt (`dot`)
+  eingeleitet, der um den neuen Methodennamen ergänzt wird (Hier:
+  `window`).
+* Drittens, die `windows` Methode verwendet eine Rust `closure` als Argument.
 
-* First, We call a method to create a new window entity
+Wenn du bis jetzt noch nicht mit dem Konzept von `closures` vertraut
+bist, dieser Link ist den Freund:
+[closures](https://doc.rust-lang.org/rust-by-example/fn/closures.html).
+Diese Referenz bietet ein vertiefendes Verständnis. Im Moment genügt
+das Wissen, dass eine closure als effiziente Sprachkomponente an
+Stelle einer Funktion genutzt werden kann, Wenn eine closure `|ctx|
+{}` ausgeführt wird, wird deren Ergebnis innerhalb der
+Rückgabevariable gespeichert (hier: `ctx`). Die Geschweifte Klammer
+definiert den closure Korpus, mit dem Quellcode der innerhalb der closure ausgeführt wird.
+
+Lass und den closure Korpus mal prüfen:
+
+* Erstens, wir rufen eine Methode auf, um ein neues Fenster als Entität zu erzeugen
   (`Windows::new`).
-* Second, We define attributes attached to this entity (`title`,
+* Zweitens, wir definieren Attribute, die wir dieser Entität anfügen (`title`,
   `position`, `size`).
-* Third, Inside the defined windows, we create a new child entity
+* Drittens, innerhalb des neu definierten Fensters erzeugen wir eine neue, hierarchisch untergeordnete Entität
   (`child`).
-* Fourth, The child method takes arguments. We create a new textblock
-  entity (`Textblock::new`). The textblock is extended with the attributes
-  (`text`, `h_align`, `v_align`).
-  The text attribute takes the desired string. Its positioning is
-  controlled with the attribution of the horizontal and vertical
-  alignment. By choosing "center", we do advise the renderer to place
-  the entity centered within its parent entity, which is the window.
 
-OrbTK is as lazy as possible. We need to call the build method (`build(ctx)`),
-that will instatiate our methods and let the renderer do its work.
-With the last statement, we finally call the method that will activate the
-Application and draw the Widget on our screen(`run`).
+```rust,ignore
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Child}}
+```
 
-Most lines of Rust code end with a semicolon (`;`), to indicates that this
-expression is over and the next one is ready to begin.
+* Viertens, dieses `child` Methode erhält ihrerseits Argumente. Wir
+erzeugen eine neue Entität und beschreiben den Widget-Typ
+(`Textblock::new`). Der Textblock wird mit Attributen ergänzt (`text`,
+`h_align`, `v_align`). Das Attribut `text` erhält den gewünschten
+Zeichenwert (string). Seine Position wird über Attribute gesteuert,
+die für die horizontale und vertikale Ausrichtung zuständig sind
+(`alignment`). Wir wählen `center` und weisen den später aufzurufenden
+Render-Prozess damit an, den Text innerhalb der hierarchisch
+übergeordneten Entität (`parent`) zentriert zu plazieren. In unserem
+Fall ist das das Fenster selbst.
 
-### Compiling and Running Are Separate Steps
+```rust,ignore
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Build}}
+```
 
-Before running an OrbTK application, you must compile its source code. A typical
-OrbTK project will generate the executable binary code using cargo and place the
-result in the target subfolder of the project.
+OrbTK versucht von sich aus, die gegebenen Anweisung zeitlich so weit
+wie möglich aufzuschieben (lazy handling). Daher rufen wir die
+eigentliche Methode für die Erzeugung der Struktur erst am Ende mit
+(`build(ctx)`) auf. Die Entitäten werden instantiert. Der Renderer
+wird für die veränderten Komponenten aktiv, berechnet diese neu und
+gibt das Ergebnis in den Bildschirmpuffer aus.
 
-Profiles may be used to configure compiler options such as optimization levels
-and debug settings. By default the `dev` or `test` profiles are used. If the
-`--release` flag is given, then the release or bench profiles are used.
+```rust,ignore
+{{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Run}}
+```
+
+Mit der letzten Anweisung aktivieren wir die Methode, die den Event
+Mechanismus kontrolliert.  Die definierte Applikation wird gestartet,
+die beschriebenen Widgets auf den Bildschirm ausgegeben (`run`).
+
+Rust Codezeilen werden in der Regel mit einem Simikolon abgeschlossen
+(`;`). Dies weist den Kompiler an, das eine gegebene Anweisung
+abgeschlossen ist, mit der nächsten fortgefahren werden kann.
+
+### Kompilierung und ausführung sind separate Schritte
+
+Bevor eine OrbTK Application auf der Hardware ablauffähig ist, muss
+deren Quellcode über den Kompiler in Maschinencode übersetzt
+werden. Ein typisches OrbTK Projekt wird ein ausführbares Programm
+(binary) über das Tool `cargo` erzeugen. `cargo` legt die erstellte
+Datei in den definierten Projekt-Unterordner.
+
+In den Projekt-Metadaten der Toml-Datei können sogenannte Profile
+genutze werden, die Kompiler-Optionen für die gewünschte
+Ablaufumgebung einstellen (z.B. Optimierungen, Debugging).
+Als Unterlassungswerte (defaults) unterstützt *cargo* die `dev` und `test` Profile.
+Wird der Aufruf von *cargo* mit dem `--release` Argument ergänzt,
+kommt das sogenannte release or bench Profil zur Anwendung.
 
 ```console
-$ cargo build --release --bin hello_orbtk.rs
+$ cargo build --release --bin orbtk_hello.rs
 $ ../target/release/hello_orbtk
 ```
 
-On Windows, you need to use `backslash` as a path delimeter:
+Für Windows muss der `backslash` als Pfad-Trennung verwendet werden:
 
 ```powershell
-> cargo build --release --bin hello_orbtk.rs
-> ..\target\release\hello_orbtk.exe
+> cargo build --release --bin orbtk-hello.rs
+> ..\target\release\orbtk_hello.exe
 ```
 
-If you like to get debug feedback you can call the build process like this
+OrbTK unterstützt Entwickler mit zusätzlichen Informationen zur
+Kompile-Umgebung. Hierzu kann der Kompile-Lauf um `feature` Argumente
+ergänzt werden (derzeit: debug, log).
+
+* debug: die Widgets werden mit Umrandungen gerendert. Dies
+  erleichtert die Kontrolle der Einhaltung von constraints.
+* log: Bei Aufruf wird beispeilsweise die Hierarchie der verwendeten
+  Widgets visualisiert und auf der Kommandozeile ausgegeben.
 
 ```console
-$ cargo build --features debug --bin hello_orbtk.rs
+$ cargo build --features debug,log --bin hello_orbtk.rs
 ```
+[naming]: https://rust-lang.github.io/api-guidelines/naming.html
 [troubleshooting]: ch01-01-installation.html#troubleshooting
