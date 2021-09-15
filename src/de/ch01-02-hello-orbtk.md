@@ -115,7 +115,7 @@ als `hello_orbtk` formatiert wurde.
 
 Es ist eine sinnvolle und empfehlenswerte Gewohnheit, den Rust
 Namenkonventionen zu folgen. Ich möchte dich ermutigen, in Rust Code
-sogenannte [snake_case][Namen] zu nutzen. Wenn wir unsere *OrbTk*
+sogenannte [snake_case][naming] Namen zu nutzen. Wenn wir unsere *OrbTk*
 Beispiele erweitern, werden wir den Gruppierungsprefix `orbtk` weiter
 verwenden. Aus diesem Grund verwenden wir für unser erstes kleines
 Programm den Namen `orbtk_hello`.
