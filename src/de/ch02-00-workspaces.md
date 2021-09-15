@@ -1,6 +1,6 @@
-# Die OrbTK Workspace Struktur
+# Die OrbTk Workspace Struktur
 
-Der Entwicklungsprozess von OrbTK berücksichtigt folgende definierten
+Der Entwicklungsprozess von OrbTk berücksichtigt folgende definierten
 Basis-Prinzipien:
 
 * Modularität

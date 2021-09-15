@@ -11,8 +11,8 @@
 [<img src="img/orbtk.svg" width="720"/>](img/orbtk.svg)
 
 Willkommen zu *Das Orbital Widget Toolkit*, einem Einführungsbuch über
-`OrbTK`.  Die Programmiersprache Rust hilft Dir, schnellere und
-zuverlässige Software zu schreiben. `OrbTK` bringt die nötigen
+`OrbTk`.  Die Programmiersprache Rust hilft Dir, schnellere und
+zuverlässige Software zu schreiben. `OrbTk` bringt die nötigen
 Komponenten mit, um moderne grafische Benutzeroberflächen zu
 entwickeln. Es bietet eine kohärente Codebasis, die zu nativem
 Binärcode kompiliert wird, welcher auf der gewünschten Zielplattform
@@ -44,11 +44,11 @@ ausgeführt wird.
 * iOS (nativ geplant | cargo-node geplant)
 * Ubuntu Touch (nativ geplant | cargo-node geplant)
 
-## Für wen OrbTK gedacht ist
+## Für wen OrbTk gedacht ist
 
-`OrbTK` ist ideal für Programmierer, die die Vorteile der
+`OrbTk` ist ideal für Programmierer, die die Vorteile der
 Programmiersprache Rust nutzen wollen. Es besteht keine
-Notwendigkeit, Datenstrukturen und Typen zu transformieren: OrbTK
+Notwendigkeit, Datenstrukturen und Typen zu transformieren: OrbTk
 selbst ist in Rust geschrieben. Es übernimmt somit natürlich alle
 strukturellen Vorteile der Programmiersprache und stellt die
 benötigten GUI Elemente bereit, um Deine grafische Anwendung zu
@@ -62,7 +62,7 @@ der Systemprogrammierung. Wirf auch einen Blick in das Rust-Buch,
 welches die grundlegenden Prinzipien erläutert, und dir hilft besseren
 und sicheren Code zu produzieren.
 
-`OrbTK` verwendet die Rust-Toolchain so weit wie möglich wieder.
+`OrbTk` verwendet die Rust-Toolchain so weit wie möglich wieder.
 Zeitgenössische Entwickler, die die Lernkurve durchlaufen haben, werden deren Vorteile nutzen:
 
 * Cargo, der mitgelieferte Abhängigkeitsmanager und das Build-Tool,

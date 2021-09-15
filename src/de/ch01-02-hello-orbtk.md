@@ -1,9 +1,9 @@
-## Hallo OrbTK!
+## Hallo OrbTk!
 
 [<img src="img/orbtk.svg" width="720"/>](img/orbtk.svg)
 
 Nachdem du nun die erforderlichen Bausteine installiert hast, lass uns
-dein erstes OrbTK Programm schreiben.  Es Tradition mit der
+dein erstes OrbTk Programm schreiben.  Es Tradition mit der
 Einarbeitung in eine neue Programmiersprache ein kleines Programm zu
 schreiben, das die Worte `Hello, world!` auf den Bildschirm ausgibt.
 Also los. Wir erstellen eine minimale App, die ein Fenster erzeugt und
@@ -15,7 +15,7 @@ Das Widget wird unsern Text zentrieren.
 > speziellen Anforderungen, welche Werkzeuge du für das editieren von
 > Quellcode verwendest und wo du diesen abspeicherst. Wenn du also
 > bereits mit einer integrierten Entwicklungsumgebung arbeitest (IDE),
-> nur zu, es spricht nichts dagegen diese auch für OrbTK zu nutzen.
+> nur zu, es spricht nichts dagegen diese auch für OrbTk zu nutzen.
 > Viele IDEs besitzen mittlerweile ein gewisses Maß an Unterstützung
 > für die Sprache Rust. Prüfe einfach die vorhandene Dokumentation.
 > In letzter Zeit hat das Rust Team ein besonderes Augenmerk auf die
@@ -49,7 +49,7 @@ In der Windows Shell:
 > cd projects
 ```
 
-### Erstellen und starten der OrbTK Applikation
+### Erstellen und starten der OrbTk Applikation
 
 Im nächsten Schritt erzeugen wir ein neues Projekt und verwenden
 hierzu *Cargo*. Mit einer *.toml* Datei beschreiben wir die für den
@@ -115,15 +115,15 @@ als `hello_orbtk` formatiert wurde.
 
 Es ist eine sinnvolle und empfehlenswerte Gewohnheit, den Rust
 Namenkonventionen zu folgen. Ich möchte dich ermutigen, in Rust Code
-sogenannte [snake_case][Namen] zu nutzen. Wenn wir unsere *OrbTK*
+sogenannte [snake_case][Namen] zu nutzen. Wenn wir unsere *OrbTk*
 Beispiele erweitern, werden wir den Gruppierungsprefix `orbtk` weiter
 verwenden. Aus diesem Grund verwenden wir für unser erstes kleines
 Programm den Namen `orbtk_hello`.
 
 #### Aktualisierung von  main.rs
 
-Der gesamte *OrbTK* spezifische Quellcode der für die Übersetzung des
-ersten Beispeilprogramms "Hello OrbTK!" notwendig ist wird in Listing
+Der gesamte *OrbTk* spezifische Quellcode der für die Übersetzung des
+ersten Beispeilprogramms "Hello OrbTk!" notwendig ist wird in Listing
 1-2 angezeigt. Diesen bitte in die Datei *src/main.rs* übertragen.
 
 <span class="filename">Filename: src/main.rs</span>
@@ -133,7 +133,7 @@ ersten Beispeilprogramms "Hello OrbTK!" notwendig ist wird in Listing
 ```
 
 <span class="caption">Listing 1-2: Quellcode zum erzeugen des Fensters und Ausgabe
-von "Hey OrbTK!"</span>
+von "Hey OrbTk!"</span>
 
 Speicher die Datei und gehe zurück in dein Terminal Fenster. Gebe die
 folgenden Kommandos ein um das Programm zu Kompilieren und zu starten:
@@ -143,26 +143,26 @@ $ cargo run --release --example orbtk_hello
 ```
 
 Gleichgültig welches Betriebssystem du gerade verwendest, ein Fenster
-sollte sich auf dem Bildschirm öffnen, das dein Text `Hey OrbTK!`
+sollte sich auf dem Bildschirm öffnen, das dein Text `Hey OrbTk!`
 zentriert in diesem Fenster ausgibt.
 
 [<img src="img/examples/orbtk_hello.png" height="150"/>](img/examples/orbtk_hello.png)
 
-<span class="caption">Image 1-2: Applikations-Fenster mit `Hey OrbTK`</span>
+<span class="caption">Image 1-2: Applikations-Fenster mit `Hey OrbTk`</span>
 
 Wenn etwas die Fensterausgabe verhindert, schau bitte im Abschnitt
 
 [“Troubleshooting”][troubleshooting] <!-- ignore --> der
 Installationsbeschreibung nach, um Hilfestellungen zu erhalten.
 
-Wenn die die gerenderte Ausgaben von `Hey OrbTK!` deiner App bewundern kannst,
-Glückwunsch! Du hast erfolgreich deiner erste OrbTK Anwendung geschrieben.
-Das macht Dich zum OrbTK Programmierer — willkommen!
+Wenn die die gerenderte Ausgaben von `Hey OrbTk!` deiner App bewundern kannst,
+Glückwunsch! Du hast erfolgreich deiner erste OrbTk Anwendung geschrieben.
+Das macht Dich zum OrbTk Programmierer — willkommen!
 
-### Anatomie einer OrbTK Anwendung
+### Anatomie einer OrbTk Anwendung
 
 Lass uns die Details ansehen, was gerade mit dem Aufwurf der “Hey
-OrbTK!” Anwendung passiert ist. Hier kommt das erste Puzzel-Teilchen:
+OrbTk!” Anwendung passiert ist. Hier kommt das erste Puzzel-Teilchen:
 
 ```rust,ignore
 {{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Use}}
@@ -196,7 +196,7 @@ Funktions-Deklaration zu plazieren und dazwischen ein Leerzeichen einzgeben.
 
 Rust bedient sich eines Tools für die automatische Formatierung von
 Codezeilen: `rustfmt`. Es hilt Dir, am Rust Code-Style innerhalb
-deiner Projekte konsistent zu bleiben. OrbTK folgt dieser Anleitung.
+deiner Projekte konsistent zu bleiben. OrbTk folgt dieser Anleitung.
 Abhängig von der Versionsnummer deiner installierten Rust Toolchain
 ist die Programmversion von `rustfmt` vermutlich schon auf deinem System
 installiert. Andernfalls prüfe bitte die Online-Dokumentation.
@@ -217,7 +217,7 @@ Schritte, um das OrbTk Umgebung zu initialisieren.
 ```
 
 * Drittens, die Methode `Application::new` erstellt eine neue Entität
-  im verwendeten Entity-Component-System (DECS). DECS ist eine OrbTK
+  im verwendeten Entity-Component-System (DECS). DECS ist eine OrbTk
   Abhängigkeit die die Erstellung und die Organisation aller innerhalb
   von OrbTk verwendeten Entitäten verwaltet. die OrbTk Methoden
   verändern die Attribute der Widget Elemente, die entsprechenden DECS
@@ -281,7 +281,7 @@ Fall ist das das Fenster selbst.
 {{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Build}}
 ```
 
-OrbTK versucht von sich aus, die gegebenen Anweisung zeitlich so weit
+OrbTk versucht von sich aus, die gegebenen Anweisung zeitlich so weit
 wie möglich aufzuschieben (lazy handling). Daher rufen wir die
 eigentliche Methode für die Erzeugung der Struktur erst am Ende mit
 (`build(ctx)`) auf. Die Entitäten werden instantiert. Der Renderer
@@ -302,9 +302,9 @@ abgeschlossen ist, mit der nächsten fortgefahren werden kann.
 
 ### Kompilierung und ausführung sind separate Schritte
 
-Bevor eine OrbTK Application auf der Hardware ablauffähig ist, muss
+Bevor eine OrbTk Application auf der Hardware ablauffähig ist, muss
 deren Quellcode über den Kompiler in Maschinencode übersetzt
-werden. Ein typisches OrbTK Projekt wird ein ausführbares Programm
+werden. Ein typisches OrbTk Projekt wird ein ausführbares Programm
 (binary) über das Tool `cargo` erzeugen. `cargo` legt die erstellte
 Datei in den definierten Projekt-Unterordner.
 
@@ -327,7 +327,7 @@ Für Windows muss der `backslash` als Pfad-Trennung verwendet werden:
 > ..\target\release\orbtk_hello.exe
 ```
 
-OrbTK unterstützt Entwickler mit zusätzlichen Informationen zur
+OrbTk unterstützt Entwickler mit zusätzlichen Informationen zur
 Kompile-Umgebung. Hierzu kann der Kompile-Lauf um `feature` Argumente
 ergänzt werden (derzeit: debug, log).
 

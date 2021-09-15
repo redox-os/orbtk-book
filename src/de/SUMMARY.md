@@ -8,8 +8,8 @@
 
 - [Erste Schritte](ch01-00-getting-started.md)
 	- [Die Installation](ch01-01-installation.md)
-	- [Hallo OrbTK!](ch01-02-hello-orbtk.md)
-	- [Das Compositions-System](ch01-03-composition-system.md)
+	- [Hallo OrbTk!](ch01-02-hello-orbtk.md)
+	- [Die Bestandteile](ch01-03-ingredients.md)
 
 - [OrbTḱ Die Structur](ch02-00-workspaces.md)
 	- [Workspace: Orbtk](ch02-01-workspace-orbtk.md)

@@ -1,9 +1,9 @@
 # orbtk-book-de
 
-![Welcome to the OrbTK planet.][orbtk_planet]
+![Welcome to the OrbTk planet.][orbtk_planet]
 
 Dieses Repository enthält den Source-Code zum "The Orbital Widget
-Toolkit" Buch. Wir werden dies im folgende mit `OrbTK`
+Toolkit" Buch. Wir werden dies im folgende mit `OrbTk`
 referenzieren.
 
 [mdBook]: https://github.com/rust-lang-nursery/mdBook
@@ -16,7 +16,7 @@ referenzieren.
     [nostarch]: https://nostarch.com/
 
     You can read the book for free online. Please see the book as shipped with
-    the latest [stable], or [develop] OrbTK releases. Be aware that issues
+    the latest [stable], or [develop] OrbTk releases. Be aware that issues
     in those versions may have been fixed in this repository already, as those
     releases are updated less frequently.
 

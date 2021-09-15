@@ -1,0 +1,3 @@
+# OrbTk Appendix - Ableitbare Eigenschaften (traits)
+
+In Arbeit...

@@ -4,8 +4,8 @@ Der erste Schritt, ist die Installation von Rust. Dies wird im
 Folgenden ausführlich beschrieben [Rust-Buch Kapitel
 1](https://github.com/rust-lang/book/blob/master/src/ch01-01-installation.md)
 
-Wenn wir eine OrbTK-Anwendung erstellen, definieren wir die benötigten
-Abhängigkeiten zu den OrbTK-Komponenten (crates) in der Datei
+Wenn wir eine OrbTk-Anwendung erstellen, definieren wir die benötigten
+Abhängigkeiten zu den OrbTk-Komponenten (crates) in der Datei
 Cargo.toml unseres Projekts. Der Kompiliervorgang löst die Referenzen
 auf und lädt den Quellcode nach Bedarf herunter.
 
@@ -26,7 +26,7 @@ WIP: Auflistung der häufigsten Schuldigen und Bereitstellung einiger grundlegen
 
 ### Lokale Dokumentation
 
-OrbTK bietet die Möglichkeit, die Dokumentation lokal zu installieren,
+OrbTk bietet die Möglichkeit, die Dokumentation lokal zu installieren,
 so dass Sie sie offline lesen können.
 
 Immer, wenn ein Typ, eine Funktion, eine Methode oder eine Komponente

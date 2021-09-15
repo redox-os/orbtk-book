@@ -1,7 +1,7 @@
 # Workspace orbtk_widgets
 
-As a UI developer consuming OrbTK, you most probably will get in
-touch with the `widget` crate. If you get comfortable with the
+As a UI developer consuming OrbTk, you most probably will get in
+touch with the `widget` sub-crate. If you get comfortable with the
 terminology of `views` and their `states`, it's quite easy to
 implement even complex structures. The GUI components are declarative
 and you will code them inside the `view` blocks. All callbacks that
@@ -22,7 +22,7 @@ recognize modules for the following behaviors:
 
 ## Views
 
-When you create a `view` block inside an OrbTK application, it is
+When you create a `view` block inside an OrbTk application, it is
 required to insert definitions that declare what elements are going to
 be present inside the user interface.
 
@@ -67,7 +67,7 @@ will be coded as child's of `self`.
 
 ## States
 
-When you create a `state` block inside an OrbTK application, it is
+When you create a `state` block inside an OrbTk application, it is
 required to define the structures you want to work on in the `State`
 implementation.
 
@@ -80,6 +80,22 @@ of your widget. Go and ask yourself:
 * How should we handle user input?
 * What happens if an entity attribute is changed and gets dirty?
 
+From a procedural point of view, states will provide methods that are
+processed depending of the event status inside the a widget.
+
+```mermaid
+graph TD;
+	State-->init;
+	State-->update;
+	State-->cleanup;
+	update-->message;
+	message-->layout;
+	layout-->update_post_layout;
+
+```
+
+<span class="caption">Workflow 1-1: State handling methods</span>
+
 ### What is the structure of a State
 
 First, inside the source code that takes your `state`, you will go and
@@ -90,6 +106,11 @@ view (e.g "NavigationState").
 In a next step you enhance the `State` trait with an implementation of
 your state structure. Most probable, you create and adapt the
 following functions:
+
+#### The `cleanup` function
+
+This function is called as a destructor, when a widget is removed or
+your application terminates.
 
 #### The `init` function
 
@@ -116,7 +137,7 @@ values you are interested in.
 
 #### The `update` function
 
-Whenever the attribute of an entity is changed, OrbTK will render it
+Whenever the attribute of an entity is changed, OrbTk will render it
 dirty. The `update` function is taking care to react on any triggered
 dirty state. You will probably define an `Action` enumeration that
 will name and list all action states you are interested in. Now, if
@@ -125,5 +146,5 @@ with all the Rust syntax flexibility.
 
 #### The `update_post_layout` function
 
-OrbTK will run this function **after** the rendering crate has
+OrbTk will run this function **after** the rendering crate has
 processed the new layout for your view.

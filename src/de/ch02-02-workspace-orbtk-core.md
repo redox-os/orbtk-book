@@ -2,13 +2,13 @@
 
 ## Application
 
-The `application` crate provides the base api inside an `OrbTK` application.
+The `application` crate provides the base api inside an `OrbTk` application.
 Its elements are consumed via dedicated modules organized in the other sub-crates.
 
 ### The ContextProvider
 
 This structure is a temporary solution to share dependencies inside an
-`OrbTK` application. Right now, if the app is started, a new
+`OrbTk` application. Right now, if the app is started, a new
 `ContextProvider` object is created. The interconnection between
 sender and receiver are handled using asynchronous channels with
 sender/receiver halves (`mpsc`).
@@ -70,7 +70,7 @@ This values can either be overwritten with an **explicit** component
 property inside your rust code, or while referencing to definitions
 using a **style** property. Please take into account, that a given
 **style** definition will take precedence over all explicitly defined
-property elements inside the code. OrbTK will not respect a mixture of
+property elements inside the code. OrbTk will not respect a mixture of
 both declarations.
 
 ### The absolute placement
@@ -125,7 +125,7 @@ layout. A popup is typically needed to render content, that is related
 to a given target widget. That includes the position of the popup
 itself, as well as its dynamic created content.
 
-You can find a common use case of a popup if you study the OrbTK code
+You can find a common use case of a popup if you study the OrbTk code
 of a `list box`.  The list box elements are collected in a stack
 widget. The `stack` itself is placed in a `popup` widget. And the
 popup widget is placed right below the text block that offers a
@@ -143,7 +143,7 @@ as a seperator between each stack member.
 
 Localization is a research task by itself, if you want to resolve all
 syntactic rules that are found when writing prose in different
-languages.  OrbTK's localization crate isn't ready to resolve all this
+languages.  OrbTk's localization crate isn't ready to resolve all this
 complexity, but this may improve in further releases.
 
 Starting with the given implementation, `localization` can offer methods, that
@@ -159,7 +159,7 @@ text strings (the key) that should be presented inside the view and substitute
 it with the corresponding translation string (the target value). Dictionaries
 are used to organize the keys as word lists.
 
-OrbTK's `localization` implementation has choosen to persitently store
+OrbTk's `localization` implementation has choosen to persitently store
 the translation strings inside a [`RON`][ron] file. When introducing
 the new syntax structure used inside a `RON` filetype, it was one goal
 of the authors to easily match rust types to ron types. That is
@@ -177,7 +177,7 @@ of a `locale subsystem`, and save the identification of the active language in
 the `lang` enviroment variable. It's good practice to include the language id in
 the corresponding ron file name.
 
-When you include the `localization` functionality in your OrbTK code, you
+When you include the `localization` functionality in your OrbTk code, you
 should define constants for each supported `language id`, that will reference the
 ron file in question.
 
@@ -189,7 +189,7 @@ strings in the addressed dictionary.
 
 ### The ron file structure
 
-In OrbTK, the structure `RonLocalizationBuilder` is defined to take values for
+In OrbTk, the structure `RonLocalizationBuilder` is defined to take values for
 the following parameters
 
 * language: a String
@@ -277,7 +277,7 @@ process of the given object tree.
 
 #### Blocks
 
-Inside OrbTK the `BlockBuilder` method handles a block. A `block` is a
+Inside OrbTk the `BlockBuilder` method handles a block. A `block` is a
 term that defines an object inside the render surface. A legacy form of
 the API was using the idiom `row` or `column` to define the position
 of a block inside a `grid` widget. We moved on to use blocks as a
