@@ -169,11 +169,12 @@ funktionsfähig ist:
 | <img src="img/ferris/unsafe.svg" class="ferris-explain"/> | Dieser Quellcode enthält unsicheren Code.            |
 | <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>| Dieser Code erzeugt nicht das gewünschte Verhalten. |
 
-In den meisten Situationen führen wir Dich anschlissend zur korrigierten Version des Codes, der dann kompiliert werden kann.
+In den meisten Situationen führen wir Dich anschliessend zur korrigierten Version des Codes, der dann kompiliert werden kann.
 
 ## Quellcode
 
 Die Quelldateien, aus denen dieses Buch generiert wurde, findest Du
-auf der Redox Homepage unter [Orbtk book_de][orbtk_book_de].
+auf der Homepage unter [Orbtk book (de)][orbtk_book_de].
 
-[orbtk_book_de]: https://www.redox-os.org/orbtk-book/book-de/doc/book-de
+[orbtk_book_de]: https://github.com/redox-os/orbtk-book/src/de
+<!-- [orbtk_book_de]: https://www.redox-os.org/orbtk-book/book/de -->
