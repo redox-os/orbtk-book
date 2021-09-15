@@ -163,11 +163,11 @@ einbeziehst. Ferris hilft sicher auch, den Code zu erkennen, der nicht
 funktionsfähig ist:
 
 | Ferris | Bedeutung |
-|------------------------------------------------------------------------|--------------------------------------------------|
+|-------------------------------------------------------------------------|-----------------------------------------------------------|
 | <img src="img/ferris/does_not_compile.svg" class="ferris-explain"/> | Dieser Code lässt sich nicht kompilieren!                      |
-| <img src="img/ferris/panics.svg" class="ferris-explain"/> | Dieser Code ist panisch und verweigert die Zusammenarbeit!                                |
+| <img src="img/ferris/panics.svg" class="ferris-explain"/>               | Dieser Code ist panisch und verweigert die Zusammenarbeit!|
 | <img src="img/ferris/unsafe.svg" class="ferris-explain"/> | Dieser Quellcode enthält unsicheren Code.            |
-| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>| Dieser Code erzeugt nicht das gewünschte Verhalten. |
+| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/> | Dieser Code erzeugt nicht das gewünschte Verhalten.       |
 
 In den meisten Situationen führen wir Dich anschliessend zur korrigierten Version des Codes, der dann kompiliert werden kann.
 
@@ -177,4 +177,5 @@ Die Quelldateien, aus denen dieses Buch generiert wurde, findest Du
 auf der Homepage unter [Orbtk book (de)][orbtk_book_de].
 
 [orbtk_book_de]: https://github.com/redox-os/orbtk-book/src/de
+
 <!-- [orbtk_book_de]: https://www.redox-os.org/orbtk-book/book/de -->
