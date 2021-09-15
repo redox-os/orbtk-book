@@ -148,11 +148,12 @@ doesn’t compile.
 ## Source Code
 
 The source files from which this book is generated can be found on
-the Redox Homepage at [Orbtk book_en][orbtk_book_en].
+the Homepage at [Orbtk book (en)][orbtk_book_en].
 
-[orbtk_book_en]: https://www.redox-os.org/orbtk-book/book-en/doc/book-en
+[orbtk_book_en]: https://github.com/redox-os/orbtk-book/src/en
 
 <!---
-[book]: https://github.com/redox-os/orbtk
+[orbtk_book_en]: https://www.redox-os.org/orbtk-book/book/en
+[book]: https://github.com/redox-os/orbtk-bok
 [book]: https://github.com/redox-os/orbtk/book/tree/master/src
 -->
