@@ -1,20 +1,34 @@
 [book]
-title = "The Orbital Widget Toolkit"
-description = "The Orbital Widget Toolkit is a multi platform toolkit, that enables you to build scalable user interfaces. All components are devoloped with the programming language Rust."
+title = "The OrbTk Book"
+description = "The Orbital Widget Toolkit (OrbTk)is a multi platform toolkit, that enables you to build scalable user interfaces. All components are devoloped with the programming language Rust."
 authors = [
 	"Florian Blasius <flovanpt@posteo.de>",
 	"Ralf Zerres <ralf.zerres.de@gmail.com>",
 	"with Contributions from the Rust Community"
 ]
+multilingual = true
 language = "en"
+# next two lines are required, until PR #1306 lands this is a
+# workaround to create the default language using the the aimed target
+# structure with upstream version of mdbook (> 0.4.12)
+src = "src/en"
+destination = "book/en"
 
 [build]
 create-missing = false
 
 [output.html]
 additional-css = ["ferries.css", "theme/2020-edition.css"]
-additional-js = ["ferries.js"]
-git-repository-url = "https://github.com/redox-os/orbtk/book"
+additional-js = ["ferries.js", "mermaid.min.js", "mermaid-init.js"]
+curly-quotes = true
+default-theme = "light"
+edit-url-template = "https://github.com/redox-os/orbtk-book/tree/main/book/{path}"
+git-repository-url = "https://github.com/redox-os/orbtk-book/tree/main/book"
+git-repository-icon = "fa-github"
+prefered-dark-theme = "navy"
+mathjax-support = true
+#site-url = "/orbtk-book/"
+#theme = "navy"
 
 [output.linkcheck]
 # Should we check links on the internet? Enabling this option adds a
@@ -23,7 +37,41 @@ follow-web-links = false
 
 # Are we allowed to link to files outside of the book's root directory? This
 # may help prevent linking to sensitive files (e.g. "../../../../etc/shadow")
-traverse-parent-directories = false
+traverse-parent-directories = true
+
+[output.html.playground]
+editable = true
+line-numbers = true
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
+
+[output.html.redirect]
+"/format/config.html" = "configuration/index.html"
+
+[preprocessor]
+
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
 
+[language-en]
+src = "src/en"
+destination = "book/en"
+
+[language-de]
+src = "src/en"
+destination = "book/de"
+
+[language-es]
+src = "src/es"
+destination = "book/es"
+
+[language-fr]
+src = "src/fr"
+destination = "book/fr"
