@@ -1,11 +1,11 @@
 [package]
 name = "orbtk-book"
-version = "0.0.5"
+version = "0.0.6"
 authors = [
 	"Florian Blasius <flovanpt@posteo.de>",
 	"Ralf Zerres <ralf.zerres.de@gmail.com>"
 ]
-description = "The Orbital Widget Toolkit"
+description = "The Orbital Widget Toolkit (OrbTk) book"
 edition = "2018"
 
 [dependencies]
@@ -19,8 +19,9 @@ walkdir = "2.3.1"
 
 [build-dependencies]
 cargo-readme = "3.2.0"
-mdbook = "0.4.10"
+mdbook = "~0.4.12"
 mdbook-mermaid = "0.8.3"
+
 #mdbook-latex = "^0.1"
 #md2tex = { git = "https://github.com/lbeckman314/md2tex.git", branch = "master" }
 mdbook-latex = "0.1.3"
@@ -62,11 +63,3 @@ path = "tools/src/bin/remove_links.rs"
 [[bin]]
 name = "remove_markup"
 path = "tools/src/bin/remove_markup.rs"
-
-[workspace]
-members = [
-	"book-en",
-	"book-de",
-	#"book-es",
-	#"book-fr",
-]
