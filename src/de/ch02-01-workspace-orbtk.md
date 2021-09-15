@@ -1,4 +1,4 @@
-# Workspace OrbTK
+# Workspace OrbTk
 
 This workspace is the entry point into the framework code.
 If you are familiar with Rust code, we are following best practice.
@@ -13,7 +13,7 @@ slashes followed by an exclamation mark (`//!`).
 
 A very strong feature of the Rust toolchain is the availability of an
 inline documentation subsystem. We do use this feature extensively
-within `OrbTK`, to document every public accessible code module,
+within `OrbTk`, to document every public accessible code module,
 public functions, structure or enumeration. `Inner documentation
 blocks` conventionally start with three slashes (`///`).
 
@@ -37,7 +37,7 @@ Both principles helps quite a bit to keep a lean structure beside a
 nice developer experience. `Ease of use` is one main goal, so we
 prepare `prelude` modules, that will take care to present the most
 needed peaces accessible in your code. Using short and pregnant
-descriptors should be enough to consume the offered `OrbTK` modules
+descriptors should be enough to consume the offered `OrbTk` modules
 and functions in your code.
 
 [docs_rs]: https://docs.rs/releases/search?query=orbtk

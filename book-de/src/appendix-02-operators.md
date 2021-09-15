@@ -1,3 +1,0 @@
-# OrbTK Appendix - Operators
-
-In Arbeit...

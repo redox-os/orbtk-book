@@ -11,12 +11,12 @@ constraint changes will need to do so. Entities and their attributes will
 only require new rendering if a user interaction changes their state
 to be dirty.
 
-Lets summarize the main goals of `OrbTK` rendering infrastructure:
+Lets summarize the main goals of `OrbTk` rendering infrastructure:
 
 * API encapsulated access to all renderer functions
 
   This design decision is taken to keep freedom for further development of
-  OrbTK when it comes to support different renderers. We are able to support
+  OrbTk when it comes to support different renderers. We are able to support
 
 	* different versions of a given renderer
 	* support different renderer for different target platforms
@@ -24,7 +24,7 @@ Lets summarize the main goals of `OrbTK` rendering infrastructure:
 * 2D rendering
 
   We need a fast and complete implementation of all rendering
-  functions that are supported in the OrbTK toolkit. The following
+  functions that are supported in the OrbTk toolkit. The following
   summary is a list of `tiny-skia` provided functions:
 
   * Pixmaps
