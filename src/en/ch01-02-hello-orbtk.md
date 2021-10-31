@@ -130,8 +130,11 @@ Save the file and go back to your terminal window. Enter the following
 commands to compile and run the file:
 
 ```console
-$ cargo run --release --example orbtk_hello
+$ cargo run --release orbtk_hello
 ```
+
+> ***Note***: Perhaps the OS requires you to install the development version
+of SDL2 via the distribution package-manager (e.g. for Ubuntu: libsdl2-dev).
 
 Regardless of your operating system, a window should be placed on the screen
 that prints the string `Hey OrbTk!` in its center.
