@@ -139,8 +139,11 @@ Speicher die Datei und gehe zurück in dein Terminal Fenster. Gebe die
 folgenden Kommandos ein um das Programm zu Kompilieren und zu starten:
 
 ```console
-$ cargo run --release --example orbtk_hello
+$ cargo run --release orbtk_hello
 ```
+
+> ***Anmerkung***: Eventuell ist die Installation der Entwicklungsversion von
+SDL2 über den Paketmanager der Distribution erforderlich (Ubuntu: libsdl2-dev).
 
 Gleichgültig welches Betriebssystem du gerade verwendest, ein Fenster
 sollte sich auf dem Bildschirm öffnen, das dein Text `Hey OrbTk!`
