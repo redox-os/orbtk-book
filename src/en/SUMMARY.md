@@ -21,7 +21,7 @@
 	- [Workspace: Utilities](ch02-07-utils.md)
 
 - [OrbTk Widget Templates](ch03-00-widget-templates.md)
-	- [Template: Button](ch03-01-widget-Button.md)
+	- [Template: Button](ch03-01-widget-button.md)
 	- [Template: Canvas](ch03-02-widget-canvas.md)
 	- [Template: CheckBox](ch03-03-widget-check-box.md)
 	- [Template: ComboBox](ch03-04-widget-combo-box.md)
