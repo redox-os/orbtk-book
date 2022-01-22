@@ -57,7 +57,7 @@ the stuff the other way around!
 determine the natural size the content elements. It allows a dynamic
 approach to layout all entities inside the toolkit. No matter if the
 application logic requires to add or subdivide other entities inside
-the widget tree. Or if contents is changed though theme adaption or
+the widget tree. Or if contents is changed through theme adaption or
 user interaction: all involved entities are processed and resized as
 needed, respecting their individual constraints.
 
