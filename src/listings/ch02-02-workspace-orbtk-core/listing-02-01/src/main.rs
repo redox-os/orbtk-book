@@ -1,3 +1,4 @@
+// ANCHOR: ALL
 use orbtk::prelude::*;
 
 /*
@@ -10,22 +11,22 @@ static LOCALIZATION_ES_ES: &str = include_str!("../assets/localization/dictionar
 // ANCHOR_END: Localization
 
 fn main() {
-    // if no dictionary is set for the default language e.g. english
-    // the content of the text property will be drawn.
+    // if `dictionary` isn't set the content of the text property of
+    // the given widget will be drawn
+    // ANCHOR: Language
+    let es_es = RonLocalization::create()
+        .language("es_ES")
+        .dictionary("es_ES", LOCALIZATION_ES_ES)
+        .build();
     /* disabled german translation file
      * let _de_de = RonLocalization::create()
      *    .language("de_DE")
      *    .dictionary("de_DE", LOCALIZATION_DE_DE)
      *    .build();
      */
-    // ANCHOR: Language
-    let es_es = RonLocalization::create()
-        .language("es_ES")
-        .dictionary("es_ES", LOCALIZATION_ES_ES)
-        .build();
     // ANCHOR_END: Language
 
-    // use this only if you want to run it as web application.
+    // Asure correct initialization, if compiling as a web application
     orbtk::initialize();
 
     // ANCHOR: Application
@@ -63,3 +64,4 @@ fn main() {
         })
         .run();
 }
+// ANCHOR_END: ALL

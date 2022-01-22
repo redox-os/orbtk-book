@@ -210,8 +210,6 @@ just beenig identifiers.
 Activation of the `localization` crate inside your source code boils
 down to this short example code.
 
-Filename: localization.rs
-
 ```rust
 {{#include ./listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Localization}}
 ```
