@@ -17,7 +17,7 @@
    sodipodi:docname="orbtk_logo_dark.svg"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)">
   <title
-     id="title152">OrbTK Avatar</title>
+     id="title152">OrbTk Avatar</title>
   <metadata
      id="metadata891">
     <rdf:RDF>
@@ -26,7 +26,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>OrbTK Avatar</dc:title>
+	<dc:title>OrbTk Avatar</dc:title>
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
         <dc:date>04.04.2021</dc:date>
@@ -35,10 +35,10 @@
             <dc:title>Ralf Zerres</dc:title>
           </cc:Agent>
         </dc:creator>
-        <dc:description>OrbTK Avatar</dc:description>
+	<dc:description>OrbTk Avatar</dc:description>
         <dc:publisher>
           <cc:Agent>
-            <dc:title>The OrbTK Developer</dc:title>
+	    <dc:title>The OrbTk Developer</dc:title>
           </cc:Agent>
         </dc:publisher>
       </cc:Work>

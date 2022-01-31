@@ -4,7 +4,7 @@ Dictionary (
     // like a struct, but keys are also values instead of just beenig identifiers
     words: {
 	// Main
-	"Hey OrbTK User!": "Hallo Orbtk Anwender!",
+    "Hey OrbTk User!": "Hallo OrbTk Anwender!",
 	"Do you like it?": "Gefäll's dir?",
     }
 )
