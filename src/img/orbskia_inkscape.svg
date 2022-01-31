@@ -38,7 +38,7 @@
         <dc:description>Orbskia Logo</dc:description>
         <dc:publisher>
           <cc:Agent>
-            <dc:title>The OrbTK Developer</dc:title>
+	    <dc:title>The OrbTk Developer</dc:title>
           </cc:Agent>
         </dc:publisher>
       </cc:Work>
