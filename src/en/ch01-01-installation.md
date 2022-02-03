@@ -53,6 +53,8 @@ To install Redoxer you have to first install the rust toolchain. After that open
 
 ```bash
 cargo +nightly install redoxer
+```
+
 To compile and run your application on Redox OS you should check the Redox OS Book.
 
 ### Editor and IDE integration
