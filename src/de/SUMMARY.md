@@ -11,7 +11,7 @@
 	- [Hallo OrbTk!](ch01-02-hello-orbtk.md)
 	- [Die Bestandteile](ch01-03-ingredients.md)
 
-- [OrbTḱ Die Structur](ch02-00-workspaces.md)
+- [OrbTk Die Structur](ch02-00-workspaces.md)
 	- [Workspace: Orbtk](ch02-01-workspace-orbtk.md)
 	- [Workspace: Orbtk Core](ch02-02-workspace-orbtk-core.md)
 	- [Workspace: Orbtk Client](ch02-03-workspace-orbtk-client.md)
