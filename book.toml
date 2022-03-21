@@ -6,13 +6,10 @@ authors = [
 	"Ralf Zerres <ralf.zerres.de@gmail.com>",
 	"with Contributions from the Rust Community"
 ]
-multilingual = true
 language = "en"
-# next two lines are required, until PR #1306 lands this is a
-# workaround to create the default language using the the aimed target
-# structure with upstream version of mdbook (> 0.4.12)
-src = "src/en"
-destination = "book/en"
+
+[rust]
+edition = "2021"
 
 [build]
 create-missing = false
@@ -20,28 +17,29 @@ create-missing = false
 [output.html]
 additional-css = ["ferries.css", "theme/2020-edition.css"]
 additional-js = ["ferries.js", "mermaid.min.js", "mermaid-init.js"]
+cname = "orbtk-book.rs"
+copy-fonts = true
 curly-quotes = true
 default-theme = "light"
 edit-url-template = "https://github.com/redox-os/orbtk-book/tree/main/book/{path}"
 git-repository-url = "https://github.com/redox-os/orbtk-book/tree/main/book"
 git-repository-icon = "fa-github"
+input-404 = "en/404.md"
 prefered-dark-theme = "navy"
 mathjax-support = true
 #site-url = "/orbtk-book/"
 #theme = "navy"
 
-[output.linkcheck]
-# Should we check links on the internet? Enabling this option adds a
-# non-negligible performance impact
-follow-web-links = false
-
-# Are we allowed to link to files outside of the book's root directory? This
-# may help prevent linking to sensitive files (e.g. "../../../../etc/shadow")
-traverse-parent-directories = true
+[output.html.fold]
+enable = true
+level = 0
 
 [output.html.playground]
 editable = true
 line-numbers = true
+
+[output.html.redirect]
+"/format/config.html" = "configuration/index.html"
 
 [output.html.search]
 limit-results = 20
@@ -52,26 +50,30 @@ boost-paragraph = 1
 expand = true
 heading-split-level = 2
 
-[output.html.redirect]
-"/format/config.html" = "configuration/index.html"
+[output.linkcheck]
+## Should we check links on the internet? Enabling this option adds a
+## non-negligible performance impact
+#follow-web-links = false
+
+## Are we allowed to link to files outside of the book's root directory? This
+## may help prevent linking to sensitive files (e.g. "../../../../etc/shadow")
+#traverse-parent-directories = true
 
 [preprocessor]
 
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
 
-[language-en]
-src = "src/en"
-destination = "book/en"
+[language.en]
+name = "English"
 
-[language-de]
-src = "src/en"
-destination = "book/de"
+[language.de]
+name = "Deutsch"
+title = "Das OrbTk Book"
+description = "Das Orbital Widget Toolkit (OrbTk) ist eine Multi-Pallform Toolkit zur Erstellung skalierbarer Benutzeroberflächen. Alle Komponenten wurden nativ in der Programmiersprache Rust entwickelt."
 
-[language-es]
-src = "src/es"
-destination = "book/es"
+[language.es]
+name = "Español"
 
-[language-fr]
-src = "src/fr"
-destination = "book/fr"
+[language.fr]
+name = "Français"
