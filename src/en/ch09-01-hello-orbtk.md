@@ -1,8 +1,8 @@
 # Hello OrbTk!
 
-We have introduced this example in [Chapter 01](ch01-02-hello-orbtk.md).
-Since it is the first example, it is listed here for completeness.
-Go ahead like so:
+We already introduced the source in [Chapter 01][example_hello-orbtk].
+For the sake of completeness, and since its a habit to begin with here we go.
+Your first first experience with an `OrbTk` app:
 
 ##  The project root
 
@@ -111,12 +111,12 @@ that prints the string `Hey OrbTk!` in its center.
 
 If something is preventing to position the window, refer back to the
 
-[“Troubleshooting”][troubleshooting] <!-- ignore --> part of the
+[“Troubleshooting”][troubleshooting] part of the
 Installation section for ways to get help.
 
-If your enjoy the rendered output of your `Hey OrbTk!` app,
+If you can see the rendered output of your `Hey OrbTk!` app on screen,
 congratulations! You’ve written your first OrbTk application.
-That makes you a OrbTk programmer — welcome!
+That makes you an OrbTk programmer — welcome!
 
 ## Recap and annotation
 
@@ -268,5 +268,7 @@ If you like to get debug feedback you can call the build process like this
 ```console
 $ cargo build --features debug --bin hello_orbtk.rs
 ```
+
+[example_hello-orbtk]: https://doc.redox-os.org/orbtk-book/ch01-02-hello-orbtk.html#pdate-cargotoml
 [naming]: https://rust-lang.github.io/api-guidelines/naming.html
-[troubleshooting]: ch01-01-installation.html#troubleshooting
+[troubleshooting]: https://doc.redox-os.org/orbtk-book/ch01-01-installation.html#troubleshooting
