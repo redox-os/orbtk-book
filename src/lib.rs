@@ -187,4 +187,4 @@
 //!
 //! ![Creative Common Logo][Logo-CC_BY]
 //!
-//! © 2021 Ralf Zerres
+//! © 2021-2022 Ralf Zerres
