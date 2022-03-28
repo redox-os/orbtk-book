@@ -17,6 +17,18 @@ The Rust programming language helps you write faster and reliable software.
 It offers a single code base that compiles to native binary code that is executed
 on your target platform.
 
+<div class="warning">
+
+Warning: This book is incomplete.  Documenting everything and
+rewriting outdated parts take a while.
+See the [issue tracker] to check what's missing or outdated. If there
+are any mistakes or ideas that haven't been reported, feel free to
+open a new issue there.
+
+</div>
+
+[issue tracker]: https://github.com/redox-os/orbtk-book/issues
+
 ## Features
 
 * Modern lightweight API
