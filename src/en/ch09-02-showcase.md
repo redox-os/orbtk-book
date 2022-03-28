@@ -1,5 +1,14 @@
 # OrbTk Example Showcase
 
-This is WIP
+The `showcase` example serves a special purpose. It groups the
+available widgets of the `orbtk_widgets` crate.
 
-Please document the example application showcase.rs
+You will find followin subsections:
+
+* Button / Text
+* Items
+* Layouts
+* Image
+* Localization
+* Navigation
+* Interactive
