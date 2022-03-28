@@ -145,7 +145,7 @@ that prints the string `Hey OrbTk!` in its center.
 
 If something is preventing to position the window, refer back to the
 
-[“Troubleshooting”][troubleshooting] <!-- ignore --> part of the
+[“Troubleshooting”][troubleshooting] part of the
 Installation section for ways to get help.
 
 If your enjoy the rendered output of your `Hey OrbTk!` app,
@@ -159,7 +159,7 @@ OrbTk!”  application.
 
 For now it should be sufficient to disenchant the first puzzle pieces.
 If you like to understand the structure in a more generic way, in [Chapter
-Workspace](./ch02-05-workspace-orbtk-widgets.md) we are going to provide the details.
+Workspace][workspace] we are going to provide the details.
 
 ```rust,ignore
 {{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Use}}
@@ -305,4 +305,5 @@ If you like to get debug feedback you can call the build process like this
 $ cargo build --features debug --bin hello_orbtk.rs
 ```
 [naming]: https://rust-lang.github.io/api-guidelines/naming.html
-[troubleshooting]: ch01-01-installation.html#troubleshooting
+[troubleshooting]: https://doc.redox-os.org/orbtk-book/ch01-01-installation.html#troubleshooting
+[workspace]: https://doc.redox-os.org/orbtk-book/ch02-05-workspace-orbtk-widgets.html
