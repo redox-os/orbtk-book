@@ -87,7 +87,7 @@ runtime. The `view` of the widget will stay static.
 When defining a `state` of a widget, it inherits the values of its
 associated properties (`current values`), as well as the implemented
 system. To gain access, each state has to derive or implement the
-[`Default`] and the [`AsAny`] traits. You are free to implement
+`Default` and the `AsAny` traits. You are free to implement
 associated functions to the `state`, that react on triggered events or
 adapt current values. The `properties` are stored via ECM. They are
 organized in a tree (parent, children or level entities).
@@ -184,7 +184,9 @@ designed to handle the specific demands of a given widget type:
 * Stack
 
 You can find the relevant code inside the `orbtk_core` workspace. The methods are inside the sub-directory `layout`.
-Further information towards this methods are discussed in [Chapter: Ortk_core](ch02-02-workspace-orbtk-core.md#layout).
+Further information towards this methods are discussed in [Chapter: Orbtk_core][layout].
+
+[layout]: https://doc.redox-os.org/orbtk-book/ch02-02-workspace-orbtk-core.html#layout
 
 ### Events
 

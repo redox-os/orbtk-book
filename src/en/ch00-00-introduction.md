@@ -162,10 +162,9 @@ doesn’t compile.
 The source files from which this book is generated can be found on
 the Homepage at [Orbtk book (en)][orbtk_book_en].
 
-[orbtk_book_en]: https://github.com/redox-os/orbtk-book/src/en
+[orbtk_book_en]: https://github.com/redox-os/orbtk-book/tree/main/src/en
 
 <!---
-[orbtk_book_en]: https://www.redox-os.org/orbtk-book/book/en
-[book]: https://github.com/redox-os/orbtk-bok
+[book]: https://github.com/redox-os/orbtk-book
 [book]: https://github.com/redox-os/orbtk/book/tree/master/src
 -->

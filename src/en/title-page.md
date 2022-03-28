@@ -35,7 +35,7 @@ mdbook build --dest-dir doc/book_en --open
 This text is available in [paperback and ebook format from No Starch Press][nsprust].
 -->
 
-[install]: ch01-01-installation.html
+[install]: https://doc.redox-os.org/orbtk-book/ch01-01-installation.html
 [nsprust]: https://nostarch.com/orbtk
 [orbtk_book_en]: https://www.redox-os.org/orbtk-book/book-en/doc/book-en
 
