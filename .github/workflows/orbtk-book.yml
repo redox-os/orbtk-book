@@ -1,0 +1,294 @@
+name: OrbTk-Book
+
+on:
+  # trigger for any new pull request
+  pull_request:
+  # trigger on pushes with changes to branch master
+  push:
+    branches:
+      # we need to use `master`, since github pages can't handle other branches
+      - master
+  # trigger manually trigger from the Actions tab
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ORBTK_BOOK_DEST_DIR: public
+  ORBTK_BOOK_TEST_FILE: ch03-01-widget-button.html
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        rust: [stable]
+
+    steps:
+    - name: Checkout repro
+      uses: actions/checkout@v3
+
+    # nice reusable workflow to get rust ready
+    - name: Setup rust toolchain
+      uses: hecrj/setup-rust-action@v1
+      with:
+        rust-version: ${{ matrix.rust }}
+
+    - name: Cache rust and cargo builds
+      id: cache_cargo
+      uses: actions/cache@v3
+      with:
+        key: ${{ runner.os }}-cache_cargo-${{ hashFiles('**/Cargo.lock') }}
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+          target/
+
+    - name: Build and install `mdbook` binary (with localization support)
+      if: steps.cache_cargo.outputs.cache-hit != 'true'
+      id: mdbook
+      shell: bash
+      run: |
+        # compile given git branch `localization` from repo `Ruin0x11` and install it as `mdbook` binary
+        cargo install --branch localization --git https://github.com/Ruin0x11/mdbook --version 0.4.15 mdbook
+
+    - name: Build and install `mdbook-mermaid` binary
+      if: steps.cache_cargo.outputs.cache-hit != 'true'
+      id: mdbook-mermaid
+      run: cargo install mdbook-mermaid
+
+    # working on a branch of mdbook-linkcheck that respects the language structure of a book
+    #- name: Build and install `mdbook-linkcheck` binary
+    #  if: steps.cache_cargo.outputs.cache-hit != 'true'
+    #  id: mdbook-linkcheck
+    #  run: cargo install mdbook-linkcheck
+
+    - name: Build and install `orbtk-book` helper binaries (all features)
+      if: steps.cache_cargo.outputs.cache-hit != 'true'
+      id: orbtk-book-helpers
+      run: cargo install --all-features --path .
+
+    - name: Show binary version used to produce `orbtk-book`
+      run: |
+        which mdbook
+        which mdbook-mermaid
+        #which mdbook-linkcheck
+
+    - name: Upload binaries used for `orbtk-book` (orbtk_book_binaries)
+      uses: actions/upload-artifact@v3
+      with:
+        name: orbtk_book_binaries
+        path: ~/.cargo/bin/
+        #if-no-files-found: error
+        retention-days: 5
+
+  lint:
+    needs: build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        rust: [stable]
+
+    steps:
+    - name: Checkout repro
+      uses: actions/checkout@v3
+
+    - name: Download archived binaries (orbtk_book_binaries)
+      uses: actions/download-artifact@v3
+      with:
+        name: orbtk_book_binaries
+        path: ~/.cargo/bin
+
+    - name: Update execution permission for archived binaries (orbtk_book_binaries)
+      run: |
+        # hint: artefacts loose any execution bits when uploaded!
+        sudo chmod 0755 ~/.cargo/bin/mdbook*
+        #ls -l ~/.cargo/bin/mdbook*
+        mdbook --version
+        mdbook-mermaid --version
+
+    # - name: Show binary version used to produce `orbtk-book`
+    #   run: |
+    #     ls -l ~/.cargo/bin/
+    #     which mdbook
+    #     which mdbook-mermaid
+
+    - name: Check the format of given rust code
+      run: |
+        cargo fmt --all -- --check
+
+  test:
+    #if: ${{ false }}  # uncomment to disable job run
+    needs: build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        rust: [stable]
+        language: [en, de]
+
+    steps:
+    - name: checkout repro
+      uses: actions/checkout@v3
+    - name: setup rust toolchain
+      uses: hecrj/setup-rust-action@v1
+      with:
+        rust-version: ${{ matrix.rust }}
+
+    - uses: actions/checkout@v2
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: ${{ matrix.rust }}
+    - uses: actions-rs/cargo@v1
+      with:
+        command: build
+        args: --release --all-features
+
+    - name: Download archived cargo artifac
+      uses: actions/download-artifact@v3
+      with:
+        name: orbtk_book_binaries
+        path: ~/.cargo/bin
+        retention-days: 5
+
+    - name: Update execution permission for archived binaries (orbtk_book_binaries)
+      run: |
+        # hint: artefacts loose any execution bits when uploaded!
+        sudo chmod 0755 ~/.cargo/bin/mdbook*
+        #ls -l ~/.cargo/bin/mdbook*
+        mdbook --version
+        mdbook-mermaid --version
+
+    - if: ${{ matrix.language }}
+      name: Test book for language ${{ matrix.language }}
+      run: |
+        mdbook-mermaid install
+        mdbook test --language ${{ matrix.language }} --dest-dir $ORBTK_BOOK_DEST_DIR/${{ matrix.orbtk_book_dest_dir }}/${{ matrix.language }}
+
+  render-books:
+    #if: ${{ false }}  # uncomment to disable job run
+    needs: [build, lint]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        rust: [stable]
+        language: [en, de]
+
+    steps:
+    - name: checkout repro
+      uses: actions/checkout@v3
+
+    - name: Download archived binaries (orbtk_book_binaries)
+      uses: actions/download-artifact@v3
+      with:
+        name: orbtk_book_binaries
+        path: ~/.cargo/bin
+
+    - name: Update execution permission for archived binaries (orbtk_book_binaries)
+      run: |
+        # hint: artefacts loose any execution bits when uploaded!
+        sudo chmod 0755 ~/.cargo/bin/mdbook*
+        mdbook --version
+        mdbook-mermaid --version
+        #mdbook-linkcheck --version
+        find ~ -name book.toml -print
+
+    - if: ${{ matrix.language }}
+      name: Build book for language ${{ matrix.language }}
+      run: |
+        mdbook-mermaid install
+        mdbook build --language ${{ matrix.language }} --dest-dir ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR }}/${{ matrix.language }}
+
+    - name: List book samples for language ${{ matrix.language }}
+      run: |
+        if [ -f ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR }}/${{ matrix.language }}/${{ env.ORBTK_BOOK_TEST_FILE}} ]; then
+          echo Sample output: ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR }}/${{ matrix.language }}/$ORBTK_BOOK_TEST_FILE
+          head -7 ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR }}/${{ matrix.language }}/${{ env.ORBTK_BOOK_TEST_FILE}}
+        fi
+        rendered_files=`ls -lR ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR}}/${{ matrix.language }} | wc --lines`
+        echo "Rendered files for book ${{ matrix.language }}: $rendered_files"
+
+    - name: Upload rendered html files for `orbtk-book` (orbtk_book_pages_${{ matrix.language }})
+      uses: actions/upload-artifact@v3
+      with:
+        name: orbtk_book_pages_${{ matrix.language }}
+        path: ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR }}/
+        if-no-files-found: error
+        retention-days: 5
+
+  publish-gh-pages:
+    #if: ${{ false }}  # uncomment to disable job run
+    needs: [render-books]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        rust: [stable]
+        language: [en, de]
+        #language: [en]
+
+    steps:
+    - name: Checkout repro
+      uses: actions/checkout@v2
+
+    - name: Check GitHub Pages status
+      uses: crazy-max/ghaction-github-status@v2
+      with:
+        pages_threshold: major_outage
+
+    #- name: Setup git secret
+    #  run: |
+    #    # lets install `install git-secret`
+    #    sudo apt-get update && sudo apt-get install -y git-secret
+    #    # assign environment
+    #    echo $GPG_PRIVATE_KEY | tr ',' '\n' > ./private_key.gpg
+    #    echo $GPG_PASSPHRASE
+    #    gpg --import private_key.gpg
+
+    - name: Import GPG key
+      uses: crazy-max/ghaction-import-gpg@v4
+      with:
+        # Howto prepare the secrets: <your_repo_at_github> -> settings -> secrets -> new/update
+        gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        git_user_signingkey: true
+        git_commit_gpgsign: true
+    - name: List secret keys
+      run: gpg --list-secret-keys
+
+    - name: Download rendered html files (orbtk_book_pages)
+      uses: actions/download-artifact@v3
+      with:
+        name: orbtk_book_pages_${{ matrix.language }}
+        path: ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR }}
+
+    - name: List book samples (Language '${{ matrix.language }}')
+      if: ${{ matrix.language }}
+      run: |
+        # check if widget section is available
+        if [ -f ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR }}/${{ matrix.language }}/${{ env.ORBTK_BOOK_TEST_FILE}} ]; then
+          echo Sample output: ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR }}/${{ matrix.language }}/$ORBTK_BOOK_TEST_FILE
+          head -7 ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR }}/${{ matrix.language }}/${{ env.ORBTK_BOOK_TEST_FILE}}
+        fi
+        rendered_files=`ls -lR ${{ github.workspace }}/${{ env.ORBTK_BOOK_DEST_DIR}}/${{ matrix.language }} | wc --lines`
+        echo "Will publish $rendered_files files for book ${{ matrix.language }}"
+
+    - name: Push to branch gh-pages (Language '${{ matrix.language }}')
+      # Activate Github Pages Usage in the repro and enable jekyll!
+      # Pages -> Source -> gh-pages
+      # This will trigger publishing from the gh-pages branch to the GH-domain.
+      uses: crazy-max/ghaction-github-pages@v2
+      with:
+        target_branch: gh-pages
+        build_dir: ${{ env.ORBTK_BOOK_DEST_DIR }}
+        #dry_run: true
+        verbose: true
+        #jekyll: false
+        keep_history: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
