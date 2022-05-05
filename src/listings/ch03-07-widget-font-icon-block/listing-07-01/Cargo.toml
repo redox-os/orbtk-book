@@ -1,0 +1,38 @@
+[package]
+name = "orbtk_widget_font_icon_block"
+version = "0.3.1-alpha5"
+authors = [
+	"Florian Blasius <flovanpt@posteo.de>",
+	"Ralf Zerres <ralf.zerres.de@gmail.com>",
+]
+description = "OrbTk - Widget FontIconBlock"
+documentation = "https://docs.rs/orbtk"
+repository = "https://github.com/redox-os/orbtk"
+readme = "README.md"
+license = "MIT"
+keywords = [
+	"orbital",
+	"widget",
+	"ui",
+]
+edition = "2018"
+
+[profile.dev]
+opt-level = 1
+
+[features]
+debug = ["dep:orbtk_core"]
+
+[dependencies.orbtk]
+git = "https://github.com/redox-os/orbtk.git"
+branch = "develop"
+
+[dependencies.orbtk_core]
+git = "https://github.com/redox-os/orbtk.git"
+branch = "develop"
+features = ["debug"]
+optional = true
+
+[[bin]]
+name = "orbtk_widget_font_icon_block"
+path = "src/main.rs"
