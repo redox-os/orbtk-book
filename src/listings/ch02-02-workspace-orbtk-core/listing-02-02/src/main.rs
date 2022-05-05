@@ -1,8 +1,12 @@
 use orbtk:: {
     prelude::*,
     shell::{Key, KeyEvent},
-    widgets::behaviors::MouseBehavior,
+    //widgets::behaviors::MouseBehavior,
 };
+
+// ANCHOR: Localization
+static LOCALIZATION_DE_DE: &str = include_str!("../assets/localization/dictionary_de_DE.ron");
+// ANCHOR_END: Localization
 
 // [KeyboardState]
 
@@ -27,8 +31,8 @@ impl State for KeyboardState {
                     match key_event.key {
                         Key::Control => {
                             // Ctrl+'a'
-                            if key_event.Key::A(false) {
-                                self.handle_control_a(ctx);
+                            if key_event.key == Key::A(true) {
+                                self.handle_ctrl_a(ctx);
                             }
                         }
                         Key::Down => {
@@ -60,33 +64,42 @@ impl State for KeyboardState {
 
 // associated functions
 impl KeyboardState {
-    fn action(&mut self, action: DirectoryListAction) {
+    fn action(&mut self, action: KeyboardAction) {
         self.action = Some(action);
     }
 
-    fn handle_down_key(&mut self, ctx: &mut Context<'_>) {
-        /// here goes your rust code to act on `Key::Down`
+    fn handle_ctrl_a(&mut self, _ctx: &mut Context<'_>) {
+        // here goes your rust code to act on `Ctrl+a`
+        println!("Handle: `Key::Ctr` + `Key:A`")
+    }
+
+    fn handle_down_key(&mut self, _ctx: &mut Context<'_>) {
+        // here goes your rust code to act on `Down`
         println!("Handle: `Key::Down`")
     }
 
-    fn handle_enter_key(&mut self, ctx: &mut Context<'_>) {
-        /// here goes your rust code to act on `Key::Enter`
+    fn handle_enter_key(&mut self, _ctx: &mut Context<'_>) {
+        // here goes your rust code to act on `Enter`
         println!("Handle: `Key::Enter`")
     }
 
-    fn handle_left_key(&mut self, ctx: &mut Context<'_>) {
-        /// here goes your rust code to act on `Key::Left`
+    fn handle_left_key(&mut self, _ctx: &mut Context<'_>) {
+        // here goes your rust code to act on `Left`
         println!("Handle: `Key::Left`")
     }
 
-    fn handle_right_key(&mut self, ctx: &mut Context<'_>) {
-        /// here goes your rust code to act on `Key::Right`
+    fn handle_right_key(&mut self, _ctx: &mut Context<'_>) {
+        // here goes your rust code to act on `Key::Right`
         println!("Handle: `Key::Right`")
     }
 
-    fn handle_up_key(&mut self, ctx: &mut Context<'_>) {
-        /// here goes your rust code to act on `Key::Up`
+    fn handle_up_key(&mut self, _ctx: &mut Context<'_>) {
+        // here goes your rust code to act on `Up`
         println!("Handle: `Key::Up`")
+    }
+
+    fn request_focus(&mut self, _ctx: &mut Context<'_>) {
+        println!("You did request focus!")
     }
 }
 
@@ -103,9 +116,9 @@ fn main() {
      *    .build();
      */
     // ANCHOR: Language
-    let es_es = RonLocalization::create()
-        .language("es_ES")
-        .dictionary("es_ES", LOCALIZATION_ES_ES)
+    let de_de = RonLocalization::create()
+        .language("de_DE")
+        .dictionary("de_DE", LOCALIZATION_DE_DE)
         .build();
     // ANCHOR_END: Language
 
@@ -114,16 +127,16 @@ fn main() {
 
     // ANCHOR: Application
     Application::new()
-        .localization(es_es)
+        .localization(de_de)
         // ANCHOR_END: Application
         .window(|ctx| {
             Window::new()
-                .title("OrbTk-Book - Chapter 2.2")
+                .title("OrbTk-Book - Chapter 2.2.2")
                 .position((100.0, 100.0))
                 .size(450.0, 140.0)
                 .child(
                     Stack::new()
-                        .spacing(8)
+                        .spacing(16)
                         .v_align("center")
                         .child(
                             TextBlock::new()
@@ -134,11 +147,30 @@ fn main() {
                                 .build(ctx)
                         )
                         .child(
-                            TextBlock::new()
-                                .font_size(28)
-                                .h_align("center")
-                                .text("Do you like it?")
-                                .v_align("center")
+                            Container::new()
+                                .padding((64, 0, 32, 0))
+                                .child(
+                                    Stack::new()
+                                        .spacing(16)
+                                        .orientation("horizontal")
+                                        .v_align("left")
+                                        .child(
+                                            TextBlock::new()
+                                                .font_size(22)
+                                                .h_align("left")
+                                                .text("How are you today?")
+                                                .v_align("center")
+                                                .build(ctx)
+                                        )
+                                        .child(
+                                            TextBox::new()
+                                                .font_size(22)
+                                                .h_align("left")
+                                                .v_align("center")
+                                                .build(ctx)
+                                        )
+                                        .build(ctx)
+                                )
                                 .build(ctx)
                         )
                         .build(ctx)

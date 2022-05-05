@@ -35,7 +35,7 @@ fn main() {
         // ANCHOR_END: Application
         .window(|ctx| {
             Window::new()
-                .title("OrbTk-Book - Chapter 2.2")
+                .title("OrbTk-Book - Chapter 2.2.1")
                 .position((100.0, 100.0))
                 .size(450.0, 140.0)
                 .child(
