@@ -58,8 +58,8 @@
 //! You can force the installation of a given version number
 //! with:
 //!
-//! ```
-//! console $ cargo install mdbook --vers 0.4.12 mdbook-linkchecker mdbook-mermaid
+//! ```console
+//! $ cargo install --branch localization --git https://github.com/Ruin0x11/mdbook --version 0.4.15 mdbook mdbook-linkchecker mdbook-mermaid
 //! ```
 //!
 //! ### Cargo handled README

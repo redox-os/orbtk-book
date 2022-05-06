@@ -19,13 +19,16 @@ walkdir = "2.3.1"
 
 [build-dependencies]
 cargo-readme = "3.2.0"
-mdbook = "~0.4.12"
-mdbook-mermaid = "0.8.3"
-
+mdbook-mermaid = "0.10.0"
 #mdbook-latex = "^0.1"
 #md2tex = { git = "https://github.com/lbeckman314/md2tex.git", branch = "master" }
 mdbook-latex = "0.1.3"
 #mdbook-latex = { git = "https://github.com/lbeckman314/mdbook-latex.git", branch = "master" }
+
+[build-dependencies.mdbook]
+branch = "localization"
+git =  "https://github.com/Ruin0x11/mdbook"
+version = "0.4.15"
 
 [output.html]
 
