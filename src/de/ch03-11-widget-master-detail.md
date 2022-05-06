@@ -1,0 +1,1 @@
+../en/ch03-11-widget-master-detail.md

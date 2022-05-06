@@ -55,9 +55,9 @@ rendering`. This is a complex task and by the time of writing a
 complete library addressing this issue isn't available.
 The Rust community has developed building blocks, like
 
-* [X] a Font parser: ttf-parser.
-* [X] a Text shaper: rustybuzz or all-sorts.
-* [X] a Font database: fontdb (supporting a font fallback mechanism).
+* a Font parser: ttf-parser.
+* a Text shaper: rustybuzz or all-sorts.
+* a Font database: fontdb (supporting a font fallback mechanism).
 
 The missing peace, beside the glue code to use the components inside
 orbtk_tinyskia is a high-quality `glyph rasterization

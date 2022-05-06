@@ -1,8 +1,8 @@
 # Einführung
 
 <!--
-> Hinweis: Diese Ausgabe des Buches ist identisch mit dem [The Orbital Widget Toolkit]
-> [nsprust], das in gedruckter Form sowie als E-Book bei [No Starch Press][nsporbtk] erhältlich ist.
+> Hinweis: Diese Ausgabe des Buches ist identisch mit dem [The Orbital Widget Toolkit][nsporbtk],
+> das in gedruckter Form sowie als E-Book bei [No Starch Press][nsporbtk] erhältlich ist.
 
 [nsporbtk]: https://nostarch.com/orbtk
 [nsp]: https://nostarch.com/
@@ -116,7 +116,7 @@ darüber denkt. Wenn Du völlig neu in der Programmierung bist, wäre
 es besser, wenn Du zunächstein Buch zur Hand nimmst, das speziell die
 Einführung in die Programmierung zum Thema hat. Auch hier gibt es von der
 Rust-Gemeinschaft bereits einige Anstrengungen, wie z.B. [Rust By
-Example] https://doc.rust-lang.org/stable/rust-by-example/.
+Example](https://doc.rust-lang.org/stable/rust-by-example/).
 
 ## Wie man dieses Buch benutzt
 

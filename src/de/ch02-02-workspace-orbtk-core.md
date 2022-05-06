@@ -212,7 +212,7 @@ down to this short example code.
 
 Filename: localization.rs
 
-```rust
+```rust,ignore
 {{#include ./listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Localization}}
 ```
 
@@ -221,7 +221,7 @@ We do define two language identifiers:
 * _de_de: referencing a ron file with german translation strings
 * _es_es: referencing a ron file with spanish translation strings
 
-```rust
+```rust,ignore
 {{#include ./listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Application}}
 ```
 When creating the Application block, we do pipe in the localization property.
@@ -230,7 +230,7 @@ The [**showcase**][example_showcase] example inside the orbtk source code
 implements a tab widget, that offers a dropdown list, to dynamically change
 the active language variant.
 
-```rust
+```rust,ignore
 {{#include ./listings/ch02-02-workspace-orbtk-core/listing-02-01/src/main.rs:Language}}
 ```
 
