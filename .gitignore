@@ -16,9 +16,15 @@ target
 README.md
 
 // the render directories
-# book
-book
-doc
+docs
+public
 
 // modules
 wiki
+
+// javascritp artefacts
+*.js
+
+// incomplete translations
+src/es
+src/fr
