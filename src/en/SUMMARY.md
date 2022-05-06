@@ -52,9 +52,9 @@
 - [OrbTk Examples](ch09-00-orbtk-examples.md)
 	- [Hello OrbTk!](ch09-01-hello-orbtk.md)
 	- [Showcase](ch09-02-showcase.md)
-	- [Draft Message handling](ch09-03-msg-handling.md)
-	- [Draft Popups](ch09-04-popups.md)
-	- [Draft Table View](ch09-05-tableview.md)
+	- [Message handling](ch09-03-msg-handling.md)
+	- [Popups](ch09-04-popups.md)
+	- [Tableview](ch09-05-tableview.md)
 
 - [Appendix](appendix-00.md)
 	- [A - Keywords](appendix-01-keywords.md)
