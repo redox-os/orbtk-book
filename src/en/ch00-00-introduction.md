@@ -2,8 +2,9 @@
 
 <!--
 > WIP: to be uncommented, once it is done
-> Note: This edition of the book is the same as [The Orbital Widget Toolkit]
-> [nsprust] available in print and ebook format from [No Starch Press][nsporbtk].
+> Note: This edition of the book is the same as
+> [The Orbital Widget Toolkit][nsporbtk] available in print
+> and ebook format from [No Starch Press][nsporbtk].
 
 [nsporbtk]: https://nostarch.com/orbtk
 [nsp]: https://nostarch.com/
@@ -162,9 +163,8 @@ doesn’t compile.
 The source files from which this book is generated can be found on
 the Homepage at [Orbtk book (en)][orbtk_book_en].
 
-[orbtk_book_en]: https://github.com/redox-os/orbtk-book/tree/main/src/en
+[orbtk_book_en]: https://github.com/redox-os/orbtk-book/tree/master/src/en
 
 <!---
 [book]: https://github.com/redox-os/orbtk-book
-[book]: https://github.com/redox-os/orbtk/book/tree/master/src
 -->
