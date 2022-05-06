@@ -24,7 +24,6 @@ default-theme = "light"
 edit-url-template = "https://github.com/redox-os/orbtk-book/tree/main/book/{path}"
 git-repository-url = "https://github.com/redox-os/orbtk-book/tree/main/book"
 git-repository-icon = "fa-github"
-input-404 = "en/404.md"
 prefered-dark-theme = "navy"
 mathjax-support = true
 #site-url = "/orbtk-book/"
@@ -51,13 +50,17 @@ expand = true
 heading-split-level = 2
 
 [output.linkcheck]
+optional = true
 ## Should we check links on the internet? Enabling this option adds a
 ## non-negligible performance impact
 #follow-web-links = false
 
 ## Are we allowed to link to files outside of the book's root directory? This
 ## may help prevent linking to sensitive files (e.g. "../../../../etc/shadow")
-#traverse-parent-directories = true
+traverse-parent-directories = false
+
+## How should warnings be treated
+warning-policy = "warn"
 
 [preprocessor]
 
