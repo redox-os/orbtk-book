@@ -84,9 +84,9 @@ direction. A [**TextBlock**][widget_textblock] is used to render a
 header text above the **FontIconBlock** child. This is the part of the
 code, that we are finally interested in.
 
-[widget_container]: ch03-05-widget-container.md
-[widget_stack]: ch03-21-widget-stack.md
-[widget_textblock]: ch03-24-widget-textblock.md
+[widget_container]: https://doc.redox-os.org/orbtk-book/ch03-05-widget-container.html
+[widget_stack]: https://doc.redox-os.org/orbtk-book/ch03-21-widget-stack.html
+[widget_textblock]: https://doc.redox-os.org/orbtk-book/ch03-24-widget-textblock.html
 
 ### OrbTk widget specific: **FontIconBlock**
 

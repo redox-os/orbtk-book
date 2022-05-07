@@ -144,9 +144,8 @@ that prints the string `Hey OrbTk!` in its center.
 <span class="caption">Image 1-2: Application window and `Hey OrbTk`</span>
 
 If something is preventing to position the window, refer back to the
-
-[“Troubleshooting”][troubleshooting] part of the
-Installation section for ways to get help.
+[“Troubleshooting”][troubleshooting] part of the Installation section for
+ways to get help.
 
 If your enjoy the rendered output of your `Hey OrbTk!` app,
 congratulations! You’ve written your first OrbTk application.

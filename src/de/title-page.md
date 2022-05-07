@@ -12,7 +12,7 @@ nachfolgend verwendest. *Cargo.toml* sollte in den Metadaten
 `edition="2018"` definieren. Dies ermöglicht die Nutzung von Rust 2018
 Edition spezifischen Konstrukten in allen abgeleiteten Projekten.
 
-Vgl. [“Installations” Abschnitt in Kapitel 1][install]<!-- ignore -->
+Vgl. [“Installations” Abschnitt in Kapitel 1][install]
 um OrbTk zu installieren oder zu aktualisieren.
 
 The 2020 Edition diese Buchs ist das erste erstelle Release. Es wird
@@ -38,6 +38,6 @@ mdbook build --dest-dir doc/book_de
 Dieser Text wird in [gedrucketer Form und als ebook bei No Starch Press][nsprust] veröffentlicht.
 -->
 
-[install]: ch01-01-installation.html
+[install]:  https://doc.redox-os.org/orbtk-book/de/ch01-01-installation.html
 [nsprust]: https://nostarch.com/orbtk
 [orbtk_book_de]: https://www.redox-os.org/orbtk-book/book-de/doc/book-de

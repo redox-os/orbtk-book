@@ -1,9 +1,5 @@
 # Die Bestandteile
 
-> WIP: es fehlt eine graphische Repräsentation der Struktur!
-
-<!-- toc -->
-
 `OrbTk` stellt eine [interactive functional reactive][functional_reative]
 API bereit. Es hängt dabei elementar vom Rust crate [`DCES`][dces] ab, welches
 ein Entity Component System bereitstellt. Die Interaction mit `DCES` wird vom
@@ -14,6 +10,106 @@ ein Entity Component System bereitstellt. Die Interaction mit `DCES` wird vom
 
 [dces]: https://docs.rs/dces
 [functional_reative]: https://en.wikipedia.org/wiki/Functional_reactive_programming
+
+## The widget view
+
+```mermaid
+graph TD;
+	View-->Widget-Container_1;
+	View-->Widget-Container_2;
+	Widget-Container_1-->Child-Widget1_1;
+	Widget-Container_1-->Child-Widget1_2;
+	Widget-Container_1-->Child-Widget1_n;
+	Widget-Container_2-->Child-Widget2_1;
+	Widget-Container_2-->Child-Widget2_2;
+	Widget-Container_2-->Child-Widget2_n;
+```
+<span class="caption">Workflow 1-1: Verarbeitung-Methoden `Ansicht`</span>
+
+Wenn Du eine OrbTK Anwendung erstellst kombinierst Du letztlich
+`widgets`.  Widgets sind die Kern-Bausteine von Benutzer
+Schnittstellen in OrbTK in denen eine bestimmte Aufgabe verarbeitet
+wird. Das vorhandene Modell ist dynamisch strukturiert. Es ist legitim
+und ohne weiteres möglich Deine eigenen Widget-Typen zu
+erstellen, oder aber auf die vordefinierten Implementierungen
+zurückzugreifen.
+
+Um einen `widget-tree` zu erzeugen könntest Du beispielsweise einen
+`ListView` erstellen. Der `Listview` seinerseits verwendet als
+Kind-Widget eine `TextBox` die wiederum als Kind-Widget einen `Button`
+nutzt. Letztlich hast Du so ein ein hierarchisch geordnete
+Benutzer-Schnittstelle geschaffen (einen `view`), der den für den
+Anwender einen sichtbaren Teil Deiner Anwendung repräsentiert. Ein
+widget-tree wird in eine eindeutig adressierbaren `widget-container`
+eingebunden.
+
+### Widget trait
+
+Ein widget muss zwingend ein Widget trait erzeugen. Hierzu hilft das Makro
+`widget!()`.
+
+Ein widget besteht zunächst aus einem Namen (z.B. `Button`) und
+einer Liste von Eigenschaften die angebunden sind (z.B `text: String`,
+`background: Brush` oder `count: u32`). Wird die `build()` Methode in
+einem widget aufgerufen, wird dieses widget zusammen mit seinen
+Komponenten im Entity Component System registriert. Diese
+Registrierung weist ihm als `Entity` einen eindeutigen Index-Wert zu.
+Dieser `Entity` werden nun die zugewiesenen `Components`, als
+Komponenten-Namen zugeordnet und ebenfalls im ECS gespeichert.
+Der widget-container stellt hierbei die erforderliche builder Struktur.
+
+### Widget Template
+
+Jedes widget muss zwingend das `Template` trait implementieren. Das
+*template* definiert neben dem Strukturaufbau auch die Standardwerte
+der zugewiesenen *widget* Eigenschaften (seine **properties**).
+Nehmen wir zum Beispiel einen Button, der sich aus einem Container
+Widget, einem StackPanel Widget und einem TextBox Widget
+zusammensetzt.
+
+Ein ganz wesentlicher Konzeptbaustein von OrbTK ist dabei die
+Trenneung eines `views`, also der beschreibenden Natur eines
+Widget-Baums, von den Methoden die auf Benutzereingaben in der GUI
+reagieren und sie verarbeiten (der Widget `state`). Diese Trennung ist
+der Schlüssel für eine schnelle, flexible und erweiterbare Struktur
+innerhalb von OrbTk.
+
+## Der widget state
+
+```mermaid
+graph TD;
+	State-->init;
+	State-->update;
+	State-->cleanup;
+	update-->message;
+	message-->layout;
+	layout-->update_post_layout;
+
+```
+<span class="caption">Workflow 1-2: Verarbeitungs-Methoden `State`</span>
+
+Widgets verwenden traits, die erst eine interaktive Verarbeitung
+ermöglichen.  Wie bezeichnen sie den Widget `state`. Innerhalb der
+`state` Methoden definieren wir den Verarbeitungs- und
+Kontroll-Quellcode, der an eine eindeutige Aufgabe geknüpft ist.
+
+Es ist **nicht** erforderlich, einen `state` für ein Widget zu
+definieren. Existiert kein `state` zu einem Widget beschneidest Du
+damit aber die Möglichkeit eigenschaften während der Laufzeit
+programmatisch zu verändern. Der `view` diese Widgets bleibt damit
+statisch.
+
+Definierst du einen Widget `state`, ererbt dieser neben den
+implementierten Systemen auch die Werte der zugewiesenen Eigenschaften
+(`current values` of properties). Um den programmatischen Zugriff auf
+die Werte zu erhalten, muss jeder state die `Default` oder `AsAny`
+traits erzeugen, bzw. ableiten (via `derive` macro). Du kannst für
+einen `state` beliebige assoziierte Funktionen (`methods`) erzeugen,
+die sowohl auf Ereignisse der zugeordneten Systeme reagieren
+(z.B. `messages`, `events`) oder auch die aktuellen Werte der
+Eigenschaften verändern können. Die Eigenschaften (`properties`) sind
+im ECM gespeichert, deren Aufbau sich an der Baum Struktur orientiert
+(parent, children or level entities).
 
 ## GUI Elements
 
@@ -101,14 +197,18 @@ Widget-Typen zu berücksichtigen:
 * Stack
 
 Du findest deren Quellcode im Workspace `orbtk_core` im Unterverzeichnis `layout`.
-Weitere Informationen zu diesen Methoden werden im [Kapitel: Orbtk Core](ch02-02-workspace-orbtk-core.md) besprochen.
+Weitere Informationen zu diesen Methoden werden im
+[Kapitel: Orbtk Core][layout] besprochen.
+
+[layout]: https://doc.redox-os.org/orbtk-book/ch02-02-workspace-orbtk-core.html#layout
 
 ### Events
 
 * bottom-up
 
-Ein Ereignis wandert bei der Verarbeitung vom Auftreten am Blatt des Enitätenbaums (`leaf entity`) zum
-Stamm (`root entity`). Also von Unten nach Oben - oder von Aussen nach Innen.
+Ein Ereignis wandert bei der Verarbeitung vom Auftreten am Blatt des
+Enitätenbaums (`leaf entity`) zum Stamm (`root entity`). Also von
+Unten nach Oben - oder von Aussen nach Innen.
 
 * top-down
 
@@ -119,11 +219,15 @@ von Oben nach Unten - oder von Innen nach Außen.
 ### Behaviours
 
 Es existieren diffenzierte Methoden für die Bearbeitung logisch gruppierter Ereignisse.
-Hierzu zählen derzeit die Ereignisklassen
+Hierzu zählen derzeit die Ereignis-Klassen
 
 * Mouse Behaviors
 * Selection Behaviors
 * Text Behaviors
+
+Die Ereignisse können sowohl von Eingabe-Geräten (z.B. Tastatur, Maus)
+aber auch aus der funktionalen Logik heraus erzeugt werden (z.B. durch Fokus
+Änderung, Textanpassungen, etc.)
 
 ### Messages
 

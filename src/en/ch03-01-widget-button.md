@@ -83,9 +83,9 @@ direction. [**TextBlocks**][widget_textblock] are used to render some
 header text above the **Button** children. This is the part of the
 code, that we are finally interested in.
 
-[widget_container]: ch03-05-widget-container.md
-[widget_stack]: ch03-21-widget-stack.md
-[widget_textblock]: ch03-24-widget-textblock.md
+[widget_container]: https://doc.redox-os.org/orbtk-book/ch03-05-widget_container.html
+[widget_stack]: https://doc.redox-os.org/orbtk-book/ch03-21-widget-stack.html
+[widget_textblock]: https://doc.redox-os.org/orbtk-book/ch03-24-widget-textblock.html
 
 ### OrbTk widget specific: **Button**
 

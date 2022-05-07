@@ -154,9 +154,8 @@ zentriert in diesem Fenster ausgibt.
 <span class="caption">Image 1-2: Applikations-Fenster mit `Hey OrbTk`</span>
 
 Wenn etwas die Fensterausgabe verhindert, schau bitte im Abschnitt
-
-[“Troubleshooting”][troubleshooting] <!-- ignore --> der
-Installationsbeschreibung nach, um Hilfestellungen zu erhalten.
+[“Troubleshooting”][troubleshooting] der Installationsbeschreibung nach,
+um Hilfestellungen zu erhalten.
 
 Wenn die die gerenderte Ausgaben von `Hey OrbTk!` deiner App bewundern kannst,
 Glückwunsch! Du hast erfolgreich deiner erste OrbTk Anwendung geschrieben.
@@ -166,6 +165,10 @@ Das macht Dich zum OrbTk Programmierer — willkommen!
 
 Lass uns die Details ansehen, was gerade mit dem Aufwurf der “Hey
 OrbTk!” Anwendung passiert ist. Hier kommt das erste Puzzel-Teilchen:
+
+Für den Moment sollte es ausreichen, die ersten Puzzleteile zu entzaubern.
+Wenn Du einen generischen Blick auf die Struktur werfen willst, in
+[Abschnitt Workspace][workspace] besprechen wir weitere Details.
 
 ```rust,ignore
 {{#rustdoc_include ./listings/ch01-02-orbtk-hello/listing-01-02/src/main.rs:Use}}
@@ -343,4 +346,5 @@ ergänzt werden (derzeit: debug, log).
 $ cargo build --features debug,log --bin hello_orbtk.rs
 ```
 [naming]: https://rust-lang.github.io/api-guidelines/naming.html
-[troubleshooting]: ch01-01-installation.html#troubleshooting
+[troubleshooting]: https://doc.redox-os.org/orbtk-book/de/ch01-01-installation.html#troubleshooting
+[workspace]: https://doc.redox-os.org/orbtk-book/ch02-05-workspace-orbtk-widgets.html
