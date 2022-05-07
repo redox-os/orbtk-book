@@ -7,25 +7,25 @@ Toolkit" Buch. Wir werden dies im folgende mit `OrbTk`
 referenzieren.
 
 [mdBook]: https://github.com/rust-lang-nursery/mdBook
-[orbtk_planet]: https://github.com/redox-os/orbtk-book/blob/main/src/img/orbtk_planet.svg
+[orbtk_planet]: https://github.com/redox-os/orbtk-book/blob/master/src/img/orbtk_planet.png
 
 <!--
-    WIP: once it is ready to be shipped
-    [The book is available in dead-tree form from No Starch Press][nostarch].
+	WIP: once it is ready to be shipped
+	[The book is available in dead-tree form from No Starch Press][nostarch].
 
-    [nostarch]: https://nostarch.com/
+	[nostarch]: https://nostarch.com/
 
-    You can read the book for free online. Please see the book as shipped with
-    the latest [stable], or [develop] OrbTk releases. Be aware that issues
-    in those versions may have been fixed in this repository already, as those
-    releases are updated less frequently.
+	You can read the book for free online. Please see the book as shipped with
+	the latest [stable], or [develop] OrbTk releases. Be aware that issues
+	in those versions may have been fixed in this repository already, as those
+	releases are updated less frequently.
 
-    [stable]: https://doc.orbtk.org/stable/book/
-    [develop]: https://doc.orbtk.org/develop/book/
+	[stable]: https://doc.orbtk.org/stable/book/
+	[develop]: https://doc.orbtk.org/develop/book/
 
-    See the [releases] to download just the code of all the code listings that appear in the book.
+	See the [releases] to download just the code of all the code listings that appear in the book.
 
-    [releases]: https://github.com/redox-os/orbtk/book/releases
+	[releases]: https://github.com/redox-os/orbtk/book/releases
 -->
 
 ### Anforderungen
@@ -151,4 +151,4 @@ Diese Arbeit steht unter logenden Lizenzbedingungen [Creative Common License 4.0
 
 ![Creative Common Logo][Logo-CC_BY]
 
-© 2021 Ralf Zerres
+© 2021-2022 Ralf Zerres

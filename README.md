@@ -1,39 +1,58 @@
 # orbtk-book
 
-![Welcome to the OrbTk planet.][orbtk_planet]
+<img title="Welcome to OrbTk planet" alt="OrbTK planet" src="/src/img/orbtk_planet.png">
+
+![Welcome to the OrbTk planet][orbtk_planet]
+
+[![Build status](https://github.com/redox-os/orbtk-book/badges/develop/pipeline.svg)](https://github.com/redox-os/orbtk-book/pipelines)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Latest Release](https://github.com/redox-os/orbtk-book/-/badges/release.svg)](https://github.com/redox-os/orbtk-book/orbtk-book/-/releases)
+<!-- [![CI-Tests](https://gitlab.com/redox-os/dces-guide/workflows/CI/badge.svg)](https://gitlab.com/redox-os/dces-guide/actions) -->
 
 This repository contains the text source for "The Orbital Widget Toolkit" book.
 We will further reference to it as the `OrbTk-Book`.
 
 <!--
-    WIP: once it is ready to be shipped
-    [The book is available in dead-tree form from No Starch Press][nostarch].
+	WIP: once it is ready to be shipped
+	[The book is available in dead-tree form from No Starch Press][nostarch].
 
-    [nostarch]: https://nostarch.com/
+	[nostarch]: https://nostarch.com/
 
-    You can read the book for free online. Please see the book as shipped with
-    the latest [stable], or [develop] OrbTk releases. Be aware that issues
-    in those versions may have been fixed in this repository already, as those
-    releases are updated less frequently.
+	You can read the book for free online. Please see the book as shipped with
+	the latest [stable], or [develop] OrbTk releases. Be aware that issues
+	in those versions may have been fixed in this repository already, as those
+	releases are updated less frequently.
 
-    [stable]: https://doc.orbtk.org/stable/book/
-    [develop]: https://doc.orbtk.org/develop/book/
+	[stable]: https://doc.orbtk.org/stable/book/
+	[develop]: https://doc.orbtk.org/develop/book/
 
-    See the [releases] to download just the code of all the code listings that appear in the book.
+	See the [releases] to download just the code of all the code listings that appear in the book.
 
-    [releases]: https://github.com/redox-os/orbtk/book/releases
+	[releases]: https://github.com/redox-os/orbtk/book/releases
 -->
 
-### Requirements
+### Online Book
+
+The following link will provide an online accessible version of
+the [english variant][book_en] of the guide:
+
+`https://redox-os.github.io/orbtk-book/en/index.html`
+
+The CI/CD workflow will render an updated version, as soon as enhanced
+content is merged into the maaster branch.
+Translations to other lanuages will be uploaded, as soon as they are completed.
+You may find working links via the [wiki page][wiki_page].
+
+[book_en]: https://redox-os.github.io/orbtk-book/en/index.html
+[wiki_page]: https://github.com/redox-os/orbtk-book/wiki
+
+### Offline Book
 
 #### mdBook
+
 Building the book requires [mdBook] and its helper tools. The used
 version should be ideally the same that rust-lang/rust uses in
-[this file][rust-mdbook]. Install this tools with:
-
-```console
-$ cargo install mdbook mdbook-linkchecker mdbook-mermaid
-```
+[this file][rust_mdbook].
 
 This command will grep the latest mdbook version from [crates.io] in
 combination with the add-on tools mdbook-linkchecker and
@@ -46,29 +65,107 @@ some process flows.
 [crates.io]: https://crates.io/crates/cargo-readme
 
 #### Multilingual version of mdBook
+
 The OrbTk book aims to make translations as flawless as
-possible. We are using v0.4.12 that will do the job. There is a
+possible. We are using v0.4.15 that will do the job. There is a
 patch available that adds the needed salt to organize a book as a
 multilingual structure: All sources stored in a single hirachical
 code tree. This work isn't finished yet, but good enough to make
 use of this branch for our productive needs. Thank you [Nutomic
-and Ruin0x11][mdbook localization].
+and Ruin0x11][mdbook_localization].
 
-You can force the installation of a given version number
-with:
+Go ahead and install that mdBook version like this:
 
 ```rust
-console $ cargo install mdbook --vers 0.4.12 mdbook-linkchecker mdbook-mermaid
+TMPDIR=<your_temporary_directory>
+mkdir -p $TMPDIR; cd $TMPDIR
+git clone https://github.com/Ruin0x11/mdBook.git
+cd mdBook
+git checkout localization
+cargo update
+cargo install --path .
 ```
+
+We do make use of process visualization, that will need [mermaid][mdbook_mermaid]. To
+download and compile it from source, please use the following
+commands:
+
+```rust
+cargo install mdbook-mermaid
+mermaid install
+```
+
+[mdBook]: https://github.com/rust-lang-nursery/mdBook
+[mdBook_localization]: https://github.com/Ruin0x11/mdBook/tree/localization
+[mdBook_mermaid]: https://github.com/badboy/mdbook-mermaid
+[rust_mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
+
+#### Building the book
+
+To build the book with the default language (here: 'en'), change
+into OrbTk-books root directory and type:
+
+```console
+$ mdbook build --language en --dest-dir orbtk-book/en
+```
+
+The rendered HTML output will be placed underneath the
+`orbtk-book/en` subdirectory. To check it out, open it in your web
+browser.
+
+_Firefox:_
+```console
+$ firefox orbtk-book/en/html/index.html                       # Linux
+$ open -a "Firefox" orbtk-book/en/html/index.html             # OS X
+$ Start-Process "firefox.exe" .\orbtk-book\en\html\index.html # Windows (PowerShell)
+$ start firefox.exe .\orbtk-book\en\html\index.html           # Windows (Cmd)
+```
+
+_Chrome:_
+```console
+$ google-chrome orbtk-book/en/html/index.html                 # Linux
+$ open -a "Google Chrome" orbtk-book/en/html/index.html       # OS X
+$ Start-Process "chrome.exe" .\orbtk-book\en\html\index.html  # Windows (PowerShell)
+$ start chrome.exe .\orbtk-book\en\html\index.html            # Windows (Cmd)
+```
+
+Executing `mdbook serve` will have **mdbook** act has a web service
+which can be accessed opening the following URL:  http://localhost:3000.
+
+#### Test and validation of the book
+
+To run all available tests please call:
+
+```console
+$ mdbook test
+```
+
+Translated version of the book will be placed inside the code tree
+in the subdirectory `src/<language id`.
+
+E.g. if you like to render the german version (language id: 'de'), change
+into OrbTk-book root directory and type:
+
+```console
+$ mdbook build --language de --dest-dir orbtk-book/de --open
+```
+
+The rendered HTML output will be placed underneath the
+`orbtk-book/de` subdirectory. Since we appended the `--open`
+parameter, your default browser should be fired up and ... tada!
 
 #### Cargo handled README
 
-We do make uses of the crate [cargo-readme]. It resolves rust `doc
-comments` to generate the README.md file you are reading now. Install the create
-with the following command if you want to update or regenerate this README yourself.
+We do make uses of the crate [cargo-readme]. This enables us, to
+use the rust source code as the single root for any generated
+documentation. The README.md is one of the possible output. The
+`doc comments` in our lib.rs is parsed to generate the README.md
+file you are reading now.
+
+Install the create with the following command if you want to
+update or regenerate the README.md yourself.
 
 [cargo-readme]: https://github.com/livioribeiro/cargo-readme
-[orbtk_planet]: https://github.com/redox-os/orbtk-book/blob/main/src/img/orbtk_planet.svg
 
 ```console
 $ cargo install cargo-readme
@@ -80,65 +177,6 @@ README.md. Change into the document-root and type:
 ```console
 $ cargo readme > README.md
 ```
-
-[mdBook]: https://github.com/rust-lang-nursery/mdBook
-[mdBook localization]: https://github.com/Nutomic/mdBook/tree/localization
-[rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
-
-### Building
-
-#### Building the book
-
-To build the book with the default language (here: 'en'), change
-into OrbTk-books root directory and type:
-
-```console
-$ mdbook build --dest-dir book/en
-```
-
-The rendered HTML output will be placed underneath the
-`book/en` subdirectory. To check it out, open it in your web
-browser.
-
-_Firefox:_
-```console
-$ firefox book/en/html/index.html                       # Linux
-$ open -a "Firefox" book/en/html/index.html             # OS X
-$ Start-Process "firefox.exe" .\book\en\html\index.html # Windows (PowerShell)
-$ start firefox.exe .\book\en\html\index.html           # Windows (Cmd)
-```
-
-_Chrome:_
-```console
-$ google-chrome book/en/html/index.html                 # Linux
-$ open -a "Google Chrome" book/en/html/index.html       # OS X
-$ Start-Process "chrome.exe" .\book\en\html\index.html  # Windows (PowerShell)
-$ start chrome.exe .\book\en\html\index.html            # Windows (Cmd)
-```
-
-Executing `mdbook serve` will have **mdbook** act has a web service
-which can be accessed opening the following URL:  http://localhost:3000.
-
-To run the tests:
-
-```console
-$ mdbook test
-```
-
-#### Building a language variant of the book
-
-Translated version of the book will be placed inside the code tree
-in the subdirectory `src/<language id`.
-
-E.g. if you like to render the german version (language id: 'de'), change
-into OrbTk-books root directory and type:
-
-```console
-$ MDBOOK_BOOK__src=src/de mdbook build --dest-dir book/de --open
-```
-
-The rendered HTML output will be placed underneath the
-`book/de` subdirectory. Since we appended the `--open` parameter, your default browser should be fired up and ... tada!
 
 ### Code of Conduct
 
@@ -186,4 +224,4 @@ This work is licensed under a [Creative Common License 4.0][License-CC_BY]
 
 ![Creative Common Logo][Logo-CC_BY]
 
-© 2021 Ralf Zerres
+© 2021-2022 Ralf Zerres
