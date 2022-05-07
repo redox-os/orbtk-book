@@ -49,18 +49,18 @@ boost-paragraph = 1
 expand = true
 heading-split-level = 2
 
-[output.linkcheck]
-optional = true
-## Should we check links on the internet? Enabling this option adds a
-## non-negligible performance impact
-#follow-web-links = false
-
-## Are we allowed to link to files outside of the book's root directory? This
-## may help prevent linking to sensitive files (e.g. "../../../../etc/shadow")
-traverse-parent-directories = false
-
-## How should warnings be treated
-warning-policy = "warn"
+# [output.linkcheck]
+# optional = true
+# ## Should we check links on the internet? Enabling this option adds a
+# ## non-negligible performance impact
+# #follow-web-links = false
+#
+# ## Are we allowed to link to files outside of the book's root directory? This
+# ## may help prevent linking to sensitive files (e.g. "../../../../etc/shadow")
+# traverse-parent-directories = false
+#
+# ## How should warnings be treated (warn, error, ignore)
+# warning-policy = "ignore"
 
 [preprocessor]
 
