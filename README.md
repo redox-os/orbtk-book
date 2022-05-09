@@ -2,8 +2,6 @@
 
 <img title="Welcome to OrbTk planet" alt="OrbTK planet" src="/src/img/orbtk_planet.png">
 
-![Welcome to the OrbTk planet][orbtk_planet]
-
 [![Build status](https://github.com/redox-os/orbtk-book/badges/develop/pipeline.svg)](https://github.com/redox-os/orbtk-book/pipelines)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Latest Release](https://github.com/redox-os/orbtk-book/-/badges/release.svg)](https://github.com/redox-os/orbtk-book/orbtk-book/-/releases)
