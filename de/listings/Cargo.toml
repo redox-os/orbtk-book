@@ -1,0 +1,12 @@
+[workspace]
+
+members = [
+    "ch01-02-orbtk-hello/no-listing-01-02-cargo-new",
+    "ch01-02-orbtk-hello/listing-01-02",
+
+    "ch02-02-workspace-orbtk-core/listing-02-01",
+    "ch02-02-workspace-orbtk-core/listing-02-02",
+
+    "ch03-01-widget-button/listing-03-01",
+    "ch03-07-widget-font-icon-block/listing-07-01",
+]

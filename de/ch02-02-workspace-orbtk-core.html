@@ -1,0 +1,501 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Workspace: Orbtk Core - Das OrbTk Book</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Das Orbital Widget Toolkit (OrbTk) ist eine Multi-Pallform Toolkit zur Erstellung skalierbarer Benutzeroberflächen. Alle Komponenten wurden nativ in der Programmiersprache Rust entwickelt.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="ferries.css">
+        <link rel="stylesheet" href="theme/2020-edition.css">
+
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="title-page.html">The Orbtk Widget Toolkit</a></li><li class="chapter-item affix "><a href="foreword.html">Vorwort</a></li><li class="chapter-item affix "><a href="ch00-00-introduction.html">Einführung</a></li><li class="chapter-item "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Erste Schritte</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Die Installation</a></li><li class="chapter-item "><a href="ch01-02-hello-orbtk.html"><strong aria-hidden="true">1.2.</strong> Hallo OrbTk!</a></li><li class="chapter-item "><a href="ch01-03-ingredients.html"><strong aria-hidden="true">1.3.</strong> Die Bestandteile</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-workspaces.html"><strong aria-hidden="true">2.</strong> OrbTk Die Structur</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch02-01-workspace-orbtk.html"><strong aria-hidden="true">2.1.</strong> Workspace: Orbtk</a></li><li class="chapter-item expanded "><a href="ch02-02-workspace-orbtk-core.html" class="active"><strong aria-hidden="true">2.2.</strong> Workspace: Orbtk Core</a></li><li class="chapter-item "><a href="ch02-03-workspace-orbtk-client.html"><strong aria-hidden="true">2.3.</strong> Workspace: Orbtk Client</a></li><li class="chapter-item "><a href="ch02-04-workspace-orbtk-tinyskia.html"><strong aria-hidden="true">2.4.</strong> Workspace: Orbtk TinySkia</a></li><li class="chapter-item "><a href="ch02-05-workspace-orbtk-widgets.html"><strong aria-hidden="true">2.5.</strong> Workspace: Orbtk Widgets</a></li><li class="chapter-item "><a href="ch02-06-proc-macros.html"><strong aria-hidden="true">2.6.</strong> Workspace: Process macros</a></li><li class="chapter-item "><a href="ch02-07-utils.html"><strong aria-hidden="true">2.7.</strong> Workspace: Utilities</a></li></ol></li><li class="chapter-item "><a href="ch03-00-widget-templates.html"><strong aria-hidden="true">3.</strong> OrbTk Widget Templates</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch03-01-widget-button.html"><strong aria-hidden="true">3.1.</strong> Template: Button</a></li><li class="chapter-item "><a href="ch03-02-widget-canvas.html"><strong aria-hidden="true">3.2.</strong> Template: Canvas</a></li><li class="chapter-item "><a href="ch03-03-widget-check-box.html"><strong aria-hidden="true">3.3.</strong> Template: CheckBox</a></li><li class="chapter-item "><a href="ch03-04-widget-combo-box.html"><strong aria-hidden="true">3.4.</strong> Template: ComboBox</a></li><li class="chapter-item "><a href="ch03-05-widget-container.html"><strong aria-hidden="true">3.5.</strong> Template: Container</a></li><li class="chapter-item "><a href="ch03-06-widget-cursor.html"><strong aria-hidden="true">3.6.</strong> Template: Cursor</a></li><li class="chapter-item "><a href="ch03-07-widget-font-icon-block.html"><strong aria-hidden="true">3.7.</strong> Template: FontIconBlock</a></li><li class="chapter-item "><a href="ch03-08-widget-grid.html"><strong aria-hidden="true">3.8.</strong> Template: Grid</a></li><li class="chapter-item "><a href="ch03-09-widget-image-widget.html"><strong aria-hidden="true">3.9.</strong> Template: Image-widget</a></li><li class="chapter-item "><a href="ch03-10-widget-list-view.html"><strong aria-hidden="true">3.10.</strong> Template: ListView</a></li><li class="chapter-item "><a href="ch03-11-widget-master-detail.html"><strong aria-hidden="true">3.11.</strong> Template: MasterDetail</a></li><li class="chapter-item "><a href="ch03-12-widget-numeric-box.html"><strong aria-hidden="true">3.12.</strong> Template: NumericBox</a></li><li class="chapter-item "><a href="ch03-13-widget-pager.html"><strong aria-hidden="true">3.13.</strong> Template: Pager</a></li><li class="chapter-item "><a href="ch03-14-widget-password-box.html"><strong aria-hidden="true">3.14.</strong> Template: PasswordBox</a></li><li class="chapter-item "><a href="ch03-15-widget-popup-bar.html"><strong aria-hidden="true">3.15.</strong> Template: Popup</a></li><li class="chapter-item "><a href="ch03-16-widget-progress-bar.html"><strong aria-hidden="true">3.16.</strong> Template: ProgressBar</a></li><li class="chapter-item "><a href="ch03-17-widget-scroll-bar.html"><strong aria-hidden="true">3.17.</strong> Template: ScrollBar</a></li><li class="chapter-item "><a href="ch03-18-widget-scroll-indicator.html"><strong aria-hidden="true">3.18.</strong> Template: ScrollIndicator</a></li><li class="chapter-item "><a href="ch03-19-widget-scroll-viewer.html"><strong aria-hidden="true">3.19.</strong> Template: ScrollViewer</a></li><li class="chapter-item "><a href="ch03-20-widget-slider.html"><strong aria-hidden="true">3.20.</strong> Template: Slider</a></li><li class="chapter-item "><a href="ch03-21-widget-stack.html"><strong aria-hidden="true">3.21.</strong> Template: Stack</a></li><li class="chapter-item "><a href="ch03-22-widget-switch.html"><strong aria-hidden="true">3.22.</strong> Template: Switch</a></li><li class="chapter-item "><a href="ch03-23-widget-tabwidget.html"><strong aria-hidden="true">3.23.</strong> Template: TabWidget</a></li><li class="chapter-item "><a href="ch03-24-widget-textblock.html"><strong aria-hidden="true">3.24.</strong> Template: TextBlock</a></li><li class="chapter-item "><a href="ch03-25-widget-textbox.html"><strong aria-hidden="true">3.25.</strong> Template: TextBox</a></li><li class="chapter-item "><a href="ch03-26-widget-togglebutton.html"><strong aria-hidden="true">3.26.</strong> Template: Togglebutton</a></li><li class="chapter-item "><a href="ch03-27-widget-window.html"><strong aria-hidden="true">3.27.</strong> Template: Window</a></li></ol></li><li class="chapter-item "><a href="ch09-00-orbtk-examples.html"><strong aria-hidden="true">4.</strong> OrbTk Beispiele</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch09-01-widgets.html"><strong aria-hidden="true">4.1.</strong> Widgets</a></li><li class="chapter-item "><a href="ch09-02-showcase.html"><strong aria-hidden="true">4.2.</strong> Showcase</a></li><li class="chapter-item "><a href="ch09-03-msg-handling.html"><strong aria-hidden="true">4.3.</strong> Message handling</a></li><li class="chapter-item "><a href="ch09-04-popups.html"><strong aria-hidden="true">4.4.</strong> Popups</a></li><li class="chapter-item "><a href="ch09-05-tableview.html"><strong aria-hidden="true">4.5.</strong> Tableview</a></li></ol></li><li class="chapter-item "><a href="appendix-00.html"><strong aria-hidden="true">5.</strong> Anhang</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="appendix-01-keywords.html"><strong aria-hidden="true">5.1.</strong> A - Schlüsselworte</a></li><li class="chapter-item "><a href="appendix-02-operators.html"><strong aria-hidden="true">5.2.</strong> B - Operators and Symbols</a></li><li class="chapter-item "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">5.3.</strong> C - Abwerfbare Traits</a></li><li class="chapter-item "><a href="appendix-04-translation.html"><strong aria-hidden="true">5.4.</strong> D - Übersetzungen des Buchs</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Das OrbTk Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/redox-os/orbtk-book/tree/main/book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/redox-os/orbtk-book/tree/main/book/src/ch02-02-workspace-orbtk-core.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="workspace-orbtk_core"><a class="header" href="#workspace-orbtk_core">Workspace orbtk_core</a></h1>
+<h2 id="application"><a class="header" href="#application">Application</a></h2>
+<p>The <code>application</code> crate provides the base api inside an <code>OrbTk</code> application.
+Its elements are consumed via dedicated modules organized in the other sub-crates.</p>
+<h3 id="the-contextprovider"><a class="header" href="#the-contextprovider">The ContextProvider</a></h3>
+<p>This structure is a temporary solution to share dependencies inside an
+<code>OrbTk</code> application. Right now, if the app is started, a new
+<code>ContextProvider</code> object is created. The interconnection between
+sender and receiver are handled using asynchronous channels with
+sender/receiver halves (<code>mpsc</code>).</p>
+<ul>
+<li>
+<p>window_sender
+A <code>WindowRequest</code> is used to send the given request to the named window.</p>
+</li>
+<li>
+<p>shell_sender A <code>ShellRequest</code> is used to send the given request to
+the application shell. The application shell is aware of the
+handled windows. They are differenciated via individual
+<code>WindowAdapter</code> objects.</p>
+</li>
+</ul>
+<p>In the given version this module isn’t thread save. It will be
+refactored in the next upcoming release.</p>
+<h3 id="the-windowadapter"><a class="header" href="#the-windowadapter">The WindowAdapter</a></h3>
+<p>Each <code>WindowAdapter</code> handles its unique tree, event pipiline and
+shell. They are dynamically stored in the undelying <code>DCES</code> via <strong>ECM</strong>
+methods.</p>
+<p>The shell will react on UI events. The code for dedicated events are
+organized in explicit modules that will trigger their handlers:</p>
+<ul>
+<li>activation events</li>
+<li>clipboard updates</li>
+<li>drop events</li>
+<li>focus events</li>
+<li>key events</li>
+<li>mouse events</li>
+<li>text input events</li>
+<li>window resize events</li>
+<li>window scroll events</li>
+<li>window system events (like <code>quit</code>)</li>
+</ul>
+<p>The <code>EventAdapter</code> provides a thread safe way to push events to the
+widget tree of a window.</p>
+<h3 id="the-overlay-widget"><a class="header" href="#the-overlay-widget">The Overlay widget</a></h3>
+<p>The <code>Overlay</code> widget allows the handling of children at the top of the
+tree. Thus its children will be presented on top of all other widgets
+grouped in the widget-tree.</p>
+<h2 id="layout"><a class="header" href="#layout">Layout</a></h2>
+<p>A <code>layout</code> is used to dynamically order the children of a
+widget. Before we can arrange the components on screen, their sizes,
+bounds and constraints have to be <strong>measured</strong>. The ordering process
+will result in a parent / child relation (<code>tree</code>), that is represented
+and handled in the <strong>ECM</strong>. In a next step, the tree components are
+<strong>arranged</strong>. The result is rendered into an output buffer. Last not
+least the updated areas are signaled to the output screen.</p>
+<p>To measure components, the code will provide suitable defaults for
+each property as well as a <code>desired_size</code>. The <code>desired_size</code> will
+resolve the <strong>height</strong> and <strong>width</strong> property of the child element.
+This values can either be overwritten with an <strong>explicit</strong> component
+property inside your rust code, or while referencing to definitions
+using a <strong>style</strong> property. Please take into account, that a given
+<strong>style</strong> definition will take precedence over all explicitly defined
+property elements inside the code. OrbTk will not respect a mixture of
+both declarations.</p>
+<h3 id="the-absolute-placement"><a class="header" href="#the-absolute-placement">The absolute placement</a></h3>
+<p>Only components with a <strong>visibility property</strong> that is labeled with a
+<code>Collapsed</code> or <code>Visible</code> option will be taken into account, when
+calculating bounds and constraints of a child. The resulting bounds are
+points, with absolute x and y positions on the screen (<code>floating point values</code>).</p>
+<p>New rendering of the child will only occur, if any of its properties is
+marked <code>dirty</code>.</p>
+<h3 id="the-fixed-size"><a class="header" href="#the-fixed-size">The fixed size</a></h3>
+<p>A <strong>fixed sized</strong> layout is defined by fixed bounds for its
+child. Think of images that have to be rendered with a given size, or
+a minimum size of a text box.</p>
+<h3 id="grid-layout"><a class="header" href="#grid-layout">Grid layout</a></h3>
+<p>The <strong>grid layout</strong> is a specialized case of the default alignment
+layout. If you declare <strong>rows</strong> and <strong>columns</strong>, the child blocks are
+calculated suming up each individual block bounds inside the
+corresponding row or column.</p>
+<p>You may stretch the blocks to the choosen dimension (<strong>horizontal</strong>
+vs. <strong>vertical</strong>). As a result, if you resize the window of the
+running app, that grid element will consume the extra size available
+because of your interactive change. Vice versa, the elements will
+shrink down until the grid child will reach the defined minimum bound.</p>
+<h3 id="padding-layout"><a class="header" href="#padding-layout">Padding layout</a></h3>
+<p>Padding may be needed, as a property of a broad range of
+components. The measurement cycle will calculate the padding value (a
+<strong>floating point</strong> value) as a constraint that is added to the space
+requirements of the associated content component. You may think of the
+<code>padding</code> as a surrounding with a given thickness, that is placed
+arround your content.</p>
+<p>The following image visualizes the dependencies.</p>
+<p><a href="img/layout_constraints.png"><img src="img/layout_constraints.png" width="480"/></a></p>
+<p><span class="caption">Image 2-2: Layout constraints</span></p>
+<h3 id="popup-layout"><a class="header" href="#popup-layout">Popup layout</a></h3>
+<p>The <strong>popup layout</strong> is a specialized case of the default alignment
+layout. A popup is typically needed to render content, that is related
+to a given target widget. That includes the position of the popup
+itself, as well as its dynamic created content.</p>
+<p>You can find a common use case of a popup if you study the OrbTk code
+of a <code>list box</code>.  The list box elements are collected in a stack
+widget. The <code>stack</code> itself is placed in a <code>popup</code> widget. And the
+popup widget is placed right below the text block that offers a
+drop-down selection arrow.</p>
+<h3 id="stack-layout"><a class="header" href="#stack-layout">Stack layout</a></h3>
+<p>The <strong>stack layout</strong> is a specialized case of the default alignment
+layout. A stack offers a use case, where you want to place other
+widgets in a congruent <code>horizontal</code> or <code>vertical</code> order.  You may
+define a <code>spacing</code> property. This given floating point value is used
+as a seperator between each stack member.</p>
+<h2 id="localization"><a class="header" href="#localization">Localization</a></h2>
+<p>Localization is a research task by itself, if you want to resolve all
+syntactic rules that are found when writing prose in different
+languages.  OrbTk’s localization crate isn’t ready to resolve all this
+complexity, but this may improve in further releases.</p>
+<p>Starting with the given implementation, <code>localization</code> can offer methods, that
+are able to match and replace text strings. The usage of the <code>localization</code> crate is
+optional. If you don’t need any multi lingual adaptions inside your widgets, simply
+do not include the <code>localization</code> sugar.</p>
+<h3 id="the-building-blocks-of-localization"><a class="header" href="#the-building-blocks-of-localization">The building blocks of localization</a></h3>
+<p>If you want to enable the users to select and change the desired display
+language of the GUI at runtime, the toolkit needs to match up a requested
+text strings (the key) that should be presented inside the view and substitute
+it with the corresponding translation string (the target value). Dictionaries
+are used to organize the keys as word lists.</p>
+<p>OrbTk’s <code>localization</code> implementation has choosen to persitently store
+the translation strings inside a <a href="https://github.com/ron-rs/ron"><code>RON</code></a> file. When introducing
+the new syntax structure used inside a <code>RON</code> filetype, it was one goal
+of the authors to easily match rust types to ron types. That is
+exactly the development goal from the RON authors:</p>
+<p>“RON is a simple readable data serialization format that looks
+similar to Rust syntax. It’s designed to support all of Serde’s data
+model, so structs, enums, tuples, arrays, generic maps, and primitive
+values.”</p>
+<p>You can save each supported language in its individual ron file. The language
+files need to be distinctable. A natural way to implement this requirement
+is the usage of unique <code>language ids</code>. Most *<em>operating systems</em> take advantage
+of a <code>locale subsystem</code>, and save the identification of the active language in
+the <code>lang</code> enviroment variable. It’s good practice to include the language id in
+the corresponding ron file name.</p>
+<p>When you include the <code>localization</code> functionality in your OrbTk code, you
+should define constants for each supported <code>language id</code>, that will reference the
+ron file in question.</p>
+<p>When calling the <code>RonLocalization</code> methods addressing the combination of a language
+id and the corresponding dictionary you are able to store the result in <code>language</code>
+variable. The crate methods will handle all the heavy lifting to substitute the
+source values of the text attributes inside the views with their matching translation
+strings in the addressed dictionary.</p>
+<h3 id="the-ron-file-structure"><a class="header" href="#the-ron-file-structure">The ron file structure</a></h3>
+<p>In OrbTk, the structure <code>RonLocalizationBuilder</code> is defined to take values for
+the following parameters</p>
+<ul>
+<li>language: a String</li>
+<li>dictionaries: a HashMap</li>
+</ul>
+<p>The ron filename representing a language localization should include the language
+identifier to ease its distiction from another.</p>
+<p>Dictionaries itself are stored
+The dictionary is represended by a key value pair</p>
+<p>A class <code>Dictionary</code> will include a <code>map</code> named <strong>words</strong>.
+The ron type <code>map</code> is like a type <code>struct</code>, but keys are also values instead of
+just beenig identifiers.</p>
+<ul>
+<li>using a ron file</li>
+</ul>
+<p>Activation of the <code>localization</code> crate inside your source code boils
+down to this short example code.</p>
+<p>Filename: localization.rs</p>
+<pre><code class="language-rust ignore">static LOCALIZATION_ES_ES: &amp;str = include_str!(&quot;../assets/localization/dictionary_es_ES.ron&quot;);
+</code></pre>
+<p>We do define two language identifiers:</p>
+<ul>
+<li>_de_de: referencing a ron file with german translation strings</li>
+<li>_es_es: referencing a ron file with spanish translation strings</li>
+</ul>
+<pre><code class="language-rust ignore">    Application::new()
+        .localization(es_es)
+</code></pre>
+<p>When creating the Application block, we do pipe in the localization property.
+To keep this example simple, a hardcoded <strong>de_DE</strong> is choosen.
+The <a href="https://github.com/redox-os/orbtk/tree/develop/orbtk/examples/showcase.rs"><strong>showcase</strong></a> example inside the orbtk source code
+implements a tab widget, that offers a dropdown list, to dynamically change
+the active language variant.</p>
+<pre><code class="language-rust ignore">    let es_es = RonLocalization::create()
+        .language(&quot;es_ES&quot;)
+        .dictionary(&quot;es_ES&quot;, LOCALIZATION_ES_ES)
+        .build();
+    /* disabled german translation file
+     * let _de_de = RonLocalization::create()
+     *    .language(&quot;de_DE&quot;)
+     *    .dictionary(&quot;de_DE&quot;, LOCALIZATION_DE_DE)
+     *    .build();
+     */
+</code></pre>
+<p>To compile this example code, go ahead and enter the following comand
+in your terminal window:</p>
+<pre><code class="language-console">$ cargo run --release orbtk_localization
+</code></pre>
+<p>Your screen should present an application window showing the translated spanish strings.</p>
+<p><a href="img/examples/orbtk_localization.png"><img src="img/examples/orbtk_localization.png" height="150"/></a></p>
+<p><span class="caption">Image 2-2: Application window with <strong>spanish</strong> localization strings</span></p>
+<p>Sure, this code isn’t elegant nor will it suite the real application
+demands.  What it does show is the logic, to bind a ron file (storing
+the translations of a given language) to a const. When calling
+<code>RonLocalization</code>, the <code>text</code> method will resolve text attributes
+inside a view or any rust primitive with the translation text resolved
+in the language dictionary.</p>
+<h2 id="properties"><a class="header" href="#properties">Properties</a></h2>
+<p>Every entity that is managed via the provided <strong>ECM</strong> methods (in most cases this will
+be widgets) will have associated components. If we are
+talking about components inside the toolkit, we name them <code>properties</code>
+of a given object.</p>
+<h3 id="layout-1"><a class="header" href="#layout-1">Layout</a></h3>
+<p>Our aim is a dynamic ordering of objects inside the render
+buffer. This ordering needs to respect the specific properties of each
+object making up the object tree. All properties declared for the
+addressed objects will sum up the constraints that need to be
+respected within their layout.</p>
+<p>Logical units of properties ease the measurement and assignment
+process of the given object tree.</p>
+<h4 id="blocks"><a class="header" href="#blocks">Blocks</a></h4>
+<p>Inside OrbTk the <code>BlockBuilder</code> method handles a block. A <code>block</code> is a
+term that defines an object inside the render surface. A legacy form of
+the API was using the idiom <code>row</code> or <code>column</code> to define the position
+of a block inside a <code>grid</code> widget. We moved on to use blocks as a
+generic term that can be used in all widgets.  Blocks will inherit
+default properties:</p>
+<ul>
+<li>a block size</li>
+<li>its minumum size</li>
+<li>its maximum size</li>
+<li>its current size</li>
+</ul>
+<p>If we measure a <code>block</code> size, we can choose from an enumeration of valid expressions:</p>
+<ul>
+<li>Auto: The largest child will be used to measure the block size.</li>
+<li>Stretch: The block will be expanded and consume all of the available size.</li>
+<li>Size: An explicit floading point value.</li>
+</ul>
+<h4 id="scrollviewermode"><a class="header" href="#scrollviewermode">ScrollViewerMode</a></h4>
+<p>To describe the vertical and horizontal scroll behavior of a widget,
+we do make use of the <code>ScrollViewerMode</code>. The ScrollViewerMode will
+evaluate a valid enumeration value of the <code>ScrollMode</code>. Per default it
+will automatically assign the <strong>Auto</strong> value. That will take care
+that the layout logic is able to automatically adjust and manage scroll
+movements of associated widget elements (e.g. in ListViews, SelectionViews or TextBoxes).</p>
+<p>You may want to handle this scroll movements via your own dedicated
+code. Just adapt the mode property <code>horizontal</code> and <code>vertical</code> to your needs and select
+<code>ScrollMode::Custom</code>. To completely disable any scrolling logic select
+<code>ScrollMode::Disabled</code>.</p>
+<h4 id="widget"><a class="header" href="#widget">Widget</a></h4>
+<h5 id="focusstate"><a class="header" href="#focusstate">FocusState</a></h5>
+<p>To offer natural interactivity with the implemented UI, we should
+respect workflow standards. E.g a user is expecting the cursor and the
+possibility to change a widget element at the next logical
+position. Imagine a form, where the UI offers a layout to enter some
+address fields. When you activate such a form, you do expect the
+cursor position on the first element of the form. Thus, we need the
+concept of a <code>Focus</code> that enable the state logic to preset UI
+interaction onto a specified element. The <code>FocusState</code> offers methods
+to control the state information of widget elements:</p>
+<ul>
+<li>Request the focus for an entity.</li>
+<li>Remove the focus from an entity.</li>
+<li>Reference the current focused entity.</li>
+<li>Check the focus state of an entity.</li>
+</ul>
+<h5 id="keyboardstate"><a class="header" href="#keyboardstate">KeyboardState</a></h5>
+<p>The keyboard state tracks which keys are currently pressed. The active
+state is stored in a lazy-loaded HashMap.</p>
+<p>Beside common key activities, you may need to react on generic
+modifier keys (<code>Alt</code>, <code>Ctrl</code>, <code>Hyper</code>, <code>Shift</code>). Helper functions
+offer several convenience methods to handle such keyboard events. A
+generic method comes in handy, if you don’t care which modifier key is
+down (<code>Shift-left</code> or <code>Shift-right</code> =&gt; <code>Shift</code>). The example section
+will also tackle the case, where a combined event (<code>Ctrl+S</code>) keyboard
+state is handled.</p>
+<h2 id="render-objects"><a class="header" href="#render-objects">Render Objects</a></h2>
+<h2 id="services"><a class="header" href="#services">Services</a></h2>
+<h2 id="system"><a class="header" href="#system">System</a></h2>
+<h2 id="theming"><a class="header" href="#theming">Theming</a></h2>
+<h2 id="tree"><a class="header" href="#tree">Tree</a></h2>
+<h2 id="the-widget-base"><a class="header" href="#the-widget-base">The Widget base</a></h2>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch02-01-workspace-orbtk.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="ch02-03-workspace-orbtk-client.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch02-01-workspace-orbtk.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="ch02-03-workspace-orbtk-client.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="ferries.js"></script>
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
+
+
+    </body>
+</html>

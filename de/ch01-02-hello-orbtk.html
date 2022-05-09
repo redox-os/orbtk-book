@@ -1,0 +1,720 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Hallo OrbTk! - Das OrbTk Book</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Das Orbital Widget Toolkit (OrbTk) ist eine Multi-Pallform Toolkit zur Erstellung skalierbarer Benutzeroberflächen. Alle Komponenten wurden nativ in der Programmiersprache Rust entwickelt.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="ferries.css">
+        <link rel="stylesheet" href="theme/2020-edition.css">
+
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="title-page.html">The Orbtk Widget Toolkit</a></li><li class="chapter-item affix "><a href="foreword.html">Vorwort</a></li><li class="chapter-item affix "><a href="ch00-00-introduction.html">Einführung</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Erste Schritte</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Die Installation</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-orbtk.html" class="active"><strong aria-hidden="true">1.2.</strong> Hallo OrbTk!</a></li><li class="chapter-item "><a href="ch01-03-ingredients.html"><strong aria-hidden="true">1.3.</strong> Die Bestandteile</a></li></ol></li><li class="chapter-item "><a href="ch02-00-workspaces.html"><strong aria-hidden="true">2.</strong> OrbTk Die Structur</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch02-01-workspace-orbtk.html"><strong aria-hidden="true">2.1.</strong> Workspace: Orbtk</a></li><li class="chapter-item "><a href="ch02-02-workspace-orbtk-core.html"><strong aria-hidden="true">2.2.</strong> Workspace: Orbtk Core</a></li><li class="chapter-item "><a href="ch02-03-workspace-orbtk-client.html"><strong aria-hidden="true">2.3.</strong> Workspace: Orbtk Client</a></li><li class="chapter-item "><a href="ch02-04-workspace-orbtk-tinyskia.html"><strong aria-hidden="true">2.4.</strong> Workspace: Orbtk TinySkia</a></li><li class="chapter-item "><a href="ch02-05-workspace-orbtk-widgets.html"><strong aria-hidden="true">2.5.</strong> Workspace: Orbtk Widgets</a></li><li class="chapter-item "><a href="ch02-06-proc-macros.html"><strong aria-hidden="true">2.6.</strong> Workspace: Process macros</a></li><li class="chapter-item "><a href="ch02-07-utils.html"><strong aria-hidden="true">2.7.</strong> Workspace: Utilities</a></li></ol></li><li class="chapter-item "><a href="ch03-00-widget-templates.html"><strong aria-hidden="true">3.</strong> OrbTk Widget Templates</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch03-01-widget-button.html"><strong aria-hidden="true">3.1.</strong> Template: Button</a></li><li class="chapter-item "><a href="ch03-02-widget-canvas.html"><strong aria-hidden="true">3.2.</strong> Template: Canvas</a></li><li class="chapter-item "><a href="ch03-03-widget-check-box.html"><strong aria-hidden="true">3.3.</strong> Template: CheckBox</a></li><li class="chapter-item "><a href="ch03-04-widget-combo-box.html"><strong aria-hidden="true">3.4.</strong> Template: ComboBox</a></li><li class="chapter-item "><a href="ch03-05-widget-container.html"><strong aria-hidden="true">3.5.</strong> Template: Container</a></li><li class="chapter-item "><a href="ch03-06-widget-cursor.html"><strong aria-hidden="true">3.6.</strong> Template: Cursor</a></li><li class="chapter-item "><a href="ch03-07-widget-font-icon-block.html"><strong aria-hidden="true">3.7.</strong> Template: FontIconBlock</a></li><li class="chapter-item "><a href="ch03-08-widget-grid.html"><strong aria-hidden="true">3.8.</strong> Template: Grid</a></li><li class="chapter-item "><a href="ch03-09-widget-image-widget.html"><strong aria-hidden="true">3.9.</strong> Template: Image-widget</a></li><li class="chapter-item "><a href="ch03-10-widget-list-view.html"><strong aria-hidden="true">3.10.</strong> Template: ListView</a></li><li class="chapter-item "><a href="ch03-11-widget-master-detail.html"><strong aria-hidden="true">3.11.</strong> Template: MasterDetail</a></li><li class="chapter-item "><a href="ch03-12-widget-numeric-box.html"><strong aria-hidden="true">3.12.</strong> Template: NumericBox</a></li><li class="chapter-item "><a href="ch03-13-widget-pager.html"><strong aria-hidden="true">3.13.</strong> Template: Pager</a></li><li class="chapter-item "><a href="ch03-14-widget-password-box.html"><strong aria-hidden="true">3.14.</strong> Template: PasswordBox</a></li><li class="chapter-item "><a href="ch03-15-widget-popup-bar.html"><strong aria-hidden="true">3.15.</strong> Template: Popup</a></li><li class="chapter-item "><a href="ch03-16-widget-progress-bar.html"><strong aria-hidden="true">3.16.</strong> Template: ProgressBar</a></li><li class="chapter-item "><a href="ch03-17-widget-scroll-bar.html"><strong aria-hidden="true">3.17.</strong> Template: ScrollBar</a></li><li class="chapter-item "><a href="ch03-18-widget-scroll-indicator.html"><strong aria-hidden="true">3.18.</strong> Template: ScrollIndicator</a></li><li class="chapter-item "><a href="ch03-19-widget-scroll-viewer.html"><strong aria-hidden="true">3.19.</strong> Template: ScrollViewer</a></li><li class="chapter-item "><a href="ch03-20-widget-slider.html"><strong aria-hidden="true">3.20.</strong> Template: Slider</a></li><li class="chapter-item "><a href="ch03-21-widget-stack.html"><strong aria-hidden="true">3.21.</strong> Template: Stack</a></li><li class="chapter-item "><a href="ch03-22-widget-switch.html"><strong aria-hidden="true">3.22.</strong> Template: Switch</a></li><li class="chapter-item "><a href="ch03-23-widget-tabwidget.html"><strong aria-hidden="true">3.23.</strong> Template: TabWidget</a></li><li class="chapter-item "><a href="ch03-24-widget-textblock.html"><strong aria-hidden="true">3.24.</strong> Template: TextBlock</a></li><li class="chapter-item "><a href="ch03-25-widget-textbox.html"><strong aria-hidden="true">3.25.</strong> Template: TextBox</a></li><li class="chapter-item "><a href="ch03-26-widget-togglebutton.html"><strong aria-hidden="true">3.26.</strong> Template: Togglebutton</a></li><li class="chapter-item "><a href="ch03-27-widget-window.html"><strong aria-hidden="true">3.27.</strong> Template: Window</a></li></ol></li><li class="chapter-item "><a href="ch09-00-orbtk-examples.html"><strong aria-hidden="true">4.</strong> OrbTk Beispiele</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch09-01-widgets.html"><strong aria-hidden="true">4.1.</strong> Widgets</a></li><li class="chapter-item "><a href="ch09-02-showcase.html"><strong aria-hidden="true">4.2.</strong> Showcase</a></li><li class="chapter-item "><a href="ch09-03-msg-handling.html"><strong aria-hidden="true">4.3.</strong> Message handling</a></li><li class="chapter-item "><a href="ch09-04-popups.html"><strong aria-hidden="true">4.4.</strong> Popups</a></li><li class="chapter-item "><a href="ch09-05-tableview.html"><strong aria-hidden="true">4.5.</strong> Tableview</a></li></ol></li><li class="chapter-item "><a href="appendix-00.html"><strong aria-hidden="true">5.</strong> Anhang</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="appendix-01-keywords.html"><strong aria-hidden="true">5.1.</strong> A - Schlüsselworte</a></li><li class="chapter-item "><a href="appendix-02-operators.html"><strong aria-hidden="true">5.2.</strong> B - Operators and Symbols</a></li><li class="chapter-item "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">5.3.</strong> C - Abwerfbare Traits</a></li><li class="chapter-item "><a href="appendix-04-translation.html"><strong aria-hidden="true">5.4.</strong> D - Übersetzungen des Buchs</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Das OrbTk Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/redox-os/orbtk-book/tree/main/book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/redox-os/orbtk-book/tree/main/book/src/ch01-02-hello-orbtk.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="hallo-orbtk"><a class="header" href="#hallo-orbtk">Hallo OrbTk!</a></h2>
+<p><a href="img/orbtk.svg"><img src="img/orbtk.svg" width="720"/></a></p>
+<p>Nachdem du nun die erforderlichen Bausteine installiert hast, lass uns
+dein erstes OrbTk Programm schreiben.  Es Tradition mit der
+Einarbeitung in eine neue Programmiersprache ein kleines Programm zu
+schreiben, das die Worte <code>Hello, world!</code> auf den Bildschirm ausgibt.
+Also los. Wir erstellen eine minimale App, die ein Fenster erzeugt und
+dieses Fenster an den gegebenen Koordinaten auf dem Bildschirm positioniert.
+Das Widget wird unsern Text zentrieren.</p>
+<blockquote>
+<p>Anmerkung: Diese Buch geht davon aus, dass du Basis-Kenntnisse bei
+der Bedienung der Kommandozeile besitzt. Rust selbst hat keine
+speziellen Anforderungen, welche Werkzeuge du für das editieren von
+Quellcode verwendest und wo du diesen abspeicherst. Wenn du also
+bereits mit einer integrierten Entwicklungsumgebung arbeitest (IDE),
+nur zu, es spricht nichts dagegen diese auch für OrbTk zu nutzen.
+Viele IDEs besitzen mittlerweile ein gewisses Maß an Unterstützung
+für die Sprache Rust. Prüfe einfach die vorhandene Dokumentation.
+In letzter Zeit hat das Rust Team ein besonderes Augenmerk auf die
+Integration von IDE Unterstützung gelegt. Und es wurden große
+Fortschritte in dieser Richtung erzielt!</p>
+</blockquote>
+<h3 id="ein-projekt-verzeichnis-erstellen"><a class="header" href="#ein-projekt-verzeichnis-erstellen">Ein Projekt-Verzeichnis erstellen</a></h3>
+<p>Zunächst wird eine Verzeichnis erstellt, in dem wir unseren OrbTk
+Quellcode speichern wollen. Es spielt für rust und OrbTk keine große
+Rolle, wo sich dieser befindet. Aber für die Beispiele und Übungen in
+diesem Buch solltest Du einen Unterordner <em>projects</em> in deinem Home-Verzeichnis
+erzeugen. Wir werden im Folgenden immer auf diesen referenzieren.</p>
+<p>Öffne ein Terminal und tippe die folgenden Kommandos ein um die gewünschte
+Unterordner Struktur <em>projects</em> zu erzeugen:</p>
+<p>Für Linux, BSD, macOS und  Power-Shell unter Windows:</p>
+<pre><code class="language-console">$ mkdir -p ~/orbtk-book/projects
+$ cd ~/orbtk/projects
+</code></pre>
+<p>In der Windows Shell:</p>
+<pre><code class="language-cmd">&gt; mkdir &quot;%USERPROFILE%\orbtk-book&quot;
+&gt; cd /d &quot;%USERPROFILE%\orbtk-book&quot;
+&gt; mkdir projects
+&gt; cd projects
+</code></pre>
+<h3 id="erstellen-und-starten-der-orbtk-applikation"><a class="header" href="#erstellen-und-starten-der-orbtk-applikation">Erstellen und starten der OrbTk Applikation</a></h3>
+<p>Im nächsten Schritt erzeugen wir ein neues Projekt und verwenden
+hierzu <em>Cargo</em>. Mit einer <em>.toml</em> Datei beschreiben wir die für den
+Rust Code erforderlichen Abhängigkeiten und Metadaten. Das stellt
+sicher, das auch bei Folgeaufrufen der Kompilier-Prozesses (build) eine
+konsistentes Ergebnis erzeugen kann.</p>
+<p>Tippe einfach ein:</p>
+<pre><code class="language-console">$ cargo new orbtk_hello
+$ cd orbtk_hello
+</code></pre>
+<p>Das erste Kommando, <code>cargo new</code>, verwendet als erstes Argument den Projektnamen.
+(“<code>orbtk_hello</code>”). Das zwiete commando wechselt in das neu erstellte Projekt Unterverzeichnis.</p>
+<p>Schauen wir uns das erzeugte <em>Cargo.toml</em> mal an:</p>
+<p><span class="filename">Filename: Cargo.toml</span></p>
+<pre><code class="language-toml">[package]
+name = &quot;orbtk_hello_example&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;Your Name &lt;you@example.com&gt;&quot;]
+edition = &quot;2018&quot;
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+</code></pre>
+<p><span class="caption">Listing 1-1: Default Metadaten “orbtk_hello”</span></p>
+<p>Mit <code>cargo new</code>, wurde die Projekt Struktur automatisch
+erstellt. Vielleicht wurden auch schon die Angaben für Autor und Email angepasst,
+wenn <em>Cargo</em> diese Metadaten aus deinen Umgebungsvariablen auslesen konnte.
+<em>Cargo</em> hat auch bereits den Quellcode für “Hello, world!” erzeugt.
+Lass uns die in der Quelldatei <em>src/main.rs</em> prüfen:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre></pre>
+<p><span class="caption">Listing 1-2: Default source file “main.rs”</span></p>
+<p>Es gibt keinen Grund, diesen Stand unseres Programmes mit <code>cargo run</code> zu kompilieren,
+da wir zunächst noch ein paar Projekt Metadaten zusammen mit ein paar Code Zeilen ergänzen wollen.</p>
+<h4 id="aktualisierung-von-cargotoml"><a class="header" href="#aktualisierung-von-cargotoml">Aktualisierung von Cargo.toml</a></h4>
+<p>Zuerst öffne bitte die <em>Cargo.toml</em> Datei und gib die Code-Zeilen aus dem Listing 1-1 ein:</p>
+<p><span class="filename">Filename: Cargo.toml</span></p>
+<pre><code class="language-toml ignore">[package]
+name = &quot;orbtk_hello&quot;
+version = &quot;0.3.1-alpha4&quot;
+authors = [
+	&quot;Florian Blasius &lt;flovanpt@posteo.de&gt;&quot;,
+	&quot;Ralf Zerres &lt;ralf.zerres.de@gmail.com&gt;&quot;,
+]
+description = &quot;The Orbital Widget Toolkit - Training project&quot;
+documentation = &quot;https://docs.rs/orbtk&quot;
+repository = &quot;https://github.com/redox-os/orbtk&quot;
+readme = &quot;README.md&quot;
+license = &quot;MIT&quot;
+keywords = [
+	&quot;orbital&quot;,
+	&quot;widget&quot;,
+	&quot;ui&quot;,
+]
+edition = &quot;2018&quot;
+
+[profile.dev]
+opt-level = 1
+
+[dependencies]
+orbtk = { git = &quot;https://github.com/redox-os/orbtk.git&quot;, branch = &quot;develop&quot; }
+#orbtk = { path = &quot;../../../orbtk&quot;, branch=&quot;next&quot; }
+
+[[bin]]
+name = &quot;orbtk_hello&quot;
+path = &quot;src/main.rs&quot;
+</code></pre>
+<p><span class="caption">Listing 1-1: Project metadata “orbtk_hello”</span></p>
+<p>Vielleicht wundert es Dich, warum die Eigenschaft <em>name</em> in der <em>Cargo.toml</em> Datei
+als <code>hello_orbtk</code> formatiert wurde.</p>
+<pre><code class="language-toml ignore">name = &quot;orbtk_hello&quot;
+</code></pre>
+<p>Es ist eine sinnvolle und empfehlenswerte Gewohnheit, den Rust
+Namenkonventionen zu folgen. Ich möchte dich ermutigen, in Rust Code
+sogenannte <a href="https://rust-lang.github.io/api-guidelines/naming.html">snake_case</a> Namen zu nutzen. Wenn wir unsere <em>OrbTk</em>
+Beispiele erweitern, werden wir den Gruppierungsprefix <code>orbtk</code> weiter
+verwenden. Aus diesem Grund verwenden wir für unser erstes kleines
+Programm den Namen <code>orbtk_hello</code>.</p>
+<h4 id="aktualisierung-von--mainrs"><a class="header" href="#aktualisierung-von--mainrs">Aktualisierung von  main.rs</a></h4>
+<p>Der gesamte <em>OrbTk</em> spezifische Quellcode der für die Übersetzung des
+ersten Beispeilprogramms “Hello OrbTk!” notwendig ist wird in Listing
+1-2 angezeigt. Diesen bitte in die Datei <em>src/main.rs</em> übertragen.</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre><code class="language-rust ignore">use orbtk::prelude::*;
+
+fn main() {
+    // use this only if you want to run it as web application.
+    orbtk::initialize();
+
+    Application::new()
+        .window(|ctx| {
+            Window::new()
+                .title(&quot;OrbTk-Book - Chapter 1.2&quot;)
+                .position((100.0, 100.0))
+                .size(420.0, 140.0)
+                .child(
+                    TextBlock::new()
+                        .font_size(28)
+                        .h_align(&quot;center&quot;)
+                        .text(&quot;Hey OrbTk!&quot;)
+                        .v_align(&quot;center&quot;)
+                        .build(ctx)
+                )
+                .build(ctx)
+        })
+        .run();
+}
+</code></pre>
+<p><span class="caption">Listing 1-2: Quellcode zum erzeugen des Fensters und Ausgabe
+von “Hey OrbTk!”</span></p>
+<p>Speicher die Datei und gehe zurück in dein Terminal Fenster. Gebe die
+folgenden Kommandos ein um das Programm zu Kompilieren und zu starten:</p>
+<pre><code class="language-console">$ cargo run --release orbtk_hello
+</code></pre>
+<blockquote>
+<p><em><strong>Anmerkung</strong></em>: Eventuell ist die Installation der Entwicklungsversion von
+SDL2 über den Paketmanager der Distribution erforderlich (Ubuntu: libsdl2-dev).</p>
+</blockquote>
+<p>Gleichgültig welches Betriebssystem du gerade verwendest, ein Fenster
+sollte sich auf dem Bildschirm öffnen, das dein Text <code>Hey OrbTk!</code>
+zentriert in diesem Fenster ausgibt.</p>
+<p><a href="img/examples/orbtk_hello.png"><img src="img/examples/orbtk_hello.png" height="150"/></a></p>
+<p><span class="caption">Image 1-2: Applikations-Fenster mit <code>Hey OrbTk</code></span></p>
+<p>Wenn etwas die Fensterausgabe verhindert, schau bitte im Abschnitt
+<a href="https://doc.redox-os.org/orbtk-book/de/ch01-01-installation.html#troubleshooting">“Troubleshooting”</a> der Installationsbeschreibung nach,
+um Hilfestellungen zu erhalten.</p>
+<p>Wenn die die gerenderte Ausgaben von <code>Hey OrbTk!</code> deiner App bewundern kannst,
+Glückwunsch! Du hast erfolgreich deiner erste OrbTk Anwendung geschrieben.
+Das macht Dich zum OrbTk Programmierer — willkommen!</p>
+<h3 id="anatomie-einer-orbtk-anwendung"><a class="header" href="#anatomie-einer-orbtk-anwendung">Anatomie einer OrbTk Anwendung</a></h3>
+<p>Lass uns die Details ansehen, was gerade mit dem Aufwurf der “Hey
+OrbTk!” Anwendung passiert ist. Hier kommt das erste Puzzel-Teilchen:</p>
+<p>Für den Moment sollte es ausreichen, die ersten Puzzleteile zu entzaubern.
+Wenn Du einen generischen Blick auf die Struktur werfen willst, in
+<a href="https://doc.redox-os.org/orbtk-book/ch02-05-workspace-orbtk-widgets.html">Abschnitt Workspace</a> besprechen wir weitere Details.</p>
+<pre><code class="language-rust ignore">use orbtk::prelude::*;
+<span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    // use this only if you want to run it as web application.
+</span><span class="boring">    orbtk::initialize();
+</span><span class="boring">
+</span><span class="boring">    Application::new()
+</span><span class="boring">        .window(|ctx| {
+</span><span class="boring">            Window::new()
+</span><span class="boring">                .title(&quot;OrbTk-Book - Chapter 1.2&quot;)
+</span><span class="boring">                .position((100.0, 100.0))
+</span><span class="boring">                .size(420.0, 140.0)
+</span><span class="boring">                .child(
+</span><span class="boring">                    TextBlock::new()
+</span><span class="boring">                        .font_size(28)
+</span><span class="boring">                        .h_align(&quot;center&quot;)
+</span><span class="boring">                        .text(&quot;Hey OrbTk!&quot;)
+</span><span class="boring">                        .v_align(&quot;center&quot;)
+</span><span class="boring">                        .build(ctx)
+</span><span class="boring">                )
+</span><span class="boring">                .build(ctx)
+</span><span class="boring">        })
+</span><span class="boring">        .run();
+</span><span class="boring">}
+</span></code></pre>
+<p>Die erste Zeile fügt die <em>use</em> Anweisung ein. Eine <em>use</em> Anweisung
+wird verwendet, um den Pfadname abzukürzen der notwendig ist, um in
+Rust einen <em>Modul</em> zu referenzieren. Die Anweisung <em>prelude</em> ist ein
+bequemer Weg eine Liste von Dingen zusammenzufassen, die Rust
+automatisch in dein Programm importiert.  In unserem Fall haben wir
+den Pfad <em>orbtk::prelude</em> eingebunden. Alle Elemente die über diesen
+Pfad addressiert werden können (in der Notation mit <em>::</em> beschrieben)
+können jetzt als Kurzform über ihren Namen angesprochen werden. Es ist
+nicht mehr nötig hierzu den expliziten Pfadname mit zu erfassen (<em>orbtk::prelude::</em>)</p>
+<pre><code class="language-rust ignore"><span class="boring">use orbtk::prelude::*;
+</span><span class="boring">
+</span>fn main() {
+<span class="boring">    // use this only if you want to run it as web application.
+</span><span class="boring">    orbtk::initialize();
+</span><span class="boring">
+</span><span class="boring">    Application::new()
+</span><span class="boring">        .window(|ctx| {
+</span><span class="boring">            Window::new()
+</span><span class="boring">                .title(&quot;OrbTk-Book - Chapter 1.2&quot;)
+</span><span class="boring">                .position((100.0, 100.0))
+</span><span class="boring">                .size(420.0, 140.0)
+</span><span class="boring">                .child(
+</span><span class="boring">                    TextBlock::new()
+</span><span class="boring">                        .font_size(28)
+</span><span class="boring">                        .h_align(&quot;center&quot;)
+</span><span class="boring">                        .text(&quot;Hey OrbTk!&quot;)
+</span><span class="boring">                        .v_align(&quot;center&quot;)
+</span><span class="boring">                        .build(ctx)
+</span><span class="boring">                )
+</span><span class="boring">                .build(ctx)
+</span><span class="boring">        })
+</span><span class="boring">        .run();
+</span><span class="boring">}
+</span></code></pre>
+<p>Die dritte Zeile definiert eine Rust Funktion. Der Funktionsname
+<code>main</code> ist insoweit besonders, als das immer die Stelle in einem Rust
+Programm angibt, mit der die Code-Ausführung beginnt.  In unserem Fall
+hat <code>main</code> eine Parameter und liefert auch am Ende der Funktions
+nichts zurück. Gäbe es Parameter, sie stünden innerhalb der Klammern, <code>()</code>.</p>
+<p>Bitte beachte ebenso, dass die Funktion-Körper (body) in gescheiften
+Klammern eingebettet ist, <code>{}</code>. Die Rust Syntax erwartet dies für alle
+Funktionsdefinitionen. Im Rust Code-Style ist es üblich, die
+Geschweifte Klammer auf der gleichen Zeile wie die
+Funktions-Deklaration zu plazieren und dazwischen ein Leerzeichen einzgeben.</p>
+<p>Rust bedient sich eines Tools für die automatische Formatierung von
+Codezeilen: <code>rustfmt</code>. Es hilt Dir, am Rust Code-Style innerhalb
+deiner Projekte konsistent zu bleiben. OrbTk folgt dieser Anleitung.
+Abhängig von der Versionsnummer deiner installierten Rust Toolchain
+ist die Programmversion von <code>rustfmt</code> vermutlich schon auf deinem System
+installiert. Andernfalls prüfe bitte die Online-Dokumentation.</p>
+<p>Innerhalb der <code>main</code> Funktion findest die die folgenden Anweisungen:</p>
+<pre><code class="language-rust ignore"><span class="boring">use orbtk::prelude::*;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span>    // use this only if you want to run it as web application.
+    orbtk::initialize();
+<span class="boring">
+</span><span class="boring">    Application::new()
+</span><span class="boring">        .window(|ctx| {
+</span><span class="boring">            Window::new()
+</span><span class="boring">                .title(&quot;OrbTk-Book - Chapter 1.2&quot;)
+</span><span class="boring">                .position((100.0, 100.0))
+</span><span class="boring">                .size(420.0, 140.0)
+</span><span class="boring">                .child(
+</span><span class="boring">                    TextBlock::new()
+</span><span class="boring">                        .font_size(28)
+</span><span class="boring">                        .h_align(&quot;center&quot;)
+</span><span class="boring">                        .text(&quot;Hey OrbTk!&quot;)
+</span><span class="boring">                        .v_align(&quot;center&quot;)
+</span><span class="boring">                        .build(ctx)
+</span><span class="boring">                )
+</span><span class="boring">                .build(ctx)
+</span><span class="boring">        })
+</span><span class="boring">        .run();
+</span><span class="boring">}
+</span></code></pre>
+<p>Hier gibt es einige wichtige Details herauszustellen.</p>
+<ul>
+<li>Erstens, Rust code wird standardmäßig mit vier Leerzeichen eingerückt, keine Tabulatoren!</li>
+<li>Zweitens, die Methode <code>orbkt::initialize</code> vollzieht alle notwendigen
+Schritte, um das OrbTk Umgebung zu initialisieren.</li>
+</ul>
+<pre><code class="language-rust ignore"><span class="boring">use orbtk::prelude::*;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    // use this only if you want to run it as web application.
+</span><span class="boring">    orbtk::initialize();
+</span><span class="boring">
+</span>    Application::new()
+<span class="boring">        .window(|ctx| {
+</span><span class="boring">            Window::new()
+</span><span class="boring">                .title(&quot;OrbTk-Book - Chapter 1.2&quot;)
+</span><span class="boring">                .position((100.0, 100.0))
+</span><span class="boring">                .size(420.0, 140.0)
+</span><span class="boring">                .child(
+</span><span class="boring">                    TextBlock::new()
+</span><span class="boring">                        .font_size(28)
+</span><span class="boring">                        .h_align(&quot;center&quot;)
+</span><span class="boring">                        .text(&quot;Hey OrbTk!&quot;)
+</span><span class="boring">                        .v_align(&quot;center&quot;)
+</span><span class="boring">                        .build(ctx)
+</span><span class="boring">                )
+</span><span class="boring">                .build(ctx)
+</span><span class="boring">        })
+</span><span class="boring">        .run();
+</span><span class="boring">}
+</span></code></pre>
+<ul>
+<li>Drittens, die Methode <code>Application::new</code> erstellt eine neue Entität
+im verwendeten Entity-Component-System (DECS). DECS ist eine OrbTk
+Abhängigkeit die die Erstellung und die Organisation aller innerhalb
+von OrbTk verwendeten Entitäten verwaltet. die OrbTk Methoden
+verändern die Attribute der Widget Elemente, die entsprechenden DECS
+Objekte speichern diese Attribute als Compenenten der gegebenen Entity.</li>
+</ul>
+<p>Wir werden die OrbTk Makros und Methoden detaillierter in Kapitel
+&lt;WIp: chapter&gt; besprechen. Im Moment genügt das Wissen, dass mit dem
+Aufruf von <code>::new()</code> die Methode zur Erstellung eines neuen Widgets
+angesprochen wird (hier: <code>Application</code>)</p>
+<p>Nun zur den nächsten Zeilen:</p>
+<pre><code class="language-rust ignore"><span class="boring">use orbtk::prelude::*;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    // use this only if you want to run it as web application.
+</span><span class="boring">    orbtk::initialize();
+</span><span class="boring">
+</span><span class="boring">    Application::new()
+</span>        .window(|ctx| {
+            Window::new()
+                .title(&quot;OrbTk-Book - Chapter 1.2&quot;)
+                .position((100.0, 100.0))
+                .size(420.0, 140.0)
+<span class="boring">                .child(
+</span><span class="boring">                    TextBlock::new()
+</span><span class="boring">                        .font_size(28)
+</span><span class="boring">                        .h_align(&quot;center&quot;)
+</span><span class="boring">                        .text(&quot;Hey OrbTk!&quot;)
+</span><span class="boring">                        .v_align(&quot;center&quot;)
+</span><span class="boring">                        .build(ctx)
+</span><span class="boring">                )
+</span><span class="boring">                .build(ctx)
+</span><span class="boring">        })
+</span><span class="boring">        .run();
+</span><span class="boring">}
+</span></code></pre>
+<p>Innerhalb der <code>Application</code> Methode, starten wir weitere
+Anweisungen. Das Augenmerk liegt auf folgenden Details:</p>
+<ul>
+<li>Erstens, das  Rust Stylingsystem rückt den Code um weitere vier Leerzeichen ein. Keine Tabulatoren!</li>
+<li>Zweitens, das <code>Pipelining</code> von Code wird über einen Punkt (<code>dot</code>)
+eingeleitet, der um den neuen Methodennamen ergänzt wird (Hier:
+<code>window</code>).</li>
+<li>Drittens, die <code>windows</code> Methode verwendet eine Rust <code>closure</code> als Argument.</li>
+</ul>
+<p>Wenn du bis jetzt noch nicht mit dem Konzept von <code>closures</code> vertraut
+bist, dieser Link ist den Freund:
+<a href="https://doc.rust-lang.org/rust-by-example/fn/closures.html">closures</a>.
+Diese Referenz bietet ein vertiefendes Verständnis. Im Moment genügt
+das Wissen, dass eine closure als effiziente Sprachkomponente an
+Stelle einer Funktion genutzt werden kann, Wenn eine closure <code>|ctx| {}</code> ausgeführt wird, wird deren Ergebnis innerhalb der
+Rückgabevariable gespeichert (hier: <code>ctx</code>). Die Geschweifte Klammer
+definiert den closure Korpus, mit dem Quellcode der innerhalb der closure ausgeführt wird.</p>
+<p>Lass und den closure Korpus mal prüfen:</p>
+<ul>
+<li>Erstens, wir rufen eine Methode auf, um ein neues Fenster als Entität zu erzeugen
+(<code>Windows::new</code>).</li>
+<li>Zweitens, wir definieren Attribute, die wir dieser Entität anfügen (<code>title</code>,
+<code>position</code>, <code>size</code>).</li>
+<li>Drittens, innerhalb des neu definierten Fensters erzeugen wir eine neue, hierarchisch untergeordnete Entität
+(<code>child</code>).</li>
+</ul>
+<pre><code class="language-rust ignore"><span class="boring">use orbtk::prelude::*;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    // use this only if you want to run it as web application.
+</span><span class="boring">    orbtk::initialize();
+</span><span class="boring">
+</span><span class="boring">    Application::new()
+</span><span class="boring">        .window(|ctx| {
+</span><span class="boring">            Window::new()
+</span><span class="boring">                .title(&quot;OrbTk-Book - Chapter 1.2&quot;)
+</span><span class="boring">                .position((100.0, 100.0))
+</span><span class="boring">                .size(420.0, 140.0)
+</span>                .child(
+                    TextBlock::new()
+                        .font_size(28)
+                        .h_align(&quot;center&quot;)
+                        .text(&quot;Hey OrbTk!&quot;)
+                        .v_align(&quot;center&quot;)
+                        .build(ctx)
+                )
+<span class="boring">                .build(ctx)
+</span><span class="boring">        })
+</span><span class="boring">        .run();
+</span><span class="boring">}
+</span></code></pre>
+<ul>
+<li>Viertens, dieses <code>child</code> Methode erhält ihrerseits Argumente. Wir
+erzeugen eine neue Entität und beschreiben den Widget-Typ
+(<code>Textblock::new</code>). Der Textblock wird mit Attributen ergänzt (<code>text</code>,
+<code>h_align</code>, <code>v_align</code>). Das Attribut <code>text</code> erhält den gewünschten
+Zeichenwert (string). Seine Position wird über Attribute gesteuert,
+die für die horizontale und vertikale Ausrichtung zuständig sind
+(<code>alignment</code>). Wir wählen <code>center</code> und weisen den später aufzurufenden
+Render-Prozess damit an, den Text innerhalb der hierarchisch
+übergeordneten Entität (<code>parent</code>) zentriert zu plazieren. In unserem
+Fall ist das das Fenster selbst.</li>
+</ul>
+<pre><code class="language-rust ignore"><span class="boring">use orbtk::prelude::*;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    // use this only if you want to run it as web application.
+</span><span class="boring">    orbtk::initialize();
+</span><span class="boring">
+</span><span class="boring">    Application::new()
+</span><span class="boring">        .window(|ctx| {
+</span><span class="boring">            Window::new()
+</span><span class="boring">                .title(&quot;OrbTk-Book - Chapter 1.2&quot;)
+</span><span class="boring">                .position((100.0, 100.0))
+</span><span class="boring">                .size(420.0, 140.0)
+</span><span class="boring">                .child(
+</span><span class="boring">                    TextBlock::new()
+</span><span class="boring">                        .font_size(28)
+</span><span class="boring">                        .h_align(&quot;center&quot;)
+</span><span class="boring">                        .text(&quot;Hey OrbTk!&quot;)
+</span><span class="boring">                        .v_align(&quot;center&quot;)
+</span><span class="boring">                        .build(ctx)
+</span><span class="boring">                )
+</span>                .build(ctx)
+<span class="boring">        })
+</span><span class="boring">        .run();
+</span><span class="boring">}
+</span></code></pre>
+<p>OrbTk versucht von sich aus, die gegebenen Anweisung zeitlich so weit
+wie möglich aufzuschieben (lazy handling). Daher rufen wir die
+eigentliche Methode für die Erzeugung der Struktur erst am Ende mit
+(<code>build(ctx)</code>) auf. Die Entitäten werden instantiert. Der Renderer
+wird für die veränderten Komponenten aktiv, berechnet diese neu und
+gibt das Ergebnis in den Bildschirmpuffer aus.</p>
+<pre><code class="language-rust ignore"><span class="boring">use orbtk::prelude::*;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    // use this only if you want to run it as web application.
+</span><span class="boring">    orbtk::initialize();
+</span><span class="boring">
+</span><span class="boring">    Application::new()
+</span><span class="boring">        .window(|ctx| {
+</span><span class="boring">            Window::new()
+</span><span class="boring">                .title(&quot;OrbTk-Book - Chapter 1.2&quot;)
+</span><span class="boring">                .position((100.0, 100.0))
+</span><span class="boring">                .size(420.0, 140.0)
+</span><span class="boring">                .child(
+</span><span class="boring">                    TextBlock::new()
+</span><span class="boring">                        .font_size(28)
+</span><span class="boring">                        .h_align(&quot;center&quot;)
+</span><span class="boring">                        .text(&quot;Hey OrbTk!&quot;)
+</span><span class="boring">                        .v_align(&quot;center&quot;)
+</span><span class="boring">                        .build(ctx)
+</span><span class="boring">                )
+</span><span class="boring">                .build(ctx)
+</span><span class="boring">        })
+</span>        .run();
+<span class="boring">}
+</span></code></pre>
+<p>Mit der letzten Anweisung aktivieren wir die Methode, die den Event
+Mechanismus kontrolliert.  Die definierte Applikation wird gestartet,
+die beschriebenen Widgets auf den Bildschirm ausgegeben (<code>run</code>).</p>
+<p>Rust Codezeilen werden in der Regel mit einem Simikolon abgeschlossen
+(<code>;</code>). Dies weist den Kompiler an, das eine gegebene Anweisung
+abgeschlossen ist, mit der nächsten fortgefahren werden kann.</p>
+<h3 id="kompilierung-und-ausführung-sind-separate-schritte"><a class="header" href="#kompilierung-und-ausführung-sind-separate-schritte">Kompilierung und ausführung sind separate Schritte</a></h3>
+<p>Bevor eine OrbTk Application auf der Hardware ablauffähig ist, muss
+deren Quellcode über den Kompiler in Maschinencode übersetzt
+werden. Ein typisches OrbTk Projekt wird ein ausführbares Programm
+(binary) über das Tool <code>cargo</code> erzeugen. <code>cargo</code> legt die erstellte
+Datei in den definierten Projekt-Unterordner.</p>
+<p>In den Projekt-Metadaten der Toml-Datei können sogenannte Profile
+genutze werden, die Kompiler-Optionen für die gewünschte
+Ablaufumgebung einstellen (z.B. Optimierungen, Debugging).
+Als Unterlassungswerte (defaults) unterstützt <em>cargo</em> die <code>dev</code> und <code>test</code> Profile.
+Wird der Aufruf von <em>cargo</em> mit dem <code>--release</code> Argument ergänzt,
+kommt das sogenannte release or bench Profil zur Anwendung.</p>
+<pre><code class="language-console">$ cargo build --release --bin orbtk_hello.rs
+$ ../target/release/hello_orbtk
+</code></pre>
+<p>Für Windows muss der <code>backslash</code> als Pfad-Trennung verwendet werden:</p>
+<pre><code class="language-powershell">&gt; cargo build --release --bin orbtk-hello.rs
+&gt; ..\target\release\orbtk_hello.exe
+</code></pre>
+<p>OrbTk unterstützt Entwickler mit zusätzlichen Informationen zur
+Kompile-Umgebung. Hierzu kann der Kompile-Lauf um <code>feature</code> Argumente
+ergänzt werden (derzeit: debug, log).</p>
+<ul>
+<li>debug: die Widgets werden mit Umrandungen gerendert. Dies
+erleichtert die Kontrolle der Einhaltung von constraints.</li>
+<li>log: Bei Aufruf wird beispeilsweise die Hierarchie der verwendeten
+Widgets visualisiert und auf der Kommandozeile ausgegeben.</li>
+</ul>
+<pre><code class="language-console">$ cargo build --features debug,log --bin hello_orbtk.rs
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch01-01-installation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="ch01-03-ingredients.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch01-01-installation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="ch01-03-ingredients.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="ferries.js"></script>
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
+
+
+    </body>
+</html>
