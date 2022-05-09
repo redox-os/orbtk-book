@@ -2,8 +2,7 @@
 
 [<img src="img/orbtk_planet.svg" width="720"/>](img/orbtk_planet.svg)
 
-*von Florian Blasius, mit der Unterstützung der Rust Gemeinschaft*
-
+*von Florian Blasius, mit der Unterstützung der Rust Gemeinschaft* <br>
 *Kommentierung und Dokumentation durch Ralf Zerres und alle Unterstützer*
 
 Diese Version des Textes geht davon aus, dass Du OrbTk v0.3.1 oder

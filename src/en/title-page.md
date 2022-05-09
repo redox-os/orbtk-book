@@ -2,8 +2,7 @@
 
 [<img src="img/orbtk_planet.svg" width="720"/>](img/orbtk_planet.svg)
 
-*by Florian Blasius, with contributions from the Rust Community*
-
+*by Florian Blasius, with contributions from the Rust Community* <br>
 *annotated and documented by Ralf Zerres and all contributers*
 
 This version of the text assumes you’re using OrbTk v0.3.1 or later in
