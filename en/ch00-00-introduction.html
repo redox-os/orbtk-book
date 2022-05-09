@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduction - The OrbTk Book</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The Orbital Widget Toolkit (OrbTk)is a multi platform toolkit, that enables you to build scalable user interfaces. All components are devoloped with the programming language Rust.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="ferries.css">
+        <link rel="stylesheet" href="theme/2020-edition.css">
+
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="title-page.html">The Orbtk Widget Toolkit</a></li><li class="chapter-item affix "><a href="foreword.html">Foreword</a></li><li class="chapter-item affix "><a href="ch00-00-introduction.html" class="active">Introduction</a></li><li class="chapter-item affix "><li class="part-title">Getting started</li><li class="chapter-item "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item "><a href="ch01-02-hello-orbtk.html"><strong aria-hidden="true">1.2.</strong> Hello OrbTk!</a></li><li class="chapter-item "><a href="ch01-03-ingredients.html"><strong aria-hidden="true">1.3.</strong> The Ingredients</a></li></ol></li><li class="chapter-item "><a href="ch02-00-workspaces.html"><strong aria-hidden="true">2.</strong> OrbTk The Structure</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch02-01-workspace-orbtk.html"><strong aria-hidden="true">2.1.</strong> Workspace: Orbtk</a></li><li class="chapter-item "><a href="ch02-02-workspace-orbtk-core.html"><strong aria-hidden="true">2.2.</strong> Workspace: Orbtk Core</a></li><li class="chapter-item "><a href="ch02-03-workspace-orbtk-client.html"><strong aria-hidden="true">2.3.</strong> Workspace: Orbtk Client</a></li><li class="chapter-item "><a href="ch02-04-workspace-orbtk-tinyskia.html"><strong aria-hidden="true">2.4.</strong> Workspace: Orbtk TinySkia</a></li><li class="chapter-item "><a href="ch02-05-workspace-orbtk-widgets.html"><strong aria-hidden="true">2.5.</strong> Workspace: Orbtk Widgets</a></li><li class="chapter-item "><a href="ch02-06-proc-macros.html"><strong aria-hidden="true">2.6.</strong> Workspace: Process macros</a></li><li class="chapter-item "><a href="ch02-07-utils.html"><strong aria-hidden="true">2.7.</strong> Workspace: Utilities</a></li></ol></li><li class="chapter-item "><a href="ch03-00-widget-templates.html"><strong aria-hidden="true">3.</strong> OrbTk Widget Templates</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch03-01-widget-button.html"><strong aria-hidden="true">3.1.</strong> Template: Button</a></li><li class="chapter-item "><a href="ch03-02-widget-canvas.html"><strong aria-hidden="true">3.2.</strong> Template: Canvas</a></li><li class="chapter-item "><a href="ch03-03-widget-check-box.html"><strong aria-hidden="true">3.3.</strong> Template: CheckBox</a></li><li class="chapter-item "><a href="ch03-04-widget-combo-box.html"><strong aria-hidden="true">3.4.</strong> Template: ComboBox</a></li><li class="chapter-item "><a href="ch03-05-widget-container.html"><strong aria-hidden="true">3.5.</strong> Template: Container</a></li><li class="chapter-item "><a href="ch03-06-widget-cursor.html"><strong aria-hidden="true">3.6.</strong> Template: Cursor</a></li><li class="chapter-item "><a href="ch03-07-widget-font-icon-block.html"><strong aria-hidden="true">3.7.</strong> Template: FontIconBlock</a></li><li class="chapter-item "><a href="ch03-08-widget-grid.html"><strong aria-hidden="true">3.8.</strong> Template: Grid</a></li><li class="chapter-item "><a href="ch03-09-widget-image-widget.html"><strong aria-hidden="true">3.9.</strong> Template: Image-widget</a></li><li class="chapter-item "><a href="ch03-10-widget-list-view.html"><strong aria-hidden="true">3.10.</strong> Template: ListView</a></li><li class="chapter-item "><a href="ch03-11-widget-master-detail.html"><strong aria-hidden="true">3.11.</strong> Template: MasterDetail</a></li><li class="chapter-item "><a href="ch03-12-widget-numeric-box.html"><strong aria-hidden="true">3.12.</strong> Template: NumericBox</a></li><li class="chapter-item "><a href="ch03-13-widget-pager.html"><strong aria-hidden="true">3.13.</strong> Template: Pager</a></li><li class="chapter-item "><a href="ch03-14-widget-password-box.html"><strong aria-hidden="true">3.14.</strong> Template: PasswordBox</a></li><li class="chapter-item "><a href="ch03-15-widget-popup-bar.html"><strong aria-hidden="true">3.15.</strong> Template: Popup</a></li><li class="chapter-item "><a href="ch03-16-widget-progress-bar.html"><strong aria-hidden="true">3.16.</strong> Template: ProgressBar</a></li><li class="chapter-item "><a href="ch03-17-widget-scroll-bar.html"><strong aria-hidden="true">3.17.</strong> Template: ScrollBar</a></li><li class="chapter-item "><a href="ch03-18-widget-scroll-indicator.html"><strong aria-hidden="true">3.18.</strong> Template: ScrollIndicator</a></li><li class="chapter-item "><a href="ch03-19-widget-scroll-viewer.html"><strong aria-hidden="true">3.19.</strong> Template: ScrollViewer</a></li><li class="chapter-item "><a href="ch03-20-widget-slider.html"><strong aria-hidden="true">3.20.</strong> Template: Slider</a></li><li class="chapter-item "><a href="ch03-21-widget-stack.html"><strong aria-hidden="true">3.21.</strong> Template: Stack</a></li><li class="chapter-item "><a href="ch03-22-widget-switch.html"><strong aria-hidden="true">3.22.</strong> Template: Switch</a></li><li class="chapter-item "><a href="ch03-23-widget-tabwidget.html"><strong aria-hidden="true">3.23.</strong> Template: TabWidget</a></li><li class="chapter-item "><a href="ch03-24-widget-textblock.html"><strong aria-hidden="true">3.24.</strong> Template: TextBlock</a></li><li class="chapter-item "><a href="ch03-25-widget-textbox.html"><strong aria-hidden="true">3.25.</strong> Template: TextBox</a></li><li class="chapter-item "><a href="ch03-26-widget-togglebutton.html"><strong aria-hidden="true">3.26.</strong> Template: Togglebutton</a></li><li class="chapter-item "><a href="ch03-27-widget-window.html"><strong aria-hidden="true">3.27.</strong> Template: Window</a></li></ol></li><li class="chapter-item "><a href="ch09-00-orbtk-examples.html"><strong aria-hidden="true">4.</strong> OrbTk Examples</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ch09-01-hello-orbtk.html"><strong aria-hidden="true">4.1.</strong> Hello OrbTk!</a></li><li class="chapter-item "><a href="ch09-02-showcase.html"><strong aria-hidden="true">4.2.</strong> Showcase</a></li><li class="chapter-item "><a href="ch09-03-msg-handling.html"><strong aria-hidden="true">4.3.</strong> Message handling</a></li><li class="chapter-item "><a href="ch09-04-popups.html"><strong aria-hidden="true">4.4.</strong> Popups</a></li><li class="chapter-item "><a href="ch09-05-tableview.html"><strong aria-hidden="true">4.5.</strong> Tableview</a></li></ol></li><li class="chapter-item "><a href="appendix-00.html"><strong aria-hidden="true">5.</strong> Appendix</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="appendix-01-keywords.html"><strong aria-hidden="true">5.1.</strong> A - Keywords</a></li><li class="chapter-item "><a href="appendix-02-operators.html"><strong aria-hidden="true">5.2.</strong> B - Operators and Symbols</a></li><li class="chapter-item "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">5.3.</strong> C - Derivable Traits</a></li><li class="chapter-item "><a href="appendix-04-translation.html"><strong aria-hidden="true">5.4.</strong> D - Translations of the Book</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The OrbTk Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/redox-os/orbtk-book/tree/main/book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/redox-os/orbtk-book/tree/main/book/src/ch00-00-introduction.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<!--
+> WIP: to be uncommented, once it is done
+> Note: This edition of the book is the same as
+> [The Orbital Widget Toolkit][nsporbtk] available in print
+> and ebook format from [No Starch Press][nsporbtk].
+
+[nsporbtk]: https://nostarch.com/orbtk
+[nsp]: https://nostarch.com/
+-->
+<p><a href="img/orbtk.svg"><img src="img/orbtk.svg" width="720"/></a></p>
+<p>Welcome to <em>The Orbital Widget Toolkit</em>, an introductory book about <code>OrbTk</code>.
+The Rust programming language helps you write faster and reliable software.
+<code>OrbTk</code> contribute the needed crates, to develop modern graphical user interfaces.
+It offers a single code base that compiles to native binary code that is executed
+on your target platform.</p>
+<div class="warning">
+<p>Warning: This book is incomplete.  Documenting everything and
+rewriting outdated parts take a while.
+See the <a href="https://github.com/redox-os/orbtk-book/issues">issue tracker</a> to check what’s missing or outdated. If there
+are any mistakes or ideas that haven’t been reported, feel free to
+open a new issue there.</p>
+</div>
+<h2 id="features"><a class="header" href="#features">Features</a></h2>
+<ul>
+<li>Modern lightweight API</li>
+<li>Cross platform</li>
+<li>Modular crates</li>
+<li>Based on Entity Component System library DCES</li>
+<li>Flexible event system</li>
+<li>Integrated widget library</li>
+<li>Custom widgets</li>
+<li>Custom theming engine</li>
+<li>Dynamic theme switching</li>
+<li>Integrated debugging tools</li>
+<li>Localization</li>
+</ul>
+<h2 id="supported-platforms"><a class="header" href="#supported-platforms">Supported Platforms</a></h2>
+<ul>
+<li>Redox OS (native)</li>
+<li>Linux (native | cargo-node)</li>
+<li>macOS (native | cargo-node)</li>
+<li>Windows (native | cargo-node)</li>
+<li>openBSD (not tested, but should work)</li>
+<li>Web (cargo-node)</li>
+<li>Android (native planned | cargo-node)</li>
+<li>iOS (native planned | cargo-node planned)</li>
+<li>Ubuntu Touch (native planned | cargo-node planned)</li>
+</ul>
+<h2 id="who-orbtk-is-for"><a class="header" href="#who-orbtk-is-for">Who OrbTk Is For</a></h2>
+<p><code>OrbTk</code> is ideal for programmers that like to take advantage of the Rust programming
+language. No need to transform data structures and types: OrbTk itself is coded in
+Rust. It naturally adopts all the structural advantages and provides the needed GUI
+elements to code your application. Let’s look at a few of
+the most important groups.</p>
+<h3 id="teams-of-developers"><a class="header" href="#teams-of-developers">Teams of Developers</a></h3>
+<p>Rust is proving to be a productive tool for collaborating among large teams of
+developers with varying levels of systems programming knowledge. Have a look at
+the Rust book that elaborates the fundamental principles that enables you to
+produce more secure code.</p>
+<p><code>OrbTk</code> reuses the Rust toolchain as much as possible. Contemporary developer
+that have passed the learning curve will take advantage of:</p>
+<ul>
+<li>Cargo, the included dependency manager and build tool, makes adding,
+compiling, and managing dependencies painless and consistent across the Rust
+ecosystem.</li>
+<li>Rustfmt ensures a consistent coding style across developers.</li>
+<li>The Rust Language Server powers Integrated Development Environment (IDE)
+integration for code completion and inline error messages.</li>
+</ul>
+<h3 id="students"><a class="header" href="#students">Students</a></h3>
+<p>Rust is for students and those who are interested in learning about systems
+concepts. Using Rust, many people have learned about topics like operating
+systems development. The community is very welcoming and happy to answer
+student questions. Through efforts such as this book, the Rust teams want to
+make systems concepts more accessible to more people, especially those new to
+programming.</p>
+<h3 id="companies"><a class="header" href="#companies">Companies</a></h3>
+<p>Hundreds of companies, large and small, use Rust in production for a variety of
+tasks. Those tasks include command line tools, web services, DevOps tooling,
+embedded devices, audio and video analysis and transcoding, cryptocurrencies,
+bioinformatics, search engines, Internet of Things applications, machine
+learning, and even major parts of the Firefox web browser.</p>
+<h3 id="open-source-developers"><a class="header" href="#open-source-developers">Open Source Developers</a></h3>
+<p><code>OrbTk</code> is for people who want to build with the Rust programming language,
+its community, its developer tools, and libraries. We’d love to have you
+contribute to its crates and entities.</p>
+<h2 id="who-this-book-is-for"><a class="header" href="#who-this-book-is-for">Who This Book Is For</a></h2>
+<p>This book assumes that you’ve written code in another programming language
+and other GUI toolkits. We do not make any assumptions about which specific
+one. We’ve tried to make the material broadly accessible to those from a
+wide variety of development backgrounds. We don’t spend a lot of time
+talking about what programming <em>is</em> or how to think about it.
+If you’re entirely new to programming, you would be better served by
+reading a book that specifically provides an introduction to programming.</p>
+<h2 id="how-to-use-this-book"><a class="header" href="#how-to-use-this-book">How to Use This Book</a></h2>
+<p>In general, this book assumes that you’re reading it in sequence from front to
+back. Later chapters build on concepts in earlier chapters, and earlier
+chapters might not delve into details on a topic; we typically revisit the
+topic in a later chapter.</p>
+<p>You’ll find two kinds of chapters in this book: concept chapters and project
+chapters. In concept chapters, you’ll learn about an aspect of <code>OrbTk</code>. In project
+chapters, we’ll build small programs together, applying what you’ve learned so
+far.</p>
+<p>Chapter 1 explains how to install Rust and OrbTk, how to write a minimal program,
+and how to use Cargo, Rust’s package manager and build tool.</p>
+<p>Finally, some appendixes contain useful information about the  in a
+more reference-like format. Appendix A covers OrbTk’s keywords, Appendix B
+covers OrbTk’s derivable traits and crates.</p>
+<p>There is no wrong way to read this book: if you want to skip ahead, go for it!
+You might have to jump back to earlier chapters if you experience any
+confusion. But do whatever works for you.</p>
+<p><span id="ferris"></span></p>
+<p>An important part of the process of learning <code>OrbTk</code> is learning how to read the
+error messages the compiler displays: these will guide you toward working code.
+As such, we’ll provide many examples that don’t compile along with the error
+message the compiler will show you in each situation. Know that if you enter
+and run a random example, it may not compile! Make sure you read the
+surrounding text to see whether the example you’re trying to run is meant to
+error. Ferris will also help you distinguish code that isn’t meant to work:</p>
+<table><thead><tr><th>Ferris</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><img src="img/ferris/does_not_compile.svg" class="ferris-explain"/></td><td>This code does not compile!</td></tr>
+<tr><td><img src="img/ferris/panics.svg" class="ferris-explain"/></td><td>This code panics!</td></tr>
+<tr><td><img src="img/ferris/unsafe.svg" class="ferris-explain"/></td><td>This code block contains unsafe code.</td></tr>
+<tr><td><img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/></td><td>This code does not produce the desired behavior.</td></tr>
+</tbody></table>
+<p>In most situations, we’ll lead you to the correct version of any code that
+doesn’t compile.</p>
+<h2 id="source-code"><a class="header" href="#source-code">Source Code</a></h2>
+<p>The source files from which this book is generated can be found on
+the Homepage at <a href="https://github.com/redox-os/orbtk-book/tree/master/src/en">Orbtk book (en)</a>.</p>
+<!---
+[book]: https://github.com/redox-os/orbtk-book
+-->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="foreword.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="ch01-00-getting-started.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="foreword.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="ch01-00-getting-started.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="ferries.js"></script>
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
+
+
+    </body>
+</html>
