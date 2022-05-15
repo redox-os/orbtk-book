@@ -173,20 +173,34 @@ ein Entity Component System bereitstellt. Die Interaction mit <code>DCES</code> 
 </pre>
 <p><span class="caption">Workflow 1-1: Verarbeitung-Methoden <code>Ansicht</code></span></p>
 <p>Wenn Du eine OrbTK Anwendung erstellst kombinierst Du letztlich
-<code>widgets</code>.  Widgets sind die Kern-Bausteine von Benutzer
-Schnittstellen in OrbTK in denen eine bestimmte Aufgabe verarbeitet
-wird. Das vorhandene Modell ist dynamisch strukturiert. Es ist legitim
-und ohne weiteres möglich Deine eigenen Widget-Typen zu
-erstellen, oder aber auf die vordefinierten Implementierungen
-zurückzugreifen.</p>
-<p>Um einen <code>widget-tree</code> zu erzeugen könntest Du beispielsweise einen
-<code>ListView</code> erstellen. Der <code>Listview</code> seinerseits verwendet als
-Kind-Widget eine <code>TextBox</code> die wiederum als Kind-Widget einen <code>Button</code>
-nutzt. Letztlich hast Du so ein ein hierarchisch geordnete
-Benutzer-Schnittstelle geschaffen (einen <code>view</code>), der den für den
-Anwender einen sichtbaren Teil Deiner Anwendung repräsentiert. Ein
-widget-tree wird in eine eindeutig adressierbaren <code>widget-container</code>
-eingebunden.</p>
+<code>widgets</code>. Widgets sind die Kern-Bausteine von Benutzer Schnittstellen
+in OrbTK. Sie sind deklarativ, d.h. sie beschreiben die Struktur von
+Entitäten mit deren zugeordneten Komponenten (deren <em>properties</em>). Sie
+werden für die Umsetzung eine bestimmen Aufgabe verwendet und sollten
+alle graphischen Elemente in einem geordneten Benugtzer Interface für
+die Anwendung bereitstellen (der <code>widget-tree</code>). Ein widget-tree wird
+in einen eindeutig adressierbaren <code>widget-container</code> eingebunden.</p>
+<p>In diesem Zusammenhang ist die Wiederverwendbarkeit ein wesentliche
+Anforderung. Bei der Implementierung eines benötigten UI-Elements ist
+es legitim und einfach, wenn auf bereits existierende widgets
+zurückgegriffen werden kann. Es ist unerheblich, wenn dies
+ihrerseits auf eine beliebige Anzahl von <em>core widgets</em> zurückgreifen.</p>
+<p>Das derzeitige Modell ist dynamisch strukturiert und bietet die Freiheit:</p>
+<ul>
+<li>verwende eine beliebige Anzahl von vorhandenen widget Typen aus der Bibliothek</li>
+<li>implementiere Deinen eigenen, neue, spezialisierten widget Typ</li>
+</ul>
+<p>Illustrieren wir das mit folgendem simplen Beispiel, in dem Du in
+Deiner Anwendung einen <code>FontIconBlock</code> benötigst. Um einen solchen
+<code>widget-tree</code> zu erzeugen kannst Du entweder ein neues Widget
+<code>MyFontIconBlock</code> erstellen, das als Kind-Widget einen <code>Container</code>
+verwendet, der seinerseits eine <code>TextBox</code> und einen <code>Button</code>
+einbindet. Oder aber Du greifst einfach auf die Bibliotheks-Version von
+[<code>FontIconBlock</code>] [FontIconBlock]. zu.</p>
+<p>Du findest den Quellcode der verfügbaren widget Bibliothek im
+Workspace [<code>orbtk_widgets</code>][orbtk_widgets].</p>
+<p>[FontIconBlock] https://redox-os.github.io/orbtk-book/de/ch03-07-widget-font-icon-block.html
+[orbtk_widgets] https://github.com/redox-os/orbtk/tree/develop/orbtk_widgets</p>
 <h3 id="widget-trait"><a class="header" href="#widget-trait">Widget trait</a></h3>
 <p>Ein widget muss zwingend ein Widget trait erzeugen. Hierzu hilft das Makro
 <code>widget!()</code>.</p>
@@ -212,7 +226,7 @@ Widget-Baums, von den Methoden die auf Benutzereingaben in der GUI
 reagieren und sie verarbeiten (der Widget <code>state</code>). Diese Trennung ist
 der Schlüssel für eine schnelle, flexible und erweiterbare Struktur
 innerhalb von OrbTk.</p>
-<h2 id="der-widget-state"><a class="header" href="#der-widget-state">Der widget state</a></h2>
+<h2 id="widget-state"><a class="header" href="#widget-state">Widget state</a></h2>
 <pre class="mermaid">graph TD;
 	State--&gt;init;
 	State--&gt;update;
@@ -243,7 +257,10 @@ die sowohl auf Ereignisse der zugeordneten Systeme reagieren
 Eigenschaften verändern können. Die Eigenschaften (<code>properties</code>) sind
 im ECM gespeichert, deren Aufbau sich an der Baum Struktur orientiert
 (parent, children or level entities).</p>
-<h2 id="gui-elements"><a class="header" href="#gui-elements">GUI Elements</a></h2>
+<h2 id="systems"><a class="header" href="#systems">Systems</a></h2>
+<p>Während <strong>Widgets</strong> die <em>data structure</em> einer <code>OrbTk</code> Application
+definiert und organisiert, verwenden wir <strong>systems</strong> um das Verhalten
+bei der Bearbeitung zu steuern.</p>
 <ul>
 <li>Layouts</li>
 <li>Events</li>
@@ -251,6 +268,10 @@ im ECM gespeichert, deren Aufbau sich an der Baum Struktur orientiert
 <li>Messages</li>
 </ul>
 <h3 id="layouts"><a class="header" href="#layouts">Layouts</a></h3>
+<p>Layouts lösen das Problem, wo und wie Widgets innerhalb einer UI
+plaziert werden. Das erfordert die kontinuierliche Anpassung und
+dynamische Berechnung ihrer Größenanforderungen, verbunden mit der
+Plazierung des Ergebnisses zur Dastellung auf dem Ausgabegerät.</p>
 <h4 id="warum-brauchen-wir-layouts"><a class="header" href="#warum-brauchen-wir-layouts">Warum brauchen wir Layouts?</a></h4>
 <p>Nun, betrachten wir ein eingängiges Beispiel, das in jeder modernen
 Applikation umgesetzt werden muss: Mehrere Sprachvarianten sind
@@ -263,8 +284,8 @@ Berechnung der Größe zu berücksichtigen. Was würde passieren, wenn Du
 beispielsweise die Größe einer Entität statisch festlegst? Wir würden
 z.B. einen Button mit einer festen Größe kodieren. Wie reagierst Du
 nun auf Kontext-Veränderungen von untergeordneten Entitäten (childs)?
-Wie gehst Du damit um, dass sich z.B ein Button-Bezeichner, den der Anwender
-wahrscheinlich zentriert im Button Rahmen erwartet verändert?</p>
+Wie gehst Du damit um, dass sich z.B ein Button-Bezeichner, den der
+Anwender wahrscheinlich zentriert im Button Rahmen erwartet verändert?</p>
 <p>Puh, Du als der Programmierer müsstest an alle möglichen GUI
 Darstellungen denken, programmatisch auf jede denkbare
 Spracheveränderung reagieren. Ein Alptraum! Nein, wir brauchen einen
@@ -319,7 +340,8 @@ Widget-Typen zu berücksichtigen:</p>
 </ul>
 <p>Du findest deren Quellcode im Workspace <code>orbtk_core</code> im Unterverzeichnis <code>layout</code>.
 Weitere Informationen zu diesen Methoden werden im
-<a href="https://doc.redox-os.org/orbtk-book/ch02-02-workspace-orbtk-core.html#layout">Kapitel: Orbtk Core</a> besprochen.</p>
+<a href="https://redox-os.github.io/en/orbtk-book/ch02-02-workspace-orbtk-core.html#layout">Kapitel: Orbtk Core</a> besprochen.</p>
+<!-- [layout]: https://doc.redox-os.org/en/orbtk-book/ch02-02-workspace-orbtk-core.html#layout -->
 <h3 id="events"><a class="header" href="#events">Events</a></h3>
 <ul>
 <li>bottom-up</li>
