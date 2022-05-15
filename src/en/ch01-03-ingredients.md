@@ -10,7 +10,7 @@ to `ECM` entities and `OrbTk` properties to `ECM` components.
 [dces]: https://docs.rs/dces
 [functional_reactive]: https://en.wikipedia.org/wiki/Functional_reactive_programming
 
-## The widget view
+## Widget view
 
 ```mermaid
 graph TD;
@@ -25,17 +25,36 @@ graph TD;
 ```
 <span class="caption">Workflow 1-1: View handling methods</span>
 
-When you construct an OrbTk application, you are essentially combining
+When you construct an OrbTk application, you do essentially combine
 `widgets`. Widgets are the building blocks of user interfaces in
-OrbTk, dedicated to a given task. The given model is dynamically
-structured. You are free to implement your own widget type or consume
-the predefined implementations.
+OrbTk. They are declarative, which means they define the structure of
+an entity with associated components (its properties). Widgets are
+dedicated to a specific task and should provide all needed visual
+components inside your app that offers the ordered user interface (the
+`widget-tree`). Each widget-tree is stacked into a uniquely addressable
+`widget-container`.
 
-To make up a `widget-tree`, you may construct a `ListView`, that
-instantiates a child `TextBox` that itself instantiates a child
-`Button`. You end up with an ordered user interface (the `view`), the
-visible part of your app. Each widget-tree is stacked into a uniquely
-addressable `widget-container`.
+Re-usability is a major demand in that area. To implement a useful UI
+element it is convenient to simple make up a tree of already available
+widgets that may consume any number of core widgets.
+
+The given model is dynamically structured which offers you freedom:
+
+* consume any number of predefined library offered widgets type
+* implement your own, new, sophisticated widget type
+
+Just to illustrate a simple case, where you need an `FontIconBlock` in
+your app. To make up such a `widget-tree`, you either construct a new
+widget `MyFontsIconBlock`, that instantiates a child `Container`, that
+itself instantiates a `TextBox` an a `Button` child. Or as an easy
+alternative, you take advantage of the library offered version
+[FontIconBlock][font_icon_block].
+
+You will find the source code of available library widgets inside
+workspace [orbtk_widgets][orbtk_widgets].
+
+[font_icon_block]: https://redox-os.github.io/orbtk-book/de/ch03-07-widget-font-icon-block.html
+[orbtk_widgets]: https://github.com/redox-os/orbtk/tree/develop/orbtk_widgets
 
 ### Widget trait
 
@@ -61,7 +80,7 @@ the code that reacts and handles user input (it's `state`), is an
 essential conceptual decision. It is key to enable the fast, flexible
 and extendable structure of OrbTk.
 
-## The widget state
+## Widget state
 
 ```mermaid
 graph TD;
@@ -92,7 +111,11 @@ associated functions to the `state`, that react on triggered events or
 adapt current values. The `properties` are stored via ECM. They are
 organized in a tree (parent, children or level entities).
 
-## GUI Elements
+## Systems
+
+While **widgets** define and organize the *data structure* of an `OrbTk`
+app, **systems** take care to handle *the behavior* on how to manipulate
+the data.
 
 * Layouts
 * Events
@@ -185,7 +208,8 @@ designed to handle the specific demands of a given widget type:
 You can find the relevant code inside the `orbtk_core` workspace. The methods are inside the sub-directory `layout`.
 Further information towards this methods are discussed in [Chapter: Orbtk_core][layout].
 
-[layout]: https://doc.redox-os.org/orbtk-book/ch02-02-workspace-orbtk-core.html#layout
+[layout]: https://redox-os.github.io/en/orbtk-book/ch02-02-workspace-orbtk-core.html#layout
+<!-- [layout]: https://doc.redox-os.org/en/orbtk-book/ch02-02-workspace-orbtk-core.html#layout -->
 
 ### Events
 

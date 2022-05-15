@@ -60,18 +60,22 @@ widget. Before we can arrange the components on screen, their sizes,
 bounds and constraints have to be **measured**. The ordering process
 will result in a parent / child relation (`tree`), that is represented
 and handled in the **ECM**. In a next step, the tree components are
-**arranged**. The result is rendered into an output buffer. Last not
-least the updated areas are signaled to the output screen.
+**arranged**. The result is rendered into an output buffer
+(`view`). Last not least the updated areas are signaled to the output
+screen.
+
+Note: New `rendering` of a widget will only occur, if any of its child
+entities is marked `dirty`.
 
 To measure components, the code will provide suitable defaults for
 each property as well as a `desired_size`. The `desired_size` will
 resolve the **height** and **width** property of the child element.
 This values can either be overwritten with an **explicit** component
-property inside your rust code, or while referencing to definitions
-using a **style** property. Please take into account, that a given
-**style** definition will take precedence over all explicitly defined
-property elements inside the code. OrbTk will not respect a mixture of
-both declarations.
+property inside rusts view-code of your app, or while referencing to
+definitions using a **style** property. Please take into account, that
+a given **style** definition will take precedence over all explicitly
+defined property elements inside the code. OrbTk will not respect a
+mixture of both declarations.
 
 ### The absolute placement
 
@@ -80,9 +84,6 @@ Only components with a **visibility property** that is labeled with a
 calculating bounds and constraints of a child. The resulting bounds are
 points, with absolute x and y positions on the screen (`floating point
 values`).
-
-New rendering of the child will only occur, if any of its properties is
-marked `dirty`.
 
 ### The fixed size
 
