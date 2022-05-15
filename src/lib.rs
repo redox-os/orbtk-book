@@ -3,7 +3,7 @@
 
 //! <img title="Welcome to OrbTk planet" alt="OrbTK planet" src="/src/img/orbtk_planet.png">
 //!
-//! [![Build status](https://github.com/redox-os/orbtk-book/badges/develop/pipeline.svg)](https://github.com/redox-os/orbtk-book/pipelines)
+//! [![OrbTk-Book](https://github.com/redox-os/orbtk-book/workflows/CI/badge.svg)](https://github.com/redox-os/orbtk-book/actions)
 //! [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 //! [![Latest Release](https://github.com/redox-os/orbtk-book/-/badges/release.svg)](https://github.com/redox-os/orbtk-book/orbtk-book/-/releases)
 //! <!-- [![CI-Tests](https://gitlab.com/redox-os/dces-guide/workflows/CI/badge.svg)](https://gitlab.com/redox-os/dces-guide/actions) -->

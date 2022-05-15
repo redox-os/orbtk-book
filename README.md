@@ -2,7 +2,7 @@
 
 <img title="Welcome to OrbTk planet" alt="OrbTK planet" src="/src/img/orbtk_planet.png">
 
-[![Build status](https://github.com/redox-os/orbtk-book/badges/develop/pipeline.svg)](https://github.com/redox-os/orbtk-book/pipelines)
+[![OrbTk-Book](https://github.com/redox-os/orbtk-book/workflows/CI/badge.svg)](https://github.com/redox-os/orbtk-book/actions)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Latest Release](https://github.com/redox-os/orbtk-book/-/badges/release.svg)](https://github.com/redox-os/orbtk-book/orbtk-book/-/releases)
 <!-- [![CI-Tests](https://gitlab.com/redox-os/dces-guide/workflows/CI/badge.svg)](https://gitlab.com/redox-os/dces-guide/actions) -->
@@ -11,22 +11,22 @@ This repository contains the text source for "The Orbital Widget Toolkit" book.
 We will further reference to it as the `OrbTk-Book`.
 
 <!--
-	WIP: once it is ready to be shipped
-	[The book is available in dead-tree form from No Starch Press][nostarch].
+    WIP: once it is ready to be shipped
+    [The book is available in dead-tree form from No Starch Press][nostarch].
 
-	[nostarch]: https://nostarch.com/
+    [nostarch]: https://nostarch.com/
 
-	You can read the book for free online. Please see the book as shipped with
-	the latest [stable], or [develop] OrbTk releases. Be aware that issues
-	in those versions may have been fixed in this repository already, as those
-	releases are updated less frequently.
+    You can read the book for free online. Please see the book as shipped with
+    the latest [stable], or [develop] OrbTk releases. Be aware that issues
+    in those versions may have been fixed in this repository already, as those
+    releases are updated less frequently.
 
-	[stable]: https://doc.orbtk.org/stable/book/
-	[develop]: https://doc.orbtk.org/develop/book/
+    [stable]: https://doc.orbtk.org/stable/book/
+    [develop]: https://doc.orbtk.org/develop/book/
 
-	See the [releases] to download just the code of all the code listings that appear in the book.
+    See the [releases] to download just the code of all the code listings that appear in the book.
 
-	[releases]: https://github.com/redox-os/orbtk/book/releases
+    [releases]: https://github.com/redox-os/orbtk/book/releases
 -->
 
 ### Online Book
