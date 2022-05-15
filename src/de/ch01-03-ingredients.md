@@ -27,21 +27,38 @@ graph TD;
 <span class="caption">Workflow 1-1: Verarbeitung-Methoden `Ansicht`</span>
 
 Wenn Du eine OrbTK Anwendung erstellst kombinierst Du letztlich
-`widgets`.  Widgets sind die Kern-Bausteine von Benutzer
-Schnittstellen in OrbTK in denen eine bestimmte Aufgabe verarbeitet
-wird. Das vorhandene Modell ist dynamisch strukturiert. Es ist legitim
-und ohne weiteres möglich Deine eigenen Widget-Typen zu
-erstellen, oder aber auf die vordefinierten Implementierungen
-zurückzugreifen.
+`widgets`. Widgets sind die Kern-Bausteine von Benutzer Schnittstellen
+in OrbTK. Sie sind deklarativ, d.h. sie beschreiben die Struktur von
+Entitäten mit deren zugeordneten Komponenten (deren *properties*). Sie
+werden für die Umsetzung eine bestimmen Aufgabe verwendet und sollten
+alle graphischen Elemente in einem geordneten Benugtzer Interface für
+die Anwendung bereitstellen (der `widget-tree`). Ein widget-tree wird
+in einen eindeutig adressierbaren `widget-container` eingebunden.
 
-Um einen `widget-tree` zu erzeugen könntest Du beispielsweise einen
-`ListView` erstellen. Der `Listview` seinerseits verwendet als
-Kind-Widget eine `TextBox` die wiederum als Kind-Widget einen `Button`
-nutzt. Letztlich hast Du so ein ein hierarchisch geordnete
-Benutzer-Schnittstelle geschaffen (einen `view`), der den für den
-Anwender einen sichtbaren Teil Deiner Anwendung repräsentiert. Ein
-widget-tree wird in eine eindeutig adressierbaren `widget-container`
-eingebunden.
+In diesem Zusammenhang ist die Wiederverwendbarkeit ein wesentliche
+Anforderung. Bei der Implementierung eines benötigten UI-Elements ist
+es legitim und einfach, wenn auf bereits existierende widgets
+zurückgegriffen werden kann. Es ist unerheblich, wenn dies
+ihrerseits auf eine beliebige Anzahl von *core widgets* zurückgreifen.
+
+Das derzeitige Modell ist dynamisch strukturiert und bietet die Freiheit:
+
+* verwende eine beliebige Anzahl von vorhandenen widget Typen aus der Bibliothek
+* implementiere Deinen eigenen, neue, spezialisierten widget Typ
+
+Illustrieren wir das mit folgendem simplen Beispiel, in dem Du in
+Deiner Anwendung einen `FontIconBlock` benötigst. Um einen solchen
+`widget-tree` zu erzeugen kannst Du entweder ein neues Widget
+`MyFontIconBlock` erstellen, das als Kind-Widget einen `Container`
+verwendet, der seinerseits eine `TextBox` und einen `Button`
+einbindet. Oder aber Du greifst einfach auf die Bibliotheks-Version von
+[FontIconBlock][font_icon_block]. zu.
+
+Du findest den Quellcode der verfügbaren widget Bibliothek im
+Workspace [orbtk_widgets][orbtk_widgets].
+
+[font_icon_block]: https://redox-os.github.io/orbtk-book/de/ch03-07-widget-font-icon-block.html
+[orbtk_widgets]: https://github.com/redox-os/orbtk/tree/develop/orbtk_widgets
 
 ### Widget trait
 
@@ -74,7 +91,7 @@ reagieren und sie verarbeiten (der Widget `state`). Diese Trennung ist
 der Schlüssel für eine schnelle, flexible und erweiterbare Struktur
 innerhalb von OrbTk.
 
-## Der widget state
+## Widget state
 
 ```mermaid
 graph TD;
@@ -111,7 +128,11 @@ Eigenschaften verändern können. Die Eigenschaften (`properties`) sind
 im ECM gespeichert, deren Aufbau sich an der Baum Struktur orientiert
 (parent, children or level entities).
 
-## GUI Elements
+## Systems
+
+Während **Widgets** die *data structure* einer `OrbTk` Application
+definiert und organisiert, verwenden wir **systems** um das Verhalten
+bei der Bearbeitung zu steuern.
 
 * Layouts
 * Events
@@ -119,6 +140,11 @@ im ECM gespeichert, deren Aufbau sich an der Baum Struktur orientiert
 * Messages
 
 ### Layouts
+
+Layouts lösen das Problem, wo und wie Widgets innerhalb einer UI
+plaziert werden. Das erfordert die kontinuierliche Anpassung und
+dynamische Berechnung ihrer Größenanforderungen, verbunden mit der
+Plazierung des Ergebnisses zur Dastellung auf dem Ausgabegerät.
 
 #### Warum brauchen wir Layouts?
 
@@ -133,8 +159,8 @@ Berechnung der Größe zu berücksichtigen. Was würde passieren, wenn Du
 beispielsweise die Größe einer Entität statisch festlegst? Wir würden
 z.B. einen Button mit einer festen Größe kodieren. Wie reagierst Du
 nun auf Kontext-Veränderungen von untergeordneten Entitäten (childs)?
-Wie gehst Du damit um, dass sich z.B ein Button-Bezeichner, den der Anwender
-wahrscheinlich zentriert im Button Rahmen erwartet verändert?
+Wie gehst Du damit um, dass sich z.B ein Button-Bezeichner, den der
+Anwender wahrscheinlich zentriert im Button Rahmen erwartet verändert?
 
 Puh, Du als der Programmierer müsstest an alle möglichen GUI
 Darstellungen denken, programmatisch auf jede denkbare
@@ -200,7 +226,8 @@ Du findest deren Quellcode im Workspace `orbtk_core` im Unterverzeichnis `layout
 Weitere Informationen zu diesen Methoden werden im
 [Kapitel: Orbtk Core][layout] besprochen.
 
-[layout]: https://doc.redox-os.org/orbtk-book/ch02-02-workspace-orbtk-core.html#layout
+[layout]: https://redox-os.github.io/en/orbtk-book/ch02-02-workspace-orbtk-core.html#layout
+<!-- [layout]: https://doc.redox-os.org/en/orbtk-book/ch02-02-workspace-orbtk-core.html#layout -->
 
 ### Events
 
