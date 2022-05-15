@@ -176,6 +176,4 @@ In den meisten Situationen führen wir Dich anschliessend zur korrigierten Versi
 Die Quelldateien, aus denen dieses Buch generiert wurde, findest Du
 auf der Homepage unter [Orbtk book (de)][orbtk_book_de].
 
-[orbtk_book_de]: https://github.com/redox-os/orbtk-book/src/de
-
-<!-- [orbtk_book_de]: https://www.redox-os.org/orbtk-book/book/de -->
+[orbtk_book_de]: https://github.com/redox-os/orbtk-book/tree/master/src/de
