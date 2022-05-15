@@ -1,8 +1,9 @@
 ## Installation
 
 Der erste Schritt, ist die Installation von Rust. Dies wird im
-Folgenden ausführlich beschrieben [Rust-Buch Kapitel
-1](https://github.com/rust-lang/book/blob/master/src/ch01-01-installation.md)
+Folgenden link  [Rust-Buch Kapitel 1][rust_installation] ausführlich beschrieben.
+
+[rust_installation]: https://github.com/rust-lang/book/blob/master/src/ch01-01-installation.md
 
 Wenn wir eine OrbTk-Anwendung erstellen, definieren wir die benötigten
 Abhängigkeiten zu den OrbTk-Komponenten (crates) in der Datei
